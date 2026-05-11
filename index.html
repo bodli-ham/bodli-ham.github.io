@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>bodli's Blog</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h1><a href="index.html">bodli's Blog</a></h1>
+            <button id="theme-toggle" class="theme-toggle" aria-label="테마 전환">🌓</button>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="search-container">
+            <input type="text" id="search-input" placeholder="게시글 검색...">
+        </div>
+        
+        <div class="tags-container" id="tags-container">
+            <!-- 태그들이 동적으로 추가됩니다 -->
+        </div>
+
+        <div class="posts-list" id="posts-list">
+            <!-- 게시글 목록이 동적으로 추가됩니다 -->
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; <span id="current-year"></span> bodli. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/theme.js"></script>
+    <script src="js/search.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
