@@ -1,20 +1,20 @@
 [
   {
     "file": "portfolio.md",
-    "title": "메시지 최적화 포트폴리오",
+    "title": "메시지 최적화 실험",
     "date": "2026-05-11",
     "tags": ["Portfolio"],
     "category": "Portfolio",
     "description": "메시지 최적화 및 전략 수립 포트폴리오입니다.",
-    "excerpt": "포트폴리오 바로가기 링크를 포함한 문서입니다."
+    "excerpt": "메시지 최적화 실험 결과 및 분석 내용을 확인하실 수 있습니다."
   },
   {
     "file": "pmf_vitC.md",
-    "title": "PMF 비타민C 실험 포트폴리오",
+    "title": "PMF 검증_고려은단 비타민C",
     "date": "2026-05-11",
-    "tags": ["Portfolio", "PMF"],
+    "tags": ["Portfolio"],
     "category": "Portfolio",
     "description": "PMF 비타민C 제품에 대한 실험 및 분석 포트폴리오입니다.",
-    "excerpt": "PMF 비타민C 실험 결과 및 분석 내용을 확인하실 수 있습니다."
+    "excerpt": "PMF 검증 실험 결과 및 분석 내용을 확인하실 수 있습니다."
   }
 ]
