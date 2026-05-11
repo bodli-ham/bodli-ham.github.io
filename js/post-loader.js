@@ -1,21 +1,21 @@
-async function loadPost() {
+﻿async function loadPost() {
     const urlParams = new URLSearchParams(window.location.search);
     const fileName = urlParams.get('file');
 
     if (!fileName) {
-        document.getElementById('post-content').innerHTML = '<p>게시글을 찾을 수 없습니다.</p>';
+        document.getElementById('post-content').innerHTML = '<p>寃뚯떆湲??李얠쓣 ???놁뒿?덈떎.</p>';
         return;
     }
 
     try {
         const response = await fetch(`pages/${fileName}`);
         if (!response.ok) {
-            throw new Error('게시글을 불러올 수 없습니다.');
+            throw new Error('寃뚯떆湲??遺덈윭?????놁뒿?덈떎.');
         }
         
         let content = await response.text();
         
-        // UTF-8 BOM 제거
+        // UTF-8 BOM ?쒓굅
         if (content.charCodeAt(0) === 0xFEFF) {
             content = content.slice(1);
         }
@@ -24,13 +24,13 @@ async function loadPost() {
         loadGiscus();
 
     } catch (error) {
-        console.error('게시글 로드 실패:', error);
-        document.getElementById('post-content').innerHTML = '<p>게시글을 불러오는 중 오류가 발생했습니다.</p>';
+        console.error('寃뚯떆湲 濡쒕뱶 ?ㅽ뙣:', error);
+        document.getElementById('post-content').innerHTML = '<p>寃뚯떆湲??遺덈윭?ㅻ뒗 以??ㅻ쪟媛 諛쒖깮?덉뒿?덈떎.</p>';
     }
 }
 
 function parseAndRender(content) {
-    // Front Matter 파싱
+    // Front Matter ?뚯떛
     const frontMatterMatch = content.match(/^---\r?\n([\s\S]*?)\r?\n---\r?\n([\s\S]*)$/);
     let metadata = {};
     let markdownContent = content;
@@ -64,8 +64,8 @@ function parseAndRender(content) {
         });
     }
 
-    // 메타데이터 렌더링
-    document.getElementById('post-title').textContent = metadata.title || '제목 없음';
+    // 硫뷀??곗씠???뚮뜑留?
+    document.getElementById('post-title').textContent = metadata.title || '?쒕ぉ ?놁쓬';
     document.getElementById('post-date').textContent = metadata.date || '';
     if (metadata.category) {
         document.getElementById('post-category').textContent = metadata.category;
@@ -75,16 +75,16 @@ function parseAndRender(content) {
         const tagsContainer = document.getElementById('post-tags');
         metadata.tags.forEach(tag => {
             const span = document.createElement('span');
-            span.className = 'category'; // 스타일 재사용
+            span.className = 'category'; // ?ㅽ????ъ궗??
             span.textContent = tag;
             tagsContainer.appendChild(span);
         });
     }
 
-    // 마크다운 렌더링
+    // 留덊겕?ㅼ슫 ?뚮뜑留?
     document.getElementById('post-content').innerHTML = marked.parse(markdownContent);
     
-    // 코드 하이라이팅 적용
+    // 肄붾뱶 ?섏씠?쇱씠???곸슜
     if (window.Prism) {
         Prism.highlightAll();
     }
@@ -94,22 +94,22 @@ function loadGiscus() {
     const container = document.querySelector('.giscus-container');
     if (!container) return;
     
-    // 기존 스크립트 제거
+    // 湲곗〈 ?ㅽ겕由쏀듃 ?쒓굅
     container.innerHTML = '';
     
     const script = document.createElement('script');
     script.src = 'https://giscus.app/client.js';
-    script.setAttribute('data-repo', 'bodli/bodli.github.io');
-    script.setAttribute('data-repo-id', 'YOUR_REPO_ID'); // 수정 필요
+    script.setAttribute('data-repo', 'bodli-ham/bodli-ham.github.io');
+    script.setAttribute('data-repo-id', 'YOUR_REPO_ID'); // ?섏젙 ?꾩슂
     script.setAttribute('data-category', 'General');
-    script.setAttribute('data-category-id', 'YOUR_CATEGORY_ID'); // 수정 필요
+    script.setAttribute('data-category-id', 'YOUR_CATEGORY_ID'); // ?섏젙 ?꾩슂
     script.setAttribute('data-mapping', 'pathname');
     script.setAttribute('data-strict', '0');
     script.setAttribute('data-reactions-enabled', '1');
     script.setAttribute('data-emit-metadata', '1');
     script.setAttribute('data-input-position', 'bottom');
     
-    // 현재 테마에 맞게 Giscus 테마 설정
+    // ?꾩옱 ?뚮쭏??留욊쾶 Giscus ?뚮쭏 ?ㅼ젙
     const currentTheme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
     script.setAttribute('data-theme', currentTheme);
     
@@ -120,7 +120,7 @@ function loadGiscus() {
     container.appendChild(script);
 }
 
-// 테마 변경 시 Giscus 테마도 업데이트
+// ?뚮쭏 蹂寃???Giscus ?뚮쭏???낅뜲?댄듃
 const observer = new MutationObserver((mutations) => {
     mutations.forEach((mutation) => {
         if (mutation.attributeName === 'data-theme') {
@@ -138,7 +138,7 @@ const observer = new MutationObserver((mutations) => {
 
 observer.observe(document.documentElement, { attributes: true });
 
-// 포스트 페이지일 경우에만 로드
+// ?ъ뒪???섏씠吏??寃쎌슦?먮쭔 濡쒕뱶
 if (document.getElementById('post-content')) {
     loadPost();
 }
