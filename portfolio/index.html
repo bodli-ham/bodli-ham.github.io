@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - bodli's Blog 포폴 게시용</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div style="display: flex; align-items: center; gap: 20px;">
+                <h1><a href="../index.html">bodli's Blog 포폴 게시용</a></h1>
+                <nav>
+                    <a href="index.html" style="color: var(--primary-color); font-weight: 700;">Portfolio</a>
+                </nav>
+            </div>
+            <button id="theme-toggle" class="theme-toggle" aria-label="테마 전환">🌓</button>
+        </div>
+    </header>
+
+    <main class="container">
+        <div style="margin-top: 2rem; text-align: center;">
+            <h2>포트폴리오 공간입니다</h2>
+            <p style="margin-top: 1rem; color: var(--text-muted);">
+                이곳(<code>portfolio/</code> 폴더)에 포트폴리오용 HTML 파일들을 올려주세요.<br>
+                예를 들어 <code>portfolio/project1.html</code> 파일을 추가한 뒤 이 페이지에 링크를 달 수 있습니다.
+            </p>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; <span id="current-year"></span> bodli. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="../js/theme.js"></script>
+</body>
+</html>
