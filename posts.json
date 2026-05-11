@@ -3,12 +3,18 @@
     "file": "example.md",
     "title": "첫 번째 게시글 테스트",
     "date": "2026-05-11",
-    "tags": [
-      "Test",
-      "Blog"
-    ],
+    "tags": ["Test", "Blog"],
     "category": "Notice",
     "description": "연보라색 테마가 적용된 블로그 테스트 게시글입니다.",
-    "excerpt": "이것은 `bodli` 님의 새로운 GitHub Pages 블로그 첫 번째 테스트 게시글입니다. - 목록 1 - 목록 2 - 목록 3 > 이것은 인용구 테스트입니다. > 연보라색 테마에 맞게 스타일링됩니다. 와  테스트입니다."
+    "excerpt": "이것은 `bodli` 님의 새로운 GitHub Pages 블로그 첫 번째 테스트 게시글입니다."
+  },
+  {
+    "file": "portfolio.md",
+    "title": "메시지 최적화 포트폴리오",
+    "date": "2026-05-11",
+    "tags": ["Portfolio"],
+    "category": "Portfolio",
+    "description": "메시지 최적화 및 전략 수립 포트폴리오입니다.",
+    "excerpt": "포트폴리오 바로가기 링크를 포함한 문서입니다."
   }
 ]
