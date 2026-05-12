@@ -193,6 +193,18 @@ em.q{font-style:italic;color:var(--ink-3); display:block; padding: 1.2rem; backg
 .ins-t { font-size: 14.5px; color: var(--ink-3); line-height: 1.7; }
 .ins-t strong { color: var(--ink); display: block; margin-bottom: 0.4rem; font-size: 15.5px; }
 
+/* ── HYPOTHESIS ── */
+.hypo-list { display: flex; flex-direction: column; gap: 1rem; margin-top: 1.5rem; background: white; border: 1px solid var(--border-2); border-radius: 16px; padding: 1.5rem; box-shadow: 0 4px 12px rgba(0,0,0,0.02); }
+.hypo-item { display: flex; align-items: center; justify-content: space-between; padding: 0.8rem 0; border-bottom: 1px solid #f0f0f5; }
+.hypo-item:last-child { border-bottom: none; }
+.hypo-content { display: flex; align-items: center; gap: 1rem; }
+.hypo-icon { font-size: 1.2rem; min-width: 24px; }
+.hypo-text { font-size: 14.5px; color: var(--ink-2); line-height: 1.5; }
+.hypo-text strong { color: var(--ink); font-weight: 700; margin-right: 0.5rem; }
+.badge-check { display: flex; align-items: center; gap: 4px; background: #e8f7ed; color: #1a5c38; font-size: 11px; font-weight: 700; padding: 4px 10px; border-radius: 6px; white-space: nowrap; }
+
+.callout.purple { background: var(--bg-2); border-left-color: var(--accent); }
+
 /* ── FOOTER ── */
 .footer{padding:4rem 0 2rem;text-align:center; border-top: 1px solid var(--border-2); margin-top: 4rem;}
 .footer p{font-size:12px;color:var(--ink-4)}
@@ -244,8 +256,35 @@ em.q{font-style:italic;color:var(--ink-3); display:block; padding: 1.2rem; backg
     단순 정보 도달이 아닌, <strong>맥락과 타이밍</strong>이 고객의 행동을 결정한다는 4가지 핵심 가설을 세웠습니다. 🔍
   </p>
 
-  <div class="img-wrap" style="margin-top: 1.5rem;">
-    <img src="../images/msg_opt_hypothesis.png" alt="핵심 가설 시각화" style="border:none; box-shadow:none;">
+  <div class="hypo-list">
+    <div class="hypo-item">
+      <div class="hypo-content">
+        <span class="hypo-icon">⌚</span>
+        <div class="hypo-text"><strong>타이밍</strong> 퇴근 후나 주말 오전 등 여유 시간에 반응이 높을 것이다</div>
+      </div>
+      <div class="badge-check">✅ 검증</div>
+    </div>
+    <div class="hypo-item">
+      <div class="hypo-content">
+        <span class="hypo-icon">🖼️</span>
+        <div class="hypo-text"><strong>포맷</strong> 텍스트보다 직관적인 이미지가 정보 인지율을 높일 것이다</div>
+      </div>
+      <div class="badge-check">✅ 검증</div>
+    </div>
+    <div class="hypo-item">
+      <div class="hypo-content">
+        <span class="hypo-icon">🔄</span>
+        <div class="hypo-text"><strong>재발송</strong> 동일 반복이 아닌, 내용 변화를 주어야 새로운 모멘텀이 생긴다</div>
+      </div>
+      <div class="badge-check">✅ 검증</div>
+    </div>
+    <div class="hypo-item">
+      <div class="hypo-content">
+        <span class="hypo-icon">🎅</span>
+        <div class="hypo-text"><strong>맥락</strong> 계절성 이벤트 문구가 감성적 동기부여를 강화할 것이다</div>
+      </div>
+      <div class="badge-check">✅ 검증</div>
+    </div>
   </div>
 </section>
 
@@ -269,8 +308,9 @@ em.q{font-style:italic;color:var(--ink-3); display:block; padding: 1.2rem; backg
     </tbody>
   </table>
 
-  <div class="img-wrap" style="margin-top: 1rem;">
-    <img src="../images/msg_opt_efficiency.png" alt="비용 효율화 성과" style="border:none; box-shadow:none;">
+  <div class="callout purple" style="margin-top: 1.5rem;">
+    <div class="callout-hd">💰 비용 효율화</div>
+    <p class="body">이미지 효과가 확인된 세그먼트에만 MMS를 적용하고, 나머지는 알림톡과 LMS를 병행하여 예산 대비 성과를 최적화했습니다.</p>
   </div>
 </section>
 
