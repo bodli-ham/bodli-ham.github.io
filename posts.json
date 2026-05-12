@@ -1,12 +1,13 @@
 [
   {
-    "file": "portfolio.md",
-    "title": "메시지 고도화 프로젝트",
-    "date": "2026-05-11",
-    "tags": ["Portfolio"],
+    "file": "msg-optimization.md",
+    "slug": "msg-optimization",
+    "title": "메시지 고도화 프로젝트: 등록률 5.7% → 15.3% 달성",
+    "date": "2026-05-12",
+    "tags": ["Portfolio", "데이터분석", "메시지최적화"],
     "category": "Portfolio",
-    "description": "메시지 최적화 및 전략 수립 포트폴리오입니다.",
-    "excerpt": "메시지 최적화 실험 결과 및 분석 내용을 확인하실 수 있습니다."
+    "description": "메시지 최적화 실험을 통해 전환율을 168% 끌어올린 실무 데이터 분석 사례입니다.",
+    "excerpt": "지시에 반대하며 데이터로 증명해낸, 5개월간의 성과 최적화 여정."
   },
   {
     "file": "pmf_vitC.md",
