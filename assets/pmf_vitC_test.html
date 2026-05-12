@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PMF 검증 #1. 고려은단 비타민C 1000 — 류보라</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Noto+Sans+KR:wght@300;400;500;700&family=Noto+Serif+KR:wght@400;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+:root{
+  --ink:#0f0f0d;
+  --ink-2:#2e2e2b;
+  --ink-3:#6b6b65;
+  --ink-4:#a8a89e;
+  --ink-5:#d4d4cc;
+  --bg:#f7f6f1;
+  --bg-2:#eeede6;
+  --bg-3:#e4e3d8;
+  --accent:#1a3f72;
+  --accent-lt:#d0dff5;
+  --accent-mid:#2d5fa8;
+  --red:#c23b22;
+  --red-lt:#fde8e4;
+  --green:#1a5c38;
+  --green-lt:#d4f0e2;
+  --yellow-lt:#fef9e0;
+  --border:rgba(15,15,13,.08);
+  --border-2:rgba(15,15,13,.14);
+  --serif:'Noto Serif KR',serif;
+  --sans:'Noto Sans KR',sans-serif;
+  --mono:'DM Mono',monospace;
+  --display:'Bebas Neue',sans-serif;
+}
+
+html{scroll-behavior:smooth}
+body{
+  font-family:var(--sans);
+  font-size:15px;
+  line-height:1.85;
+  color:var(--ink-2);
+  background:var(--bg);
+  -webkit-font-smoothing:antialiased;
+}
+
+/* ── LAYOUT ── */
+.wrap{max-width:900px;margin:0 auto;padding:0 2rem 8rem}
+
+/* ── HERO ── */
+.hero{
+  padding:6rem 0 4rem;
+  border-bottom:1.5px solid var(--border-2);
+  position:relative;
+  overflow:hidden;
+}
+.hero::before{
+  content:'';
+  position:absolute;
+  top:-60px;right:-80px;
+  width:360px;height:360px;
+  border-radius:50%;
+  background:radial-gradient(circle,rgba(26,63,114,.07) 0%,transparent 70%);
+  pointer-events:none;
+}
+.hero-label{
+  font-family:var(--mono);
+  font-size:10px;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--accent);margin-bottom:1.25rem;
+  display:flex;align-items:center;gap:10px;
+}
+.hero-label::before{content:'';width:28px;height:1px;background:var(--accent)}
+
+.hero-kicker{
+  font-family:var(--display);
+  font-size:clamp(42px,6vw,72px);
+  line-height:.95;
+  letter-spacing:.01em;
+  color:var(--ink);
+  margin-bottom:1.5rem;
+}
+.hero-kicker span{color:var(--accent)}
+
+.hero-deck{
+  font-size:16px;line-height:1.8;
+  color:var(--ink-3);
+  max-width:520px;
+  margin-bottom:3rem;
+}
+
+.meta-strip{
+  display:flex;flex-wrap:wrap;gap:0;
+  border:1px solid var(--border-2);
+  border-radius:10px;
+  overflow:hidden;
+  max-width:680px;
+}
+.meta-cell{
+  padding:.75rem 1.25rem;
+  border-right:1px solid var(--border-2);
+  flex:1;min-width:140px;
+}
+.meta-cell:last-child{border-right:none}
+.meta-k{font-family:var(--mono);font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-4);margin-bottom:3px}
+.meta-v{font-size:13px;font-weight:500;color:var(--ink)}
+
+/* ── SECTION SHELL ── */
+.sec{padding:4rem 0;border-bottom:1px solid var(--border)}
+.sec:last-of-type{border-bottom:none}
+
+.step-badge{
+  display:inline-flex;align-items:center;gap:8px;
+  font-family:var(--mono);font-size:9px;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--ink-4);margin-bottom:.6rem;
+}
+.step-badge::before{
+  content:'';width:6px;height:6px;border-radius:50%;
+  background:var(--accent);flex-shrink:0;
+}
+
+h2{
+  font-family:var(--serif);
+  font-size:21px;font-weight:600;
+  letter-spacing:-.02em;color:var(--ink);
+  margin-bottom:1.6rem;line-height:1.35;
+}
+.body{color:var(--ink-3);line-height:1.9;margin-bottom:.85rem;font-size:14.5px}
+.body:last-child{margin-bottom:0}
+.body strong{color:var(--ink-2);font-weight:600}
+em.q{font-style:italic;color:var(--ink-3)}
+
+/* ── CALLOUT ── */
+.callout{
+  border-radius:0 10px 10px 0;
+  padding:1.1rem 1.4rem;
+  margin:1.5rem 0;
+  border-left:3px solid;
+}
+.callout.red{background:var(--red-lt);border-color:var(--red)}
+.callout.blue{background:var(--accent-lt);border-color:var(--accent)}
+.callout.neutral{background:var(--bg-2);border-color:var(--border-2)}
+.callout.green{background:var(--green-lt);border-color:var(--green)}
+.callout-hd{
+  font-family:var(--mono);font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;
+  margin-bottom:.5rem;font-weight:500;
+}
+.callout.red .callout-hd{color:var(--red)}
+.callout.blue .callout-hd{color:var(--accent)}
+.callout.neutral .callout-hd{color:var(--ink-4)}
+.callout.green .callout-hd{color:var(--green)}
+.callout .body{font-size:14px;margin-bottom:.4rem}
+.callout .body:last-child{margin-bottom:0}
+
+/* ── TABLES ── */
+.exp-table{width:100%;border-collapse:collapse;margin:1.75rem 0;font-size:13px}
+.exp-table thead th{
+  text-align:left;padding:7px 10px;
+  border-bottom:1.5px solid var(--border-2);
+  font-family:var(--mono);font-size:9.5px;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--ink-4);font-weight:400;
+}
+.exp-table tbody tr{border-bottom:1px solid var(--border)}
+.exp-table tbody tr:last-child{border-bottom:none}
+.exp-table tbody td{padding:9px 10px;color:var(--ink-3);vertical-align:top;line-height:1.5}
+.exp-table tbody td:first-child{font-family:var(--mono);font-size:11px;color:var(--ink-4);white-space:nowrap}
+
+/* ── FLOW ── */
+.flow{display:flex;align-items:center;flex-wrap:wrap;gap:8px;margin:1.5rem 0}
+.flow-item{background:var(--accent-lt);padding:4px 12px;border-radius:20px;font-size:13px;font-weight:500;color:var(--accent)}
+.flow-arrow{color:var(--ink-4);font-size:16px}
+
+/* ── FOOTER ── */
+.footer{padding:3rem 0 .5rem;text-align:center}
+.footer p{font-size:12px;color:var(--ink-5)}
+
+/* ── ANIMATION ── */
+@keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+.hero>*{animation:fadeUp .6s ease both}
+.hero-label{animation-delay:.1s}
+.hero-kicker{animation-delay:.2s}
+.hero-deck{animation-delay:.3s}
+.meta-strip{animation-delay:.4s}
+
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<!-- ── HERO ── -->
+<header class="hero">
+  <div class="hero-label">Case Study · 소비자 구매 동인 분석</div>
+  <h1 class="hero-kicker">PMF 검증 #1.<br><span>고려은단 비타민C 1000</span></h1>
+  <p class="hero-deck">
+    션 엘리스의 PMF 프레임워크를 참조하여, 실제 리뷰 데이터를 통해 장기 스테디셀러의 성공 요인을 파헤쳐 보았습니다.
+  </p>
+  <div class="meta-strip">
+    <div class="meta-cell"><div class="meta-k">기간</div><div class="meta-v">2026.04.24 – 04.28</div></div>
+    <div class="meta-cell"><div class="meta-k">관점</div><div class="meta-v">외부인 (소비자 분석)</div></div>
+    <div class="meta-cell"><div class="meta-k">도구</div><div class="meta-v">PMF 프레임워크, 리뷰 데이터</div></div>
+  </div>
+</header>
+
+
+<!-- ── STEP 1 ── -->
+<section class="sec">
+  <div class="step-badge">STEP 1</div>
+  <h2>스테디셀러 탐색</h2>
+
+  <p class="body">
+    <em class="q">"사람들이 가장 오랫동안, 가장 많이 마음 편히 먹고 있는 영양제가 뭘까?"</em> — 이 질문에서 분석이 시작되었습니다.
+  </p>
+
+  <div class="callout blue">
+    <div class="callout-hd">가설과 검증</div>
+    <p class="body">올리브영 TOP100을 3일간 추적한 결과, 고려은단 비타민C는 순위를 흔들림 없이 유지했습니다. 이는 단순 프로모션이 아닌 <strong>소비자 루틴에 안착한 제품</strong>임을 의미합니다.</p>
+  </div>
+</section>
+
+
+<!-- ── STEP 2 ── -->
+<section class="sec">
+  <div class="step-badge">STEP 2</div>
+  <h2>구매 동인 가설 수립</h2>
+
+  <p class="body">
+    왜 사람들은 수많은 제품 중에서도 고려은단을 선택할까요? 제가 세운 초기 가설은 <strong>"믿을 수 있는 가성비"</strong>였습니다.
+  </p>
+
+  <div class="callout neutral">
+    <div class="callout-hd">이상적 고객 프로필</div>
+    <p class="body">1. 비용 부담이 적고 실용적인 영양제를 찾는 고객</p>
+    <p class="body">2. 검증된 필수 영양소(비타민C)에 집중하고 싶은 고객</p>
+    <p class="body">3. 간편한 보관과 섭취를 원하는 실속파 고객</p>
+  </div>
+</section>
+
+
+<!-- ── STEP 3 ── -->
+<section class="sec">
+  <div class="step-badge">STEP 3</div>
+  <h2>가설 검증 — 리뷰 데이터 분석</h2>
+
+  <p class="body">
+    27만 건의 네이버 쇼핑 AI 요약 데이터와 올리브영 직접 수집 데이터를 교차 분석했습니다.
+  </p>
+
+  <table class="exp-table">
+    <thead>
+      <tr><th>가설</th><th>대표 키워드</th><th>데이터 비중</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>건강 효과 (H3)</td>
+        <td>"피부가 좋아졌어요", "피로 회복에 효과"</td>
+        <td style="color:var(--red); font-weight:600;">30% (핵심)</td>
+      </tr>
+      <tr>
+        <td>가성비 (H1)</td>
+        <td>"가격이 저렴해요", "양이 많아요"</td>
+        <td>20%</td>
+      </tr>
+      <tr>
+        <td>브랜드 신뢰 (H6)</td>
+        <td>"유재석 광고", "고려은단이라서 믿음"</td>
+        <td>33% (직접 수집)</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="callout red">
+    <div class="callout-hd">발견 — 가성비 그 이상의 가치</div>
+    <p class="body">단순히 가격이 싸서 사는 것이 아닙니다. <strong>'효과에 대한 신뢰(30%)'</strong>가 재구매와 루틴화를 만드는 핵심 락인(Lock-in) 요인이었습니다.</p>
+  </div>
+</section>
+
+
+<!-- ── STEP 4 ── -->
+<section class="sec">
+  <div class="step-badge">STEP 4</div>
+  <h2>핵심 인사이트 & 전략</h2>
+
+  <div class="callout green">
+    <div class="callout-hd">고려은단의 선순환 구조</div>
+    <div class="flow">
+      <div class="flow-item">효과 체감</div>
+      <span class="flow-arrow">→</span>
+      <div class="flow-item">재구매</div>
+      <span class="flow-arrow">→</span>
+      <div class="flow-item">루틴화</div>
+      <span class="flow-arrow">→</span>
+      <div class="flow-item">브랜드 신뢰</div>
+    </div>
+    <p class="body">가성비는 진입 장벽을 낮추는 역할을 할 뿐, 실제 고객을 유지하는 힘은 제품의 본질적인 효과와 브랜드 신뢰에서 나옵니다.</p>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer class="footer">
+  <p>&copy; 2026 PMF Verification #1. Bora Ryu. All rights reserved.</p>
+</footer>
+
+</div>
+</body>
+</html>
