@@ -1,5 +1,5 @@
 ---
-title: 메시지 최적화 실험
+title: 메시지 고도화 프로젝트
 date: 2026-05-11
 tags: ["Portfolio"]
 ---
