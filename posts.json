@@ -11,11 +11,12 @@
   },
   {
     "file": "pmf_vitC.md",
-    "title": "PMF 검증_고려은단 비타민C",
-    "date": "2026-05-11",
-    "tags": ["Portfolio"],
+    "slug": "pmf-vitc-analysis",
+    "title": "PMF 검증 #1. 고려은단 비타민C 1000 — 소비자 구매 동인 분석",
+    "date": "2026-05-12",
+    "tags": ["Portfolio", "PMF", "데이터분석"],
     "category": "Portfolio",
-    "description": "PMF 비타민C 제품에 대한 실험 및 분석 포트폴리오입니다.",
-    "excerpt": "PMF 검증 실험 결과 및 분석 내용을 확인하실 수 있습니다."
+    "description": "실제 리뷰 데이터를 통해 장기 스테디셀러의 성공 요인과 구매 동인을 파헤쳐 보았습니다.",
+    "excerpt": "소비자 루틴에 안착한 제품의 실제 구매 동인 분석 사례."
   }
 ]
