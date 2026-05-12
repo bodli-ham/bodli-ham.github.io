@@ -36,11 +36,12 @@
 html{scroll-behavior:smooth}
 body{
   font-family:var(--sans);
-  font-size:15px;
+  font-size:16px;
   line-height:1.85;
   color:var(--ink-2);
   background:var(--bg);
   -webkit-font-smoothing:antialiased;
+  letter-spacing: -0.01em;
 }
 
 .wrap{max-width:900px;margin:0 auto;padding:0 2rem 8rem}
@@ -58,20 +59,21 @@ body{
   top:-60px;right:-80px;
   width:360px;height:360px;
   border-radius:50%;
-  background:radial-gradient(circle, rgba(146, 131, 214, 0.1) 0%, transparent 70%);
+  background:radial-gradient(circle, rgba(146, 131, 214, 0.15) 0%, transparent 70%);
   pointer-events:none;
 }
 .hero-label{
   font-family:var(--mono);
-  font-size:10px;letter-spacing:.18em;text-transform:uppercase;
+  font-size:11px;letter-spacing:.18em;text-transform:uppercase;
   color:var(--accent);margin-bottom:1.25rem;
   display:flex;align-items:center;gap:10px;
+  font-weight: 700;
 }
 .hero-label::before{content:'';width:28px;height:1px;background:var(--accent)}
 
 .hero-kicker{
   font-family:var(--display);
-  font-size:clamp(42px,6vw,72px);
+  font-size:clamp(42px, 6vw, 72px);
   line-height:.95;
   letter-spacing:.01em;
   color:var(--ink);
@@ -80,118 +82,109 @@ body{
 .hero-kicker span{color:var(--accent)}
 
 .hero-deck{
-  font-size:16px;line-height:1.8;
+  font-size:18px;line-height:1.8;
   color:var(--ink-3);
-  max-width:520px;
+  max-width:560px;
   margin-bottom:3rem;
+  font-weight: 300;
 }
 
 .meta-strip{
   display:flex;flex-wrap:wrap;gap:0;
   border:1px solid var(--border-2);
-  border-radius:10px;
+  border-radius:12px;
   overflow:hidden;
-  max-width:720px;
+  max-width:760px;
   background: white;
 }
 .meta-cell{
-  padding:.75rem 1.25rem;
+  padding:1rem 1.5rem;
   border-right:1px solid var(--border-2);
-  flex:1;min-width:160px;
+  flex:1;min-width:180px;
 }
 .meta-cell:last-child{border-right:none}
-.meta-k{font-family:var(--mono);font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-4);margin-bottom:3px}
-.meta-v{font-size:13px;font-weight:500;color:var(--ink)}
+.meta-k{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-4);margin-bottom:4px}
+.meta-v{font-size:13.5px;font-weight:500;color:var(--ink)}
 
 /* ── SECTION SHELL ── */
-.sec{padding:4rem 0;border-bottom:1px solid var(--border)}
+.sec{padding:5rem 0;border-bottom:1px solid var(--border)}
 .sec:last-of-type{border-bottom:none}
 
 .step-badge{
   display:inline-flex;align-items:center;gap:8px;
-  font-family:var(--mono);font-size:9px;letter-spacing:.16em;text-transform:uppercase;
-  color:var(--ink-4);margin-bottom:.6rem;
-}
-.step-badge::before{
-  content:'';width:6px;height:6px;border-radius:50%;
-  background:var(--accent);flex-shrink:0;
+  font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--accent);margin-bottom:.8rem;
+  background: var(--accent-lt);
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-weight: 700;
 }
 
 h2{
   font-family:var(--serif);
-  font-size:22px;font-weight:600;
+  font-size:24px;font-weight:600;
   letter-spacing:-.02em;color:var(--ink);
-  margin-bottom:1.6rem;line-height:1.35;
+  margin-bottom:1.8rem;line-height:1.35;
 }
 h3{
   font-size:16px;font-weight:700;color:var(--ink);
-  margin:2rem 0 1rem;padding-left:10px;border-left:3px solid var(--accent);
+  margin:2.5rem 0 1.2rem;padding-left:12px;border-left:4px solid var(--accent);
 }
-.body{color:var(--ink-3);line-height:1.9;margin-bottom:.85rem;font-size:14.5px}
+.body{color:var(--ink-3);line-height:1.95;margin-bottom:.85rem;font-size:15.5px}
 .body strong{color:var(--ink-2);font-weight:600}
-em.q{font-style:italic;color:var(--ink-3); display:block; margin: 1.5rem 0; padding: 1rem; background: var(--bg-2); border-radius: 8px;}
+em.q{font-style:italic;color:var(--ink-3); display:block; padding: 1.2rem; background: var(--bg-2); border-radius: 10px; margin: 1.5rem 0;}
 
 /* ── CALLOUT ── */
 .callout{
-  border-radius:0 10px 10px 0;
-  padding:1.1rem 1.4rem;
-  margin:1.5rem 0;
-  border-left:3px solid;
+  border-radius:0 12px 12px 0;
+  padding:1.2rem 1.6rem;
+  margin:2rem 0;
+  border-left:4px solid;
 }
 .callout.red{background:var(--red-lt);border-color:var(--red)}
 .callout.blue{background:var(--accent-lt);border-color:var(--accent)}
 .callout.neutral{background:var(--bg-2);border-color:var(--border-2)}
 .callout.yellow{background:var(--yellow-lt);border-color:#d97706}
+.callout.gray{background:#f9fafb;border-color:var(--ink-4)}
 .callout-hd{
-  font-family:var(--mono);font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;
-  margin-bottom:.5rem;font-weight:500;
+  font-family:var(--sans);font-size:13px;letter-spacing:.05em;
+  margin-bottom:.6rem;font-weight:700;
 }
 .callout.red .callout-hd{color:var(--red)}
 .callout.blue .callout-hd{color:var(--accent)}
-.callout.neutral .callout-hd{color:var(--ink-4)}
+.callout.neutral .callout-hd{color:var(--ink-3)}
 .callout.yellow .callout-hd{color:#d97706}
+.callout.gray .callout-hd{color:var(--ink-4)}
 
 /* ── TABLES ── */
-.exp-table{width:100%;border-collapse:collapse;margin:1.75rem 0;font-size:13.5px; background: white; border-radius: 8px; overflow: hidden; border: 1px solid var(--border-2);}
-.exp-table thead th{
-  text-align:left;padding:12px 15px;
-  background: var(--bg-2);
-  font-family:var(--sans);font-size:12px;
-  text-transform:uppercase;color:var(--ink);font-weight:700;
-}
-.exp-table tbody tr{border-bottom:1px solid var(--border)}
-.exp-table tbody td{padding:12px 15px;color:var(--ink-3);vertical-align:top;line-height:1.6}
+.exp-table { width: 100%; border-collapse: collapse; margin: 2rem 0; font-size: 14px; background: white; border-radius: 12px; overflow: hidden; border: 1px solid var(--border-2); }
+.exp-table thead th { text-align: left; padding: 12px 15px; background: var(--bg-2); font-weight: 700; color: var(--ink); font-size: 12px; }
+.exp-table tbody td { padding: 12px 15px; border-bottom: 1px solid var(--border); color: var(--ink-3); vertical-align: top; line-height: 1.6; }
 .tag-green { color: var(--green); font-weight: 700; }
 .tag-red { color: var(--red); font-weight: 700; }
-.tag-gray { color: var(--ink-4); }
-.highlight-row { background: var(--yellow-lt); }
+.tag-amber { color: #d97706; font-weight: 700; }
+.highlight-row { background: var(--yellow-lt) !important; }
+.reject-row { background: var(--red-lt) !important; }
 
 /* ── LISTS ── */
 ul, ol { margin: 1.5rem 0; padding-left: 1.5rem; }
-li { margin-bottom: 0.5rem; color: var(--ink-3); font-size: 14.5px; }
+li { margin-bottom: 0.6rem; color: var(--ink-3); font-size: 15px; }
 
 /* ── FLOW ── */
-.flow{display:flex;align-items:center;flex-wrap:wrap;gap:8px;margin:1.5rem 0}
-.flow-item{background:var(--accent-lt);padding:6px 14px;border-radius:20px;font-size:13px;font-weight:600;color:var(--accent); border: 1px solid var(--accent)}
-.flow-arrow{color:var(--accent);font-size:18px; font-weight: bold;}
+.flow{display:flex;align-items:center;flex-wrap:wrap;gap:10px;margin:2rem 0}
+.flow-item{background:var(--accent-lt);padding:8px 18px;border-radius:24px;font-size:14px;font-weight:700;color:var(--accent); border: 1.5px solid var(--accent)}
+.flow-arrow{color:var(--accent);font-size:20px; font-weight: bold;}
 
 /* ── Q LIST ── */
-.q-list { list-style: none; padding: 0; }
-.q-item { display: flex; gap: 1.5rem; padding: 1.5rem; background: white; border: 1px solid var(--border-2); border-radius: 12px; margin-bottom: 1rem; }
-.q-num { width: 28px; height: 28px; background: var(--accent); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: var(--mono); font-weight: bold; flex-shrink: 0; }
-.q-content strong { display: block; margin-bottom: 0.5rem; color: var(--ink); }
+.q-list { list-style: none; padding: 0; margin-top: 2rem; }
+.q-item { display: flex; gap: 1.5rem; padding: 1.8rem; background: white; border: 1px solid var(--border-2); border-radius: 16px; margin-bottom: 1.2rem; box-shadow: 0 4px 12px rgba(146, 131, 214, 0.05); }
+.q-num { width: 32px; height: 32px; background: var(--accent); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: var(--mono); font-weight: bold; flex-shrink: 0; }
+.q-content strong { display: block; margin-bottom: 0.6rem; color: var(--ink); font-size: 16px; }
+.q-content span { font-size: 14.5px; color: var(--ink-3); display: block; line-height: 1.6; }
 
 /* ── FOOTER ── */
 .footer{padding:4rem 0 2rem;text-align:center; border-top: 1px solid var(--border-2); margin-top: 4rem;}
 .footer p{font-size:12px;color:var(--ink-4)}
-
-/* ── ANIMATION ── */
-@keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
-.hero>*{animation:fadeUp .6s ease both}
-.hero-label{animation-delay:.1s}
-.hero-kicker{animation-delay:.2s}
-.hero-deck{animation-delay:.3s}
-.meta-strip{animation-delay:.4s}
 
 </style>
 </head>
@@ -200,15 +193,15 @@ li { margin-bottom: 0.5rem; color: var(--ink-3); font-size: 14.5px; }
 
 <!-- ── HERO ── -->
 <header class="hero">
-  <div class="hero-label">Case Study · 소비자 구매 동인 분석</div>
+  <div class="hero-label">🧪 Case Study · 소비자 구매 동인 분석</div>
   <h1 class="hero-kicker">PMF 검증 #1.<br><span>고려은단 비타민C 1000</span></h1>
   <p class="hero-deck">
-    장기 스테디셀러의 성공 비결은 무엇일까? 리뷰 데이터 분석을 통해 소비자 루틴에 안착한 제품의 실제 구매 동인을 파헤쳐 보았습니다.
+    션 엘리스의 PMF 프레임워크를 참조하여, 실제 리뷰 데이터를 통해 장기 스테디셀러의 성공 요인을 파헤쳐 보았습니다. 🔍
   </p>
   <div class="meta-strip">
-    <div class="meta-cell"><div class="meta-k">기간</div><div class="meta-v">2026.04.24 – 04.28</div></div>
-    <div class="meta-cell"><div class="meta-k">관점</div><div class="meta-v">외부인 관점 분석</div></div>
-    <div class="meta-cell"><div class="meta-k">프레임워크</div><div class="meta-v">Sean Ellis PMF Framework</div></div>
+    <div class="meta-cell"><div class="meta-k">📅 기간</div><div class="meta-v">2026.04.24 – 04.28</div></div>
+    <div class="meta-cell"><div class="meta-k">👁️ 관점</div><div class="meta-v">외부인 관점 분석</div></div>
+    <div class="meta-cell"><div class="meta-k">📐 프레임워크</div><div class="meta-v">션 엘리스 PMF, 리뷰 분석</div></div>
   </div>
 </header>
 
@@ -216,14 +209,25 @@ li { margin-bottom: 0.5rem; color: var(--ink-3); font-size: 14.5px; }
 <!-- ── STEP 1 ── -->
 <section class="sec">
   <div class="step-badge">STEP 01</div>
-  <h2>스테디셀러 탐색</h2>
+  <h2>🔍 스테디셀러 탐색</h2>
 
-  <em class="q">"사람들이 가장 오랫동안, 가장 많이 마음 편히 먹고 있는 영양제가 뭘까?"</em>
+  <em class="q">"사람들이 가장 오랫동안, 가장 많이 마음 편히 먹고 있는 영양제가 뭘까?" 🤔</em>
 
   <div class="callout blue">
-    <div class="callout-hd">가설 수립 및 검증</div>
+    <div class="callout-hd">💡 가설 설정</div>
     <p class="body"><strong>가설:</strong> "고려은단 비타민C일 것이다."</p>
-    <p class="body">올리브영 TOP100을 3일간 추적 스캐닝한 결과, 판매 순위를 꾸준히 유지한 제품은 고려은단 비타민C를 포함해 단 3개였습니다. 딥리서치를 통해 2025년 판매 순위에서도 최상위권을 유지함을 확인, <strong>소비자 루틴에 안착한 제품</strong>으로서 PMF 검증 대상으로 최종 선정했습니다.</p>
+  </div>
+
+  <p class="body">올리브영 TOP100을 2026년 4월 24~26일 3일간 추적·스캐닝한 결과, 기간 내 판매 순위를 꾸준히 유지한 제품은 고려은단 비타민C를 포함해 단 3개였습니다. ✨</p>
+
+  <div class="callout neutral">
+    <div class="callout-hd">🔗 검증 절차</div>
+    <p class="body">'2025년 비타민C 판매 순위 분석' 딥리서치 실행 → 장기 스테디셀러 여부 확인</p>
+  </div>
+
+  <div class="callout green">
+    <div class="callout-hd">✅ 확인 결과</div>
+    <p class="body">고려은단 비타민C 1000은 장기 스테디셀러로 확인되었습니다. 단기 프로모션이나 트렌드가 아닌, <strong>소비자 루틴에 안착한 제품</strong>으로 PMF 검증 대상으로 적합하다고 판단했습니다. 🎯</p>
   </div>
 </section>
 
@@ -231,22 +235,23 @@ li { margin-bottom: 0.5rem; color: var(--ink-3); font-size: 14.5px; }
 <!-- ── STEP 2 ── -->
 <section class="sec">
   <div class="step-badge">STEP 02</div>
-  <h2>구매 동인 가설 수립</h2>
+  <h2>📋 구매 동인 가설 수립</h2>
 
-  <em class="q">"사람들이 오랜 시간 고려은단 비타민C를 선택하는 이유가 뭘까?"</em>
-
-  <div class="callout neutral">
-    <div class="callout-hd">이상적 고객 프로필 (가설)</div>
-    <ul>
-      <li>영양제 지출이 부담스럽지 않기를 바라는 실속파</li>
-      <li>검증된 필수/기본 영양제(비타민C)를 선호하는 고객</li>
-      <li>피로 회복, 피부 미용 등 삶의 질 개선을 기대하는 층</li>
-      <li>간편한 보관과 섭취를 원하는 고객</li>
-    </ul>
-  </div>
+  <em class="q">"사람들이 오랜 시간 고려은단 비타민C를 선택하는 이유가 뭘까?" 🧐</em>
 
   <div class="callout blue">
-    <div class="callout-hd">핵심 가설 (H)</div>
+    <div class="callout-hd">👤 이상적 고객 프로필 (가설)</div>
+    <ol>
+      <li>영양제에 쓰는 비용이 부담스럽지 않기를 바라고</li>
+      <li>몸에 부담 없이, 먹으면 도움되는, 가장 필수/기본적인, 검증된 영양제를 먹고 싶고</li>
+      <li>피로 회복, 피부 미용, 면역 등 삶의 질에 좋은 영향을 기대하고</li>
+      <li>평소 식사에서 비타민 섭취가 부족하다고 느끼며</li>
+      <li>간편하게 보관하고 먹을 수 있는 제품을 원하는 고객</li>
+    </ol>
+  </div>
+
+  <div class="callout gray">
+    <div class="callout-hd">🎯 핵심 가설</div>
     <p class="body"><strong>"믿을 수 있는 가성비 좋은 제품이라서 선택할 것이다."</strong></p>
   </div>
 </section>
@@ -255,8 +260,8 @@ li { margin-bottom: 0.5rem; color: var(--ink-3); font-size: 14.5px; }
 <!-- ── STEP 3 ── -->
 <section class="sec">
   <div class="step-badge">STEP 03</div>
-  <h2>가설 검증 — 리뷰 데이터 수집 및 분석</h2>
-  <p class="body">데이터 수집 프로세스: 리뷰 수집 → 키워드 빈도 분석 → 가설 매핑 → 긍/부정 맥락 구분</p>
+  <h2>📊 가설 검증 — 리뷰 데이터 수집 및 분석</h2>
+  <p class="body" style="font-size: 14px; color: var(--ink-4);">예상 프로세스: 리뷰 데이터 수집 → 키워드 빈도 분석 + 가설 키워드 매핑 → 긍/부정 맥락 구분 → 결과 도출 📝</p>
 
   <h3>3-1. 실제 데이터 수집 현황</h3>
   <table class="exp-table">
@@ -268,23 +273,23 @@ li { margin-bottom: 0.5rem; color: var(--ink-3); font-size: 14.5px; }
         <td>올리브영 직접 수집</td>
         <td>15개</td>
         <td>총 19,866건 중</td>
-        <td class="tag-gray">텍스트 복사 제한으로 소량 수집</td>
+        <td>API 차단으로 대량 수집 불가 ⚠️</td>
       </tr>
       <tr>
         <td>네이버 쇼핑 AI 요약</td>
         <td>20개 키워드</td>
         <td>271,712건 기반</td>
-        <td class="tag-gray">AI 요약 키워드 활용 우회 분석</td>
+        <td>AI 요약 키워드로 대체 수집 🤖</td>
       </tr>
     </tbody>
   </table>
 
   <div class="callout yellow">
-    <div class="callout-hd">제약 및 대응</div>
-    <p class="body">주요 쇼핑 플랫폼의 API 차단 환경에서 네이버 AI 요약을 <strong>핵심 데이터</strong>로, 올리브영 직접 수집 건을 <strong>방향성 확인용 참고 자료</strong>로 활용했습니다.</p>
+    <div class="callout-hd">⚡ 제약 및 대응</div>
+    <p class="body">플랫폼 정책상 텍스트 다량 복사가 불가한 환경에서, 네이버 쇼핑의 27만 건 기반 <strong>AI 요약을 핵심 데이터</strong>로 활용하고 올리브영 직접 수집 건을 보조 지표로 삼아 분석을 진행했습니다. 🛠️</p>
   </div>
 
-  <h3>3-2. 네이버 AI 요약 키워드 분석 (핵심)</h3>
+  <h3>3-2. 네이버 AI 요약 키워드 분석 (핵심 ⭐)</h3>
   <table class="exp-table">
     <thead>
       <tr><th>가설</th><th>대표 키워드</th><th>비중</th></tr>
@@ -292,12 +297,12 @@ li { margin-bottom: 0.5rem; color: var(--ink-3); font-size: 14.5px; }
     <tbody>
       <tr class="highlight-row">
         <td><strong>🏆 H3 · 건강 효과</strong></td>
-        <td>피부가 좋아졌어요 / 피곤할 때 좋아요 / 효과가 있어요</td>
+        <td>피부가 좋아졌어요 / 효과가 있어요 / 피곤할 때 좋아요 / 꾸준히 먹으면 효과있어요</td>
         <td style="color:var(--red); font-weight:700;">30%</td>
       </tr>
       <tr>
         <td>H1 · 가성비</td>
-        <td>가성비가 좋아요 / 가격이 저렴해요 / 양이 많아요</td>
+        <td>가성비가 좋아요 / 가격이 저렴해요 / 양이 많아요 / 만족스러워요</td>
         <td>20%</td>
       </tr>
       <tr>
@@ -307,33 +312,29 @@ li { margin-bottom: 0.5rem; color: var(--ink-3); font-size: 14.5px; }
       </tr>
       <tr>
         <td>H5 · 편의성</td>
-        <td>먹기 편해요 / 포장이 꼼꼼해요 / 가족이 먹기 좋아요</td>
+        <td>먹기 편해요 / 포장이 꼼꼼해요 / 온 가족이 먹기 좋아요</td>
         <td>15%</td>
       </tr>
     </tbody>
   </table>
 
   <div class="callout red">
-    <div class="callout-hd">인사이트 — 신뢰의 힘</div>
-    <p class="body">단순한 가격 경쟁력이 아닌, <strong>'효과에 대한 신뢰(30%)'</strong>가 재구매와 루틴화로 이어지는 선순환의 핵심 동력이었습니다.</p>
+    <div class="callout-hd">💎 분석 인사이트</div>
+    <p class="body">단순 가격 경쟁력이 아닌, <strong>효과에 대한 신뢰(30%)가 재구매와 루틴화로 이어지는 구조</strong>임을 발견했습니다. ✨</p>
   </div>
 
-  <h3>3-3. 가설별 언급률 — 올리브영 직접 수집 (참고)</h3>
+  <h3>3-3. 가설별 언급률 — 올리브영 직접 수집 (참고 💡)</h3>
   <table class="exp-table">
     <thead>
       <tr><th>가설</th><th>언급률</th><th>결과</th></tr>
     </thead>
     <tbody>
       <tr><td>H1 · 가성비</td><td>27%</td><td class="tag-green">✅ 검증</td></tr>
-      <tr><td>H2 · 필수/기본 영양제</td><td>47%</td><td class="tag-green">✅ 강한 검증</td></tr>
-      <tr><td>H3 · 건강 효과</td><td>13%</td><td class="tag-green">🔶 부분 검증</td></tr>
-      <tr><td>H4 · 식사 부족 보완</td><td>0%</td><td class="tag-red">❌ 기각</td></tr>
+      <tr><td>H2 · 필수/기본 영양제</td><td>47%</td><td class="tag-green">✅ 강력 검증</td></tr>
+      <tr><td>H3 · 건강 효과</td><td>13%</td><td class="tag-amber">🔶 부분 검증</td></tr>
+      <tr class="reject-row"><td>H4 · 식사 부족 보완</td><td>0%</td><td class="tag-red">❌ 기각</td></tr>
       <tr><td>H5 · 편의성</td><td>20%</td><td class="tag-green">✅ 검증</td></tr>
-      <tr class="highlight-row">
-        <td><strong>H6 · 브랜드 신뢰 (신규)</strong></td>
-        <td style="color:var(--accent); font-weight:700;">33%</td>
-        <td class="tag-green">✅ 신규 발견</td>
-      </tr>
+      <tr class="highlight-row"><td><strong>H6 · 브랜드 신뢰 (신규 발견)</strong></td><td>33%</td><td class="tag-green">✅ 신규 발견</td></tr>
     </tbody>
   </table>
 </section>
@@ -342,12 +343,13 @@ li { margin-bottom: 0.5rem; color: var(--ink-3); font-size: 14.5px; }
 <!-- ── STEP 4 ── -->
 <section class="sec">
   <div class="step-badge">STEP 04</div>
-  <h2>핵심 인사이트 & 가설 검증 요약</h2>
+  <h2>🎯 핵심 인사이트 & 가설 검증 요약</h2>
 
   <div class="callout blue">
-    <div class="callout-hd">초기 가설과의 차이</div>
-    <p class="body">당초 가성비(H1)를 1순위로 예상했으나, 실제 핵심은 <strong>효과에 대한 신뢰(H3, 30%)</strong>였습니다. 단, 가성비는 구매 단계에서 이미 기저에 깔린 '기본값'으로 작동하여 리뷰에 덜 노출되었을 가능성이 큽니다.</p>
-    <p class="body">특히 <strong>브랜드 신뢰(H6, 33%)</strong>가 신규 발견되었는데, "유재석 광고", "고려은단이라서 믿는다"는 언급이 반복되는 양상을 보였습니다.</p>
+    <div class="callout-hd">📌 초기 가설과의 차이</div>
+    <p class="body">초기 가설에서 <strong>가성비(H1)를 1순위</strong>로 예상했으나, 실제 핵심 구매 동인은 <strong>효과에 대한 신뢰(H3, 네이버 기준 30%)</strong>였습니다.</p>
+    <p class="body">단, 가성비는 소비자가 이미 기저에 깔고 있는 '기본값'으로 작동하여 리뷰에서 덜 언급되었을 가능성이 큽니다. 또한 <strong>H6 브랜드 신뢰(33%)</strong>가 신규 발견되었는데, "유재석 광고", "고려은단이라 믿는다"는 언급이 반복되었습니다. 📢</p>
+    <p class="body">반면, <strong>H4(식단 부족 보완)</strong>는 두 소스 모두에서 언급되지 않아 기각되었습니다. 🙅</p>
   </div>
 
   <h3>가설 검증 요약표</h3>
@@ -356,24 +358,30 @@ li { margin-bottom: 0.5rem; color: var(--ink-3); font-size: 14.5px; }
       <tr><th>가설</th><th>결과</th><th>해석</th></tr>
     </thead>
     <tbody>
-      <tr><td>H1 · 가성비</td><td class="tag-green">✅ 검증(부분)</td><td>구매 허들을 낮추는 역할. H2와 결합</td></tr>
-      <tr><td>H2 · 필수 영양제</td><td class="tag-green">✅ 검증</td><td>"매일 챙기는 기본템" 인식. 예상보다 강함</td></tr>
-      <tr class="highlight-row"><td><strong>H3 · 건강 효과</strong></td><td class="tag-green">✅ 강한 검증</td><td>핵심 락인(Lock-in) 요인. 네이버 기준 30%</td></tr>
-      <tr><td>H4 · 식단 보완</td><td class="tag-red">❌ 기각</td><td>두 소스 모두 언급 없음</td></tr>
-      <tr><td>H5 · 편의성</td><td class="tag-green">✅ 검증</td><td>"먹기 편해요", "알이 작아 목넘김 좋다"</td></tr>
-      <tr class="highlight-row"><td><strong>H6 · 브랜드 신뢰</strong></td><td class="tag-green">✅ 신규 검증</td><td>광고 및 역사에 기반한 강력한 신뢰도 확인</td></tr>
+      <tr><td>H1 · 가성비</td><td class="tag-green">✅ 검증(부분)</td><td>구매 허들을 낮추는 역할. H2와 결합해 작동</td></tr>
+      <tr><td>H2 · 필수/기본 영양제</td><td class="tag-green">✅ 검증</td><td>"매일 챙기는 기본템" 인식. 예상보다 강함</td></tr>
+      <tr class="highlight-row"><td><strong>H3 · 건강 효과</strong></td><td class="tag-green">✅ 강력 검증</td><td>네이버 30% · 핵심 락인(lock-in) 요인 🔒</td></tr>
+      <tr class="reject-row"><td>H4 · 식단 부족 보완</td><td class="tag-red">❌ 기각</td><td>두 소스 모두 언급 없음</td></tr>
+      <tr><td>H5 · 편의성</td><td class="tag-green">✅ 검증</td><td>"먹기 편해요", "목넘김이 좋다"</td></tr>
+      <tr class="highlight-row"><td><strong>H6 · 브랜드 신뢰</strong></td><td class="tag-green">✅ 신규 검증</td><td>"고려은단이라 믿는다" 강력한 브랜드 파워 확인</td></tr>
     </tbody>
   </table>
+
+  <div class="callout gray">
+    <div class="callout-hd">⚠️ 분석 한계</div>
+    <p class="body">표본 수의 제약과 플랫폼 정책에 따른 수집 한계로 인해, 본 분석 결과는 방향성 확인 수준으로 참고하는 것이 적절합니다.</p>
+  </div>
 </section>
 
 
 <!-- ── STEP 5 ── -->
 <section class="sec">
   <div class="step-badge">STEP 05</div>
-  <h2>Next Step — 시장 전략 시사점</h2>
+  <h2>🚀 Next Step — 시장 전략 시사점 도출</h2>
+  <p class="body">PMF가 검증된 제품의 구매 동인 구조를 이해하면, 신규 브랜드가 어떤 메시지로 시장에 접근해야 할지 방향을 설정할 수 있습니다. 💡</p>
 
   <div class="callout blue">
-    <div class="callout-hd">고려은단의 구매 동인 선순환 구조</div>
+    <div class="callout-hd">🔄 고려은단의 구매 동인 선순환 구조</div>
     <div class="flow">
       <div class="flow-item">효과 체감 (30%)</div>
       <span class="flow-arrow">→</span>
@@ -383,39 +391,43 @@ li { margin-bottom: 0.5rem; color: var(--ink-3); font-size: 14.5px; }
       <span class="flow-arrow">→</span>
       <div class="flow-item">브랜드 신뢰 (33%)</div>
     </div>
-    <p class="body">가성비는 진입 허들을 낮출 뿐, 실제 고객을 붙잡아두는 힘은 <strong>'체감된 효과'와 '브랜드에 대한 믿음'</strong>에서 나옵니다.</p>
+    <p class="body" style="font-size: 14px; color: var(--ink-4);">가성비는 진입 허들을 낮출 뿐, 핵심 락인(lock-in) 요인은 효과에 대한 신뢰입니다. 🔐</p>
   </div>
 
-  <h3>추가 검증을 위한 질문</h3>
+  <h3>검증하고 싶은 질문 3가지 🙋</h3>
   <div class="q-list">
     <div class="q-item">
       <div class="q-num">1</div>
       <div class="q-content">
-        <strong>경쟁 브랜드의 효과 순위는 어떠한가?</strong>
-        <p class="body">종근당, 뉴트리코어 등 타 브랜드와 건강 효과 키워드 비중을 비교하여 고려은단만의 차별적 신뢰도를 확인합니다.</p>
+        <strong>경쟁 브랜드의 소비자는 효과를 몇 순위로 평가하는가?</strong>
+        <span>종근당·뉴트리코어 등 타 브랜드와 건강 효과 키워드 비중을 비교하여 고려은단만의 차별화된 지점을 확인합니다.</span>
       </div>
     </div>
     <div class="q-item">
       <div class="q-num">2</div>
       <div class="q-content">
-        <strong>흡수율 개선 제품의 체감 효과는?</strong>
-        <p class="body">리포좀 비타민C 등 프리미엄 제품군에서 실제 소비자 인식이 가격 대비 효과 신뢰로 이어지는지 검증합니다.</p>
+        <strong>흡수율 개선 제품에서 건강 효과 언급 비중은 얼마인가?</strong>
+        <span>리포좀 비타민C 등 기능적 차별화가 실제 소비자 인식(효과 신뢰)으로 이어지는지 프리미엄 제품군을 분석합니다.</span>
       </div>
     </div>
     <div class="q-item">
       <div class="q-num">3</div>
       <div class="q-content">
-        <strong>브랜드 신뢰(H6)의 주된 형성 경로는?</strong>
-        <p class="body">광고 모델, 오랜 역사, 유통망 접근성 중 어떤 요인이 "고려은단이라 믿는다"는 인식을 주도하는지 분석합니다.</p>
+        <strong>H6 브랜드 신뢰는 어디서 형성되는가?</strong>
+        <span>"고려은단이라서 믿는다"는 인식의 형성 경로(광고, 역사, 유통 채널 등) 중 어느 요인이 주도적인지 심층 분석합니다.</span>
       </div>
     </div>
   </div>
-</section>
 
+  <div class="callout yellow">
+    <div class="callout-hd">💡 실행 전략 방향</div>
+    <p class="body">위 질문들에 답할 수 있다면, 신규 브랜드가 <strong>"효과 체감 → 루틴화 → 브랜드 신뢰"</strong>의 선순환을 어떻게 빠르게 구축할 수 있을지에 대한 구체적인 로드맵을 제시할 수 있습니다. 🗺️</p>
+  </div>
+</section>
 
 <!-- ── FOOTER ── -->
 <footer class="footer">
-  <p>&copy; 2026 PMF Verification #1. 고려은단 비타민C 소비자 분석. All rights reserved.</p>
+  <p>&copy; 2026 PMF Verification #1. 류보라 소비자 구매 동인 분석. All rights reserved.</p>
 </footer>
 
 </div>
