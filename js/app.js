@@ -7,7 +7,17 @@ async function loadPosts() {
             throw new Error('posts.json을 불러올 수 없습니다.');
         }
         allPosts = await response.json();
-        renderPosts(allPosts);
+        
+        // URL 파라미터 확인 (예: ?category=Portfolio)
+        const urlParams = new URLSearchParams(window.location.search);
+        const category = urlParams.get('category');
+        
+        if (category) {
+            const filteredPosts = allPosts.filter(post => post.category === category);
+            renderPosts(filteredPosts);
+        } else {
+            renderPosts(allPosts);
+        }
         
         // 커스텀 이벤트 발생 (search.js에서 사용)
         document.dispatchEvent(new CustomEvent('postsLoaded', { detail: allPosts }));
