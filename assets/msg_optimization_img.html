@@ -227,14 +227,9 @@ em.q{font-style:italic;color:var(--ink-3); display:block; padding: 1.2rem; backg
   </p>
 
   <div class="callout red">
-    <div class="callout-hd">💡 상사의 지시와 나의 반론</div>
-    <p class="body">상사는 <strong>"등록할 때까지 매일 같은 안내 문자를 재발송하라"</strong>고 지시했습니다. 
-    저는 첫 문자를 못 본 고객도 있겠지만, 자칫 고객에게 '스팸'으로 인식되어 서비스의 첫인상을 망칠 수 있다며 반대했습니다. 1년이라는 긴 유효기간 동안 다른 시도로 소통하겠다는 의견이 받아들여진 후, 실험 설계는 단독으로 진행했습니다.</p>
-  </div>
-
-  <div class="img-wrap">
-    <img src="../images/msg_opt_img4.png" alt="메시지 고도화 프로젝트 개요">
-    <div class="img-cap">메시지 고도화: 단순히 보내는 것이 아니라 '어떻게' 보낼 것인가에 집중했습니다.</div>
+    <div class="callout-hd">💡 지시에 반대한 이유</div>
+    <p class="body"><strong>"등록할 때까지 매일 같은 안내 문자를 재발송하라"</strong>는 지시에 반대했습니다.
+    첫 문자를 못 본 고객도 있겠지만, 자칫 고객에게 '스팸'으로 인식되면 서비스의 첫인상을 망칠 수 있었기 때문입니다. 1년이라는 긴 유효기간 동안 다른 시도로 소통하겠다는 의견이 받아들여진 후, 실험 설계는 단독으로 진행했습니다.</p>
   </div>
 
   <em class="q">"내가 이 문자를 받는다면, 정말 클릭하고 싶을까?" — 이 질문이 모든 실험의 시작이었습니다. 🧐</em>
@@ -245,19 +240,12 @@ em.q{font-style:italic;color:var(--ink-3); display:block; padding: 1.2rem; backg
   <div class="step-badge">STEP 02</div>
   <h2>📋 가설 수립</h2>
   <p class="body">
-    제휴사와 합의된 발송 방식은 단순했습니다. 고객 DB 수령 당일 낮 12시, LMS 1건 발송.<br>
-    문자 한 통에 반응하지 않았다고 해서 그 고객이 관심 없는 건 아닐 수 있습니다. 
+    문자 한 통에 반응하지 않았다고 해서 그 고객이 관심 없는 건 아닐 수 있습니다.<br>
     단순 정보 도달이 아닌, <strong>맥락과 타이밍</strong>이 고객의 행동을 결정한다는 4가지 핵심 가설을 세웠습니다. 🔍
   </p>
 
-  <div class="callout blue">
-    <div class="callout-hd">🔎 핵심 가설 (Hypothesis)</div>
-    <ul class="body" style="list-style: none; padding-left: 0;">
-      <li>✅ <strong>가설 1 (타이밍):</strong> 평일 업무 시간보다 퇴근 후나 주말 오전 등 여유 시간에 반응이 높을 것이다.</li>
-      <li>✅ <strong>가설 2 (포맷):</strong> 텍스트 중심의 LMS보다 직관적인 이미지가 포함된 MMS가 정보 인지율을 높일 것이다.</li>
-      <li>✅ <strong>가설 3 (재발송):</strong> 동일한 내용을 반복하기보다, 매회 카피와 혜택 강조점을 바꾸어야 새로운 행동을 유도할 수 있다.</li>
-      <li>✅ <strong>가설 4 (맥락):</strong> 크리스마스, 새해 등 시즌 이슈를 활용한 감성 카피가 심리검사라는 서비스 성격과 시너지를 낼 것이다.</li>
-    </ul>
+  <div class="img-wrap" style="margin-top: 1.5rem;">
+    <img src="../images/msg_opt_hypothesis.png" alt="핵심 가설 시각화" style="border:none; box-shadow:none;">
   </div>
 </section>
 
@@ -266,7 +254,7 @@ em.q{font-style:italic;color:var(--ink-3); display:block; padding: 1.2rem; backg
   <div class="step-badge">STEP 03</div>
   <h2>🧪 검증 절차 - 단계적 변수 조정</h2>
   <p class="body">
-    한 번에 모든 것을 바꾸지 않고, <strong>변수를 하나씩(One variable at a time)</strong> 조정하며 반응 패턴을 기록했습니다. 📝
+    한 번에 모든 것을 바꾸지 않고, <strong>변수를 하나씩</strong> 조정하며 반응 패턴을 기록했습니다. 📝
   </p>
 
   <table class="exp-table">
@@ -274,19 +262,22 @@ em.q{font-style:italic;color:var(--ink-3); display:block; padding: 1.2rem; backg
       <tr><th>시점</th><th>조정 변수</th><th>주요 내용 및 액션</th><th>결과 (등록률)</th></tr>
     </thead>
     <tbody>
-      <tr><td>12월 초</td><td>Baseline</td><td>평일 낮 12시, 텍스트 위주 LMS 안내</td><td>5.7%</td></tr>
+      <tr><td>12월 초</td><td>기준선</td><td>평일 낮 12시, 텍스트 위주 LMS 안내</td><td>5.7%</td></tr>
       <tr><td>12/7(토)</td><td>🕒 타이밍</td><td><strong>토요일 정오</strong> 발송. 주말 여유 시간 공략</td><td>등록 증가 확인 ✨</td></tr>
       <tr><td>12/18</td><td>🎨 포맷</td><td>마스코트 캐릭터와 감성 카피 적용 <span class="chip">MMS</span></td><td>즉각적 반응 ✨</td></tr>
       <tr><td>12/25</td><td>🎄 맥락</td><td><strong>크리스마스 한정</strong> 따뜻한 위로의 메시지</td><td>당일 다수 등록 ✨</td></tr>
-      <tr><td>1/20</td><td>📲 채널</td><td>카카오 알림톡 도입 <span class="chip">Talk</span></td><td>도달률 상승 ✨</td></tr>
     </tbody>
   </table>
+
+  <div class="img-wrap" style="margin-top: 1rem;">
+    <img src="../images/msg_opt_efficiency.png" alt="비용 효율화 성과" style="border:none; box-shadow:none;">
+  </div>
 </section>
 
 <!-- ── STEP 4 ── -->
 <section class="sec">
   <div class="step-badge">STEP 04</div>
-  <h2>✉️ 메시지 포맷 변화 실례</h2>
+  <h2>✉️ 메시지 포맷 변화</h2>
   <p class="body">
     처음에는 정해진 틀에서 큰 변화를 주지 않고 '안내' 중심 메시지를 보냈습니다.<br>
     이후 정보의 전달을 넘어 고객 중심의 '가치 제안'으로 메시지를 재설계했습니다. ✨
@@ -392,23 +383,21 @@ oooo보험 oooo3.0 가입 혜택으로,
     </div>
   </div>
 
-  <div class="msg-wrap" style="margin-top:2rem">
+  <div class="msg-wrap" style="margin-top:2rem; grid-template-columns: repeat(3, 1fr); gap: 10px;">
     <div class="msg-card" style="border:none; box-shadow:none; background:transparent">
        <img src="../images/msg_opt_img2.png" style="width:100%; border-radius:12px; border:1px solid var(--border-2)">
+    </div>
+    <div class="msg-card" style="border:none; box-shadow:none; background:transparent">
+       <img src="../images/msg_opt_img4.png" style="width:100%; border-radius:12px; border:1px solid var(--border-2)">
     </div>
     <div class="msg-card" style="border:none; box-shadow:none; background:transparent">
        <img src="../images/msg_opt_img3.png" style="width:100%; border-radius:12px; border:1px solid var(--border-2)">
     </div>
   </div>
-  <div class="msg-wrap" style="margin-top:1rem; grid-template-columns: 1fr; max-width: 442px; margin-left: auto; margin-right: auto;">
-    <div class="msg-card" style="border:none; box-shadow:none; background:transparent">
-       <img src="../images/msg_opt_img4.png" style="width:100%; border-radius:12px; border:1px solid var(--border-2)">
-    </div>
-  </div>
 
   <div class="callout blue" style="margin-top:1.5rem">
     <div class="callout-hd">🎯 핵심 발견</div>
-    <p class="body">변화의 핵심은 <strong>메시지가 도달하는 순간의 맥락과 문구를 일치시킨 것</strong>입니다. 크리스마스에 "올해 크리스마스엔 내 마음을 돌보세요"는 문구와 '거울로 자신을 바라보는 브랜드 캐릭터 이미지'의 결합은, 동일한 서비스를 안내하면서도 수신자에게 다른 감각을 만들어냅니다.</p>
+    <p class="body">변화의 핵심은 <strong>메시지가 도달하는 순간의 맥락과 문구를 일치시킨 것</strong>입니다.<br> 크리스마스에 "올해 크리스마스엔 내 마음을 돌보세요"는 문구와 선물처럼 전달된 100% 쿠폰 이미지의 결합은, 수신자에게 다른 감각을 만들어냅니다.</p>
   </div>
 </section>
 
@@ -502,7 +491,7 @@ oooo보험 oooo3.0 가입 혜택으로,
     <strong>그럼에도 미등록자에 대한 지속적인 재발송 최적화를 통해 매월 누적 등록률은 꾸준히 상승했습니다.</strong>
   </p>
   <p class="body" style="margin-top:1.25rem">
-    <strong>21차 발송 이후 처음 등록한 사례</strong>도 실제로 있었습니다. 
+    <strong>21차 발송 이후 처음 등록한 사례</strong>도 있었습니다. 
     수개월간 반응이 없던 고객이 설 연휴, 새해 첫 주말이라는 맥락에서 비로소 행동했습니다. 
     동일한 메시지를 반복했다면 그 전에 스팸 처리로 영구 이탈했을지 모릅니다.
   </p>
@@ -546,8 +535,8 @@ oooo보험 oooo3.0 가입 혜택으로,
 
   <div class="callout green" style="margin-top:2rem">
     <div class="callout-hd">🍀 마인드셋의 변화</div>
-    <p class="body">상사의 지시라도 데이터와 논리가 있다면 정중히 반대하고 더 나은 대안을 제시할 수 있다는 자신감을 얻었습니다. 
-    공급자의 시선이 아닌 고객의 일상 속으로 들어가는 분석이 실질적인 비즈니스 임팩트를 만든다는 것을 증명한 소중한 경험이었습니다.</p>
+    <p class="body">데이터와 논리가 있다면 해보지 않은 일도 시도하고 성과를 낼 수 있다는 자신감을 얻었습니다. 
+    공급자의 시선이 아닌 고객의 일상 속으로 들어가는 분석이 비즈니스 임팩트를 만든다는 것을 증명한 소중한 경험이었습니다.</p>
   </div>
 </section>
 
