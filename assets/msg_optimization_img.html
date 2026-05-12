@@ -44,7 +44,7 @@ body{
   letter-spacing: -0.01em;
 }
 
-.wrap{max-width:900px;margin:0 auto;padding:0 2rem 8rem}
+.wrap{max-width:900px;margin:2rem auto 4rem;padding:0 2rem 3rem; background: var(--bg); border: 1px solid var(--border-2); border-radius: 24px; box-shadow: 0 20px 40px rgba(42, 36, 56, 0.05); position: relative;}
 
 /* ── HERO ── */
 .hero{
@@ -301,10 +301,11 @@ em.q{font-style:italic;color:var(--ink-3); display:block; padding: 1.2rem; backg
       <tr><th>시점</th><th>조정 변수</th><th>주요 내용 및 액션</th><th>결과 (등록률)</th></tr>
     </thead>
     <tbody>
-      <tr><td>12월 초</td><td>기준선</td><td>평일 낮 12시, 텍스트 위주 LMS 안내</td><td>5.7%</td></tr>
-      <tr><td>12/7(토)</td><td>🕒 타이밍</td><td><strong>토요일 정오</strong> 발송. 주말 여유 시간 공략</td><td>등록 증가 확인 ✨</td></tr>
-      <tr><td>12/18</td><td>🎨 포맷</td><td>마스코트 캐릭터와 감성 카피 적용 <span class="chip">MMS</span></td><td>즉각적 반응 ✨</td></tr>
-      <tr><td>12/25</td><td>🎄 맥락</td><td><strong>크리스마스 한정</strong> 따뜻한 위로의 메시지</td><td>당일 다수 등록 ✨</td></tr>
+      <tr><td>12/12</td><td>🎯 H4 연령 타겟팅</td><td>30~40대 별도 발송, 퇴근 시간대 추가</td><td>30대 반응↑, 연령 분리 시작</td></tr>
+      <tr><td>12/21–25</td><td>🎄 H6 계절 맥락</td><td>크리스마스 이미지 2종 제작·발송 <span class="chip">MMS</span></td><td>당일 다수 등록 ✨</td></tr>
+      <tr><td>12/31–1/4</td><td>☀️ H6 연말 맥락</td><td>새해 설계 테마 MMS <span class="chip">MMS</span></td><td>1/4(토) 집중 등록 ✨</td></tr>
+      <tr><td>1/17–25</td><td>📲 H5 채널 전환</td><td>카카오 알림톡 도입 <span class="chip">알림톡</span></td><td>설 연휴 전후 등록 확인</td></tr>
+      <tr><td>2월~</td><td>🚀 복합 최적화</td><td>LMS + 알림톡 10분 병행, 시간대 분리</td><td>누적 등록률 지속 상승 ✨</td></tr>
     </tbody>
   </table>
 
@@ -423,19 +424,42 @@ oooo보험 oooo3.0 가입 혜택으로,
     </div>
   </div>
 
-  <div class="msg-wrap" style="margin-top:2rem; grid-template-columns: repeat(3, 1fr); gap: 10px;">
-    <div class="msg-card" style="border:none; box-shadow:none; background:transparent">
-       <img src="../images/msg_opt_img2.png" style="width:100%; border-radius:12px; border:1px solid var(--border-2)">
+  <div class="msg-comparison" style="margin-top: 3rem; background: #f8f8fa; padding: 2rem; border-radius: 20px;">
+    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;">
+      <!-- 크리스마스 -->
+      <div style="text-align: center;">
+        <div style="display: inline-block; background: #fff3d6; color: #d4a017; font-size: 11px; font-weight: 700; padding: 4px 12px; border-radius: 20px; margin-bottom: 1rem;">12/21~25 발송</div>
+        <img src="../images/msg_opt_img2.png" style="width: 100%; border-radius: 12px; box-shadow: 0 8px 16px rgba(0,0,0,0.06); margin-bottom: 1.2rem;">
+        <p style="font-weight: 700; color: var(--ink); font-size: 13px; margin-bottom: 0.4rem;">"올해 크리스마스엔 내 마음을 돌보세요"</p>
+        <p style="font-size: 12px; color: var(--ink-3); line-height: 1.5;">시즌 이미지 + 한 줄 카피.<br>당일 다수 등록.</p>
+      </div>
+      
+      <!-- 새해 -->
+      <div style="text-align: center;">
+        <div style="display: inline-block; background: #eef2ff; color: #4f46e5; font-size: 11px; font-weight: 700; padding: 4px 12px; border-radius: 20px; margin-bottom: 1rem;">1/1~4 발송</div>
+        <img src="../images/msg_opt_img3.png" style="width: 100%; border-radius: 12px; box-shadow: 0 8px 16px rgba(0,0,0,0.06); margin-bottom: 1.2rem;">
+        <p style="font-weight: 700; color: var(--ink); font-size: 13px; margin-bottom: 0.4rem;">"2025년, 더 나은 나를 위한 시작"</p>
+        <p style="font-size: 12px; color: var(--ink-3); line-height: 1.5;">새해 설계 테마 전환.<br>1/4(토) 집중 등록 확인.</p>
+      </div>
+
+      <!-- 봄맞이 -->
+      <div style="text-align: center;">
+        <div style="display: inline-block; background: #f0fdf4; color: #16a34a; font-size: 11px; font-weight: 700; padding: 4px 12px; border-radius: 20px; margin-bottom: 1rem;">4월~ 봄맞이</div>
+        <img src="../images/msg_opt_img5.png" style="width: 100%; border-radius: 12px; box-shadow: 0 8px 16px rgba(0,0,0,0.06); margin-bottom: 1.2rem;">
+        <p style="font-weight: 700; color: var(--ink); font-size: 13px; margin-bottom: 0.4rem;">"봄맞이 마음 리프레시"</p>
+        <p style="font-size: 12px; color: var(--ink-3); line-height: 1.5;">계절감 반영한 리프레시.<br>누적 등록률 꾸준히 상승.</p>
+      </div>
     </div>
-    <div class="msg-card" style="border:none; box-shadow:none; background:transparent">
-       <img src="../images/msg_opt_img4.png" style="width:100%; border-radius:12px; border:1px solid var(--border-2)">
-    </div>
-    <div class="msg-card" style="border:none; box-shadow:none; background:transparent">
-       <img src="../images/msg_opt_img3.png" style="width:100%; border-radius:12px; border:1px solid var(--border-2)">
+
+    <!-- 포인트 콜아웃 -->
+    <div style="margin-top: 2.5rem; background: #fffbe6; border-left: 4px solid #faad14; padding: 1.2rem 1.8rem; border-radius: 0 12px 12px 0;">
+      <p style="font-size: 14.5px; color: #856404; line-height: 1.7;">
+        <strong>포인트:</strong> 동일한 서비스를 소개하면서 이미지와 카피를 수신 시점의 계절·감성과 일치시켰습니다. 이 두 발송 시점에서 월별 등록률이 가장 가파르게 상승했습니다(12월 8.6% → 1월 18.9%).
+      </p>
     </div>
   </div>
 
-  <div class="callout blue" style="margin-top:1.5rem">
+  <div class="callout blue" style="margin-top:2rem">
     <div class="callout-hd">🎯 핵심 발견</div>
     <p class="body">변화의 핵심은 <strong>메시지가 도달하는 순간의 맥락과 문구를 일치시킨 것</strong>입니다.<br> 크리스마스에 "올해 크리스마스엔 내 마음을 돌보세요"는 문구와 선물처럼 전달된 100% 쿠폰 이미지의 결합은, 수신자에게 다른 감각을 만들어냅니다.</p>
   </div>
