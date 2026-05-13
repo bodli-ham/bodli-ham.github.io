@@ -4,4 +4,4 @@ date: 2026-05-12
 tags: ["Portfolio", "데이터분석", "메시지최적화"]
 ---
 
-<iframe src="../assets/msg_optimization_img.html" width="100%" height="6500px" frameborder="0" style="border:none; overflow:hidden;" scrolling="no"></iframe>
+<iframe src="../assets/msg_optimization_img.html" width="100%" height="8500px" frameborder="0" style="border:none; overflow:hidden;" scrolling="no"></iframe>
