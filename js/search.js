@@ -61,8 +61,9 @@
         const searchTerm = (query || (searchInput ? searchInput.value : '')).toLowerCase();
         
         const filteredPosts = localPosts.filter(post => {
+            const summaryText = (post.summary || post.excerpt || '').toLowerCase();
             const matchesSearch = post.title.toLowerCase().includes(searchTerm) || 
-                                  post.excerpt.toLowerCase().includes(searchTerm);
+                                  summaryText.includes(searchTerm);
             const matchesTag = activeTag ? (post.tags && post.tags.includes(activeTag)) : true;
             
             return matchesSearch && matchesTag;
