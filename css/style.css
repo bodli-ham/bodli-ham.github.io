@@ -328,19 +328,29 @@ main {
   display: none !important;
 }
 
-/* ── 2. #post-content 컨테이너 여백 초기화 ──────
-   assets/html 내부 .wrap이 자체 max-width를 가지므로
-   post-container가 추가 패딩을 주지 않도록 합니다.
+/* ── 2. post 페이지 overflow 완전 차단 ──────────
+   body, article, #post-content 모두에 overflow-x: hidden 적용.
+   assets/html의 .wrap(max-width:1000px)이 헤더보다 넓어
+   좌측으로 튀어나오는 현상 방지.
 ─────────────────────────────────────────────── */
+body.post-page {
+  overflow-x: hidden;
+}
+
 .post-container {
   padding-left: 0;
   padding-right: 0;
+  width: 100%;
   max-width: 100%;
   min-height: calc(100vh - 160px);
   overflow-x: hidden;
 }
 
+.post-container article,
 #post-content {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
   padding: 0;
 }
 
@@ -371,6 +381,8 @@ main {
    post.html container 안에서 좌우 여백 없이 펼쳐지도록
 ─────────────────────────────────────────────── */
 .post-container .wrap {
+  max-width: 100%;
+  box-sizing: border-box;
   padding-left: 2rem;
   padding-right: 2rem;
 }
