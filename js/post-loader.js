@@ -8,11 +8,11 @@
 // 브라우저 탭 타이틀(<title>)만 posts.json으로 업데이트합니다.
 
 const CATEGORY_LABELS = {
-  'Case Study':       '케이스 스터디',
-  'Data Report':      '데이터 리포트',
-  'Trend Note':       '트렌드 노트',
-  'Supplement Guide': '건강 가이드',
-  'Note':             '노트'
+  'Case Study':       'Case Study',
+  'Data Report':      'Data Report',
+  'Trend Note':       'Trend Note',
+  'Supplement Guide': 'Supplement Guide',
+  'Note':             'Note'
 };
 
 document.addEventListener('DOMContentLoaded', async () => {
