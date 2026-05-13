@@ -313,16 +313,16 @@ li{margin-bottom:.6rem;color:var(--ink-3);font-size:15px}
 }
 .season-grid{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:1.5rem;
+  grid-template-columns:repeat(3,1fr);
+  gap:1rem;
 }
-.season-card{text-align:center}
+.season-card{text-align:center; min-width:0;}
 .season-tag{
   display:inline-block;
-  font-size:11px;font-weight:700;
-  padding:4px 12px;
+  font-size:10px;font-weight:700;
+  padding:3px 10px;
   border-radius:20px;
-  margin-bottom:1rem;
+  margin-bottom:.8rem;
   font-family:var(--mono);
   letter-spacing:.04em;
 }
@@ -332,17 +332,22 @@ li{margin-bottom:.6rem;color:var(--ink-3);font-size:15px}
 
 .season-img{
   width:100%;
-  border-radius:12px;
-  box-shadow:0 8px 16px rgba(0,0,0,.06);
-  margin-bottom:1.2rem;
+  max-width:180px;
+  border-radius:10px;
+  box-shadow:0 6px 12px rgba(0,0,0,.06);
+  margin-bottom:1rem;
 }
 .season-card-tit{
   font-weight:700;color:var(--ink);
-  font-size:13px;margin-bottom:.4rem;
+  font-size:12px;margin-bottom:.4rem;
+  word-break:keep-all;
 }
 .season-card-desc{
-  font-size:12.5px;color:var(--ink-3);
+  font-size:12px;color:var(--ink-3);
   line-height:1.5;
+  word-break:keep-all;
+  max-width:140px;
+  margin:0 auto;
 }
 
 .season-note{
@@ -453,7 +458,7 @@ li{margin-bottom:.6rem;color:var(--ink-3);font-size:15px}
   <!-- ── HERO ── -->
   <header class="hero">
     <div class="hero-label">📊 Case Study · 메시지 고도화 프로젝트</div>
-    <h1 class="hero-kicker">등록률<br><span>5.7 → 15.3%</span></h1>
+    <h1 class="hero-kicker">메시지 고도화 프로젝트:<br><span>등록률 5.7 → 15.3% 달성</span></h1>
     <p class="hero-deck">
       "매일 같은 문자를 재발송하라"는 지시에 반대하며 시작된 프로젝트.<br>
       데이터로 증명한, 5개월간 성과를 168% 끌어올린 여정입니다.
