@@ -381,7 +381,6 @@ body.post-page {
    post.html container 안에서 좌우 여백 없이 펼쳐지도록
 ─────────────────────────────────────────────── */
 .post-container .wrap {
-  max-width: 100%;
   box-sizing: border-box;
   padding-left: 2rem;
   padding-right: 2rem;
