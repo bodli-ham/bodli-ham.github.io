@@ -72,7 +72,7 @@ function renderPosts(posts) {
         <span>${post.date}</span>
         ${categoryLabel ? `<span class="category">${categoryLabel}</span>` : ''}
       </div>
-      <p class="excerpt">${post.summary || post.excerpt || ''}</p>
+      <p class="excerpt">${post.summary || ''}</p>
       ${tagsHtml}
     `;
 

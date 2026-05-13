@@ -22,7 +22,7 @@
         });
 
         tagsContainer.innerHTML = `
-            <button class="tag-btn active" data-tag="all">전체</button>
+            <button class="tag-btn active" data-tag="all">Total</button>
         `;
 
         Array.from(tagsSet).sort().forEach(tag => {
@@ -61,7 +61,7 @@
         const searchTerm = (query || (searchInput ? searchInput.value : '')).toLowerCase();
         
         const filteredPosts = localPosts.filter(post => {
-            const summaryText = (post.summary || post.excerpt || '').toLowerCase();
+            const summaryText = (post.summary || '').toLowerCase();
             const matchesSearch = post.title.toLowerCase().includes(searchTerm) || 
                                   summaryText.includes(searchTerm);
             const matchesTag = activeTag ? (post.tags && post.tags.includes(activeTag)) : true;
