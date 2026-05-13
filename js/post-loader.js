@@ -39,6 +39,13 @@ document.addEventListener('DOMContentLoaded', async () => {
       // [태그] 제거 후 순수 제목만 탭에 표시
       const pureTitle = post.title.replace(/^\[[^\]]+\]\s*/, '');
       document.title = `${pureTitle} — bodli's Blog`;
+
+      // 카테고리 탭 활성화 — 현재 게시물의 카테고리와 일치하는 탭에 active 클래스 부여
+      if (post.category) {
+        document.querySelectorAll('.cat-tab').forEach(tab => {
+          tab.classList.toggle('active', tab.dataset.category === post.category);
+        });
+      }
     }
 
     // 2. assets/html 파일 fetch
