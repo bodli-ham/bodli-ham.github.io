@@ -9,9 +9,9 @@
 Desktop/
 ├── analysis-auto-skills/              ← 에이전트 A 윈도우 연결
 │   └── .agents/
-│       └── rules/
-│           └── SKILL.md              ← 분석·초안 전용 룰
-│
+│       └── skills/
+│           └── agentA-data-analysis
+        │       └── SKILL.md              ← 분석·초안 전용 룰
 └── gravity_blog/                      ← 에이전트 B 윈도우 연결
     └── bodli-ham.github.io/
         ├── .agents/
