@@ -1,1124 +1,895 @@
 <!DOCTYPE html>
 <html lang="ko">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>메시지 고도화 프로젝트 — 류보라</title>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Noto+Sans+KR:wght@300;400;500;700&family=Noto+Serif+KR:wght@400;600&family=DM+Mono:wght@400;500&display=swap"
-    rel="stylesheet">
-  <style>
-    *,
-    *::before,
-    *::after {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0
-    }
-
-    :root {
-      --ink: #2a2438;
-      --ink-2: #3d3b4a;
-      --ink-3: #7c7793;
-      --ink-4: #a49ebd;
-      --ink-5: #d4d4cc;
-      --bg: #fcfaff;
-      --bg-2: #f3ebff;
-      --bg-3: #e1cde6;
-      --accent: #9283d6;
-      --accent-lt: rgba(146, 131, 214, 0.15);
-      --accent-mid: #7b6ab5;
-      --red: #c23b22;
-      --red-lt: #fde8e4;
-      --green: #8d7ec7;
-      --green-lt: #f1eeff;
-      --yellow-lt: #fef9e0;
-      --border: rgba(146, 131, 214, 0.1);
-      --border-2: rgba(146, 131, 214, 0.2);
-      --serif: 'Noto Serif KR', serif;
-      --sans: 'Noto Sans KR', sans-serif;
-      --mono: 'DM Mono', monospace;
-      --display: 'Bebas Neue', sans-serif;
-    }
-
-    html {
-      scroll-behavior: smooth
-    }
-
-    body {
-      font-family: var(--sans);
-      font-size: 16px;
-      line-height: 1.85;
-      color: var(--ink-2);
-      background: var(--bg);
-      -webkit-font-smoothing: antialiased;
-      letter-spacing: -0.01em;
-    }
-
-    .wrap {
-      max-width: 1000px;
-      margin: 2rem auto 4rem;
-      padding: 0 2rem 3rem;
-      position: relative;
-    }
-
-    /* ── HERO ── */
-    .hero {
-      padding: 6rem 0 4rem;
-      border-bottom: 1.5px solid var(--border-2);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero::before {
-      content: '';
-      position: absolute;
-      top: -60px;
-      right: -80px;
-      width: 360px;
-      height: 360px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(146, 131, 214, 0.15) 0%, transparent 70%);
-      pointer-events: none;
-    }
-
-    .hero-label {
-      font-family: var(--mono);
-      font-size: 11px;
-      letter-spacing: .18em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 1.25rem;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-weight: 700;
-    }
-
-    .hero-label::before {
-      content: '';
-      width: 28px;
-      height: 1px;
-      background: var(--accent)
-    }
-
-    .hero-kicker {
-      font-family: var(--display);
-      font-size: clamp(52px, 8vw, 88px);
-      line-height: .95;
-      letter-spacing: .01em;
-      color: var(--ink);
-      margin-bottom: 1.5rem;
-    }
-
-    .hero-kicker span {
-      color: var(--accent)
-    }
-
-    .hero-deck {
-      font-size: 18px;
-      line-height: 1.8;
-      color: var(--ink-3);
-      max-width: 800px;
-      margin-bottom: 3rem;
-      font-weight: 300;
-    }
-
-    .meta-strip {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0;
-      border: 1px solid var(--border-2);
-      border-radius: 12px;
-      overflow: hidden;
-      max-width: 100%;
-      background: white;
-    }
-
-    .meta-cell {
-      padding: 1rem 1.5rem;
-      border-right: 1px solid var(--border-2);
-      flex: 1;
-      min-width: 160px;
-    }
-
-    .meta-cell:last-child {
-      border-right: none
-    }
-
-    .meta-k {
-      font-family: var(--mono);
-      font-size: 10px;
-      letter-spacing: .12em;
-      text-transform: uppercase;
-      color: var(--ink-4);
-      margin-bottom: 4px
-    }
-
-    .meta-v {
-      font-size: 14px;
-      font-weight: 500;
-      color: var(--ink)
-    }
-
-    /* ── SECTION SHELL ── */
-    .sec {
-      padding: 5rem 0;
-      border-bottom: 1px solid var(--border)
-    }
-
-    .sec:last-of-type {
-      border-bottom: none
-    }
-
-    .step-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      font-family: var(--mono);
-      font-size: 10px;
-      letter-spacing: .16em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: .8rem;
-      background: var(--accent-lt);
-      padding: 4px 12px;
-      border-radius: 20px;
-      font-weight: 700;
-    }
-
-    h2 {
-      font-family: var(--sans);
-      font-size: 24px;
-      font-weight: 700;
-      letter-spacing: -.02em;
-      color: var(--ink);
-      margin-bottom: 1.8rem;
-      line-height: 1.35;
-    }
-
-    .body {
-      color: var(--ink-3);
-      line-height: 1.95;
-      margin-bottom: 1rem;
-      font-size: 15.5px
-    }
-
-    .body strong {
-      color: var(--ink-2);
-      font-weight: 600
-    }
-
-    em.q {
-      font-style: italic;
-      color: var(--ink-3);
-      display: block;
-      padding: 1.2rem;
-      background: var(--bg-2);
-      border-radius: 10px;
-      margin: 1.5rem 0;
-    }
-
-    /* ── IMAGES ── */
-    .img-wrap {
-      margin: 2rem 0;
-      border-radius: 16px;
-      overflow: hidden;
-      border: 1px solid var(--border-2);
-      background: white;
-    }
-
-    .img-wrap img {
-      width: 100%;
-      display: block;
-    }
-
-    .img-cap {
-      padding: 12px;
-      text-align: center;
-      font-size: 13px;
-      color: var(--ink-4);
-      background: #f9fafb;
-    }
-
-    /* ── CALLOUT ── */
-    .callout {
-      border-radius: 0 12px 12px 0;
-      padding: 1.2rem 1.6rem;
-      margin: 2rem 0;
-      border-left: 4px solid;
-    }
-
-    .callout.red {
-      background: var(--red-lt);
-      border-color: var(--red)
-    }
-
-    .callout.blue {
-      background: var(--accent-lt);
-      border-color: var(--accent)
-    }
-
-    .callout.neutral {
-      background: var(--bg-2);
-      border-color: var(--border-2)
-    }
-
-    .callout.green {
-      background: var(--green-lt);
-      border-color: var(--green)
-    }
-
-    .callout-hd {
-      font-family: var(--sans);
-      font-size: 13.5px;
-      letter-spacing: .05em;
-      margin-bottom: .6rem;
-      font-weight: 700;
-    }
-
-    .callout.red .callout-hd {
-      color: var(--red)
-    }
-
-    .callout.blue .callout-hd {
-      color: var(--accent)
-    }
-
-    .callout.neutral .callout-hd {
-      color: var(--ink-3)
-    }
-
-    .callout.green .callout-hd {
-      color: var(--green)
-    }
-
-    /* ── TABLES ── */
-    .exp-table {
-      width: 100%;
-      border-collapse: collapse;
-      margin: 2.5rem 0;
-      font-size: 14px;
-      background: white;
-      border-radius: 12px;
-      overflow: hidden;
-      border: 1px solid var(--border-2);
-    }
-
-    .exp-table thead th {
-      text-align: left;
-      padding: 14px 18px;
-      background: var(--bg-2);
-      font-weight: 700;
-      color: var(--ink);
-      font-size: 12px;
-    }
-
-    .exp-table tbody td {
-      padding: 14px 18px;
-      border-bottom: 1px solid var(--border);
-      color: var(--ink-3);
-      vertical-align: top;
-      line-height: 1.6;
-    }
-
-    .chip {
-      font-size: 10px;
-      padding: 2px 6px;
-      border-radius: 4px;
-      font-weight: 700;
-      margin-left: 6px;
-      background: var(--bg-3);
-      color: var(--ink-2);
-    }
-
-    .chip-check {
-      background: #e8f7ed;
-      color: #1a5c38;
-      font-size: 10px;
-      padding: 2px 6px;
-      border-radius: 4px;
-      font-weight: 700;
-      margin-left: 6px;
-    }
-
-    .chip-yellow {
-      background: #fffbe6;
-      color: #856404;
-      font-size: 10px;
-      padding: 2px 6px;
-      border-radius: 4px;
-      font-weight: 700;
-      margin-left: 6px;
-    }
-
-    /* ── MSG CARDS ── */
-    .msg-wrap {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1.5rem;
-      margin: 1.5rem 0;
-    }
-
-    .msg-card {
-      border: 1px solid var(--border-2);
-      border-radius: 14px;
-      overflow: hidden;
-      background: white;
-      display: flex;
-      flex-direction: column;
-      box-shadow: 0 4px 12px rgba(146, 131, 214, 0.05);
-    }
-
-    .msg-card-hd {
-      padding: 12px 16px;
-      background: var(--bg-2);
-      font-weight: 700;
-      font-size: 12.5px;
-      color: var(--ink);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-bottom: 1px solid var(--border-2);
-    }
-
-    .msg-card-tag {
-      font-family: var(--mono);
-      font-size: 10px;
-      background: var(--accent);
-      color: white;
-      padding: 2px 6px;
-      border-radius: 4px;
-    }
-
-    .msg-card-body {
-      padding: 1.2rem;
-      font-size: 13px;
-      line-height: 1.6;
-      color: var(--ink-2);
-      white-space: pre-wrap;
-      font-family: var(--sans);
-      flex-grow: 1;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .msg-card-ft {
-      padding: 10px 16px;
-      font-size: 12px;
-      color: var(--ink-4);
-      line-height: 1.5;
-      background: #fcfaff;
-    }
-
-    /* ── CHART ── */
-    .chart-section {
-      margin: 3rem 0;
-    }
-
-    .chart-title {
-      font-family: var(--mono);
-      font-size: 11px;
-      color: var(--accent);
-      margin-bottom: 1.5rem;
-      text-transform: uppercase;
-      font-weight: 700;
-      text-align: center;
-    }
-
-    .chart-container {
-      background: white;
-      padding: 2.5rem;
-      border-radius: 16px;
-      border: 1px solid var(--border-2);
-    }
-
-    /* ── BIG RESULT ── */
-    .big-res {
-      background: var(--ink);
-      border-radius: 18px;
-      padding: 3rem;
-      margin: 4rem 0;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .res-grid {
-      display: grid;
-      grid-template-columns: 1fr 1px 1fr 1px 1fr;
-      align-items: center;
-    }
-
-    .res-divider {
-      background: rgba(255, 255, 255, 0.15);
-      width: 1px;
-      height: 70px;
-    }
-
-    .res-k {
-      font-family: var(--mono);
-      font-size: 11px;
-      color: rgba(255, 255, 255, 0.5);
-      margin-bottom: 0.8rem;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-    }
-
-    .res-v {
-      font-family: var(--display);
-      font-size: 56px;
-      color: white;
-      line-height: 1;
-    }
-
-    .res-v.highlight {
-      color: var(--accent);
-    }
-
-    .res-v.green {
-      color: #5dd69c;
-    }
-
-    .res-s {
-      font-size: 14px;
-      color: rgba(255, 255, 255, 0.4);
-      margin-top: 10px;
-    }
-
-    /* ── INSIGHTS ── */
-    .pq {
-      font-family: var(--sans);
-      font-size: 20px;
-      font-weight: 700;
-      color: var(--ink);
-      line-height: 1.6;
-      text-align: center;
-      margin: 3rem 0;
-      padding: 0 2rem;
-      position: relative;
-    }
-
-    .pq::before {
-      content: '“';
-      position: absolute;
-      top: -20px;
-      left: 0;
-      font-size: 60px;
-      color: var(--accent-lt);
-    }
-
-    .ins-list {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 1.2rem;
-    }
-
-    .ins-item {
-      display: flex;
-      gap: 1.2rem;
-      align-items: flex-start;
-      padding: 1.5rem;
-      background: white;
-      border: 1px solid var(--border-2);
-      border-radius: 14px;
-    }
-
-    .ins-n {
-      font-family: var(--display);
-      font-size: 28px;
-      color: var(--accent-lt);
-      line-height: 1;
-      flex-shrink: 0;
-    }
-
-    .ins-t {
-      font-size: 14.5px;
-      color: var(--ink-3);
-      line-height: 1.7;
-    }
-
-    .ins-t strong {
-      color: var(--ink);
-      display: block;
-      margin-bottom: 0.4rem;
-      font-size: 15.5px;
-    }
-
-    /* ── HYPOTHESIS ── */
-    .hypo-list {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-      margin-top: 1.5rem;
-      background: white;
-      border: 1px solid var(--border-2);
-      border-radius: 16px;
-      padding: 1.5rem;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
-    }
-
-    .hypo-item {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0.8rem 0;
-      border-bottom: 1px solid #f0f0f5;
-    }
-
-    .hypo-item:last-child {
-      border-bottom: none;
-    }
-
-    .hypo-content {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-    }
-
-    .hypo-icon {
-      font-size: 1.2rem;
-      min-width: 24px;
-    }
-
-    .hypo-text {
-      font-size: 14.5px;
-      color: var(--ink-2);
-      line-height: 1.5;
-    }
-
-    .hypo-text strong {
-      color: var(--ink);
-      font-weight: 700;
-      margin-right: 0.5rem;
-    }
-
-    .badge-check {
-      display: flex;
-      align-items: center;
-      gap: 4px;
-      background: #e8f7ed;
-      color: #1a5c38;
-      font-size: 11px;
-      font-weight: 700;
-      padding: 4px 10px;
-      border-radius: 6px;
-      white-space: nowrap;
-    }
-
-    .callout.purple {
-      background: var(--bg-2);
-      border-left-color: var(--accent);
-    }
-
-    /* ── FOOTER ── */
-    .footer {
-      padding: 4rem 0 2rem;
-      text-align: center;
-      border-top: 1px solid var(--border-2);
-      margin-top: 4rem;
-    }
-
-    .footer p {
-      font-size: 12px;
-      color: var(--ink-4)
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>메시지 고도화 프로젝트 — bodli's Blog</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Noto+Sans+KR:wght@300;400;500;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* ─────────────────────────────────────────────
+   bodli's Blog — Shared Design Tokens
+───────────────────────────────────────────── */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+:root{
+  /* 잉크 */
+  --ink:#2a2438;
+  --ink-2:#3d3b4a;
+  --ink-3:#7c7793;
+  --ink-4:#a49ebd;
+  --ink-5:#d4d4cc;
+
+  /* 배경 */
+  --bg:#fcfaff;
+  --bg-2:#f3ebff;
+  --bg-3:#e1cde6;
+
+  /* 액센트 */
+  --accent:#9283d6;
+  --accent-lt:rgba(146,131,214,.15);
+  --accent-mid:#7b6ab5;
+
+  /* 의미 색상 */
+  --red:#c23b22;
+  --red-lt:#fde8e4;
+  --green:#1a5c38;
+  --green-lt:#d4f0e2;
+  --yellow:#d97706;
+  --yellow-lt:#fef9e0;
+
+  /* 보더 */
+  --border:rgba(146,131,214,.1);
+  --border-2:rgba(146,131,214,.2);
+
+  /* 폰트 */
+  --sans:'Noto Sans KR',sans-serif;
+  --mono:'DM Mono',monospace;
+  --display:'Bebas Neue',sans-serif;
+}
+
+html{scroll-behavior:smooth}
+body{
+  font-family:var(--sans);
+  font-size:16px;
+  line-height:1.85;
+  color:var(--ink-2);
+  background:var(--bg);
+  -webkit-font-smoothing:antialiased;
+  letter-spacing:-0.01em;
+}
+
+.wrap{max-width:1000px;margin:0 auto;padding:0 2rem 8rem}
+
+/* ── HERO ── */
+.hero{
+  padding:6rem 0 4rem;
+  border-bottom:1.5px solid var(--border-2);
+  position:relative;
+  overflow:hidden;
+}
+.hero::before{
+  content:'';
+  position:absolute;
+  top:-60px;right:-80px;
+  width:360px;height:360px;
+  border-radius:50%;
+  background:radial-gradient(circle,rgba(146,131,214,.15) 0%,transparent 70%);
+  pointer-events:none;
+}
+.hero-label{
+  font-family:var(--mono);
+  font-size:11px;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--accent);margin-bottom:1.25rem;
+  display:flex;align-items:center;gap:10px;
+  font-weight:700;
+}
+.hero-label::before{content:'';width:28px;height:1px;background:var(--accent)}
+
+.hero-kicker{
+  font-family:var(--display);
+  font-size:clamp(52px,8vw,88px);
+  line-height:.95;
+  letter-spacing:.01em;
+  color:var(--ink);
+  margin-bottom:1.5rem;
+}
+.hero-kicker span{color:var(--accent)}
+
+.hero-deck{
+  font-size:18px;line-height:1.8;
+  color:var(--ink-3);
+  max-width:680px;
+  margin-bottom:3rem;
+  font-weight:300;
+}
+
+.meta-strip{
+  display:flex;flex-wrap:wrap;gap:0;
+  border:1px solid var(--border-2);
+  border-radius:12px;
+  overflow:hidden;
+  max-width:760px;
+  background:white;
+}
+.meta-cell{
+  padding:1rem 1.5rem;
+  border-right:1px solid var(--border-2);
+  flex:1;min-width:180px;
+}
+.meta-cell:last-child{border-right:none}
+.meta-k{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-4);margin-bottom:4px}
+.meta-v{font-size:13.5px;font-weight:500;color:var(--ink)}
+
+/* ── SECTION SHELL ── */
+.sec{padding:5rem 0;border-bottom:1px solid var(--border)}
+.sec:last-of-type{border-bottom:none}
+
+.step-badge{
+  display:inline-flex;align-items:center;gap:8px;
+  font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--accent);margin-bottom:.8rem;
+  background:var(--accent-lt);
+  padding:4px 12px;
+  border-radius:20px;
+  font-weight:700;
+}
+
+h2{
+  font-family:var(--sans);
+  font-size:24px;font-weight:700;
+  letter-spacing:-.02em;color:var(--ink);
+  margin-bottom:1.8rem;line-height:1.35;
+}
+h3{
+  font-size:16px;font-weight:700;color:var(--ink);
+  margin:2.5rem 0 1.2rem;
+  padding-left:12px;border-left:4px solid var(--accent);
+}
+.body{color:var(--ink-3);line-height:1.95;margin-bottom:.85rem;font-size:15.5px}
+.body strong{color:var(--ink-2);font-weight:600}
+
+em.q{
+  font-style:italic;color:var(--ink-3);
+  display:block;
+  padding:1.2rem 1.4rem;
+  background:var(--bg-2);
+  border-radius:10px;
+  margin:1.5rem 0;
+  font-size:15.5px;
+}
+
+/* ── CALLOUT ── */
+.callout{
+  border-radius:0 12px 12px 0;
+  padding:1.2rem 1.6rem;
+  margin:2rem 0;
+  border-left:4px solid;
+}
+.callout.blue   {background:var(--accent-lt); border-color:var(--accent)}
+.callout.red    {background:var(--red-lt);    border-color:var(--red)}
+.callout.green  {background:var(--green-lt);  border-color:var(--green)}
+.callout.yellow {background:var(--yellow-lt); border-color:var(--yellow)}
+.callout.gray   {background:#f9fafb;          border-color:var(--ink-4)}
+.callout.neutral{background:var(--bg-2);      border-color:var(--border-2)}
+
+.callout-hd{
+  font-family:var(--sans);font-size:13px;letter-spacing:.05em;
+  margin-bottom:.6rem;font-weight:700;
+}
+.callout.blue    .callout-hd{color:var(--accent)}
+.callout.red     .callout-hd{color:var(--red)}
+.callout.green   .callout-hd{color:var(--green)}
+.callout.yellow  .callout-hd{color:var(--yellow)}
+.callout.gray    .callout-hd{color:var(--ink-4)}
+.callout.neutral .callout-hd{color:var(--ink-3)}
+
+/* ── TABLES ── */
+.exp-table{
+  width:100%;border-collapse:collapse;margin:2rem 0;
+  font-size:14px;background:white;
+  border-radius:12px;overflow:hidden;
+  border:1px solid var(--border-2);
+}
+.exp-table thead th{
+  text-align:left;padding:12px 15px;
+  background:var(--bg-2);
+  font-weight:700;color:var(--ink);font-size:12px;
+}
+.exp-table tbody td{
+  padding:12px 15px;
+  border-bottom:1px solid var(--border);
+  color:var(--ink-3);vertical-align:top;line-height:1.6;
+}
+.tag-green{color:var(--green);font-weight:700}
+.tag-red  {color:var(--red);font-weight:700}
+.tag-amber{color:var(--yellow);font-weight:700}
+
+/* 칩 (표 안 인라인 라벨) */
+.chip{
+  display:inline-block;
+  padding:2px 8px;
+  background:var(--bg-2);
+  color:var(--accent-mid);
+  font-size:10.5px;font-weight:700;
+  border-radius:4px;
+  margin-left:6px;
+  letter-spacing:.02em;
+}
+.chip-yellow{
+  display:inline-block;
+  padding:2px 8px;
+  background:var(--yellow-lt);
+  color:var(--yellow);
+  font-size:10.5px;font-weight:700;
+  border-radius:4px;
+  margin-left:6px;
+}
+.chip-check{
+  display:inline-block;
+  margin-left:4px;
+  color:var(--green);
+  font-weight:700;
+}
+
+/* ── LISTS ── */
+ul,ol{margin:1.5rem 0;padding-left:1.5rem}
+li{margin-bottom:.6rem;color:var(--ink-3);font-size:15px}
+
+/* ── HYPOTHESIS LIST ── */
+.hypo-list{margin:2rem 0;display:flex;flex-direction:column;gap:.8rem}
+.hypo-item{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:1rem 1.4rem;
+  background:white;
+  border:1px solid var(--border-2);
+  border-radius:12px;
+}
+.hypo-content{display:flex;align-items:center;gap:1rem}
+.hypo-icon{font-size:20px}
+.hypo-text{font-size:15px;color:var(--ink-3)}
+.hypo-text strong{color:var(--ink);margin-right:.5rem}
+.badge-check{
+  font-family:var(--mono);font-size:11px;
+  color:var(--green);font-weight:700;
+  background:var(--green-lt);
+  padding:4px 10px;border-radius:20px;
+  letter-spacing:.04em;flex-shrink:0;
+}
+
+/* ── MESSAGE CARDS ── */
+.msg-section-label{
+  font-family:var(--mono);font-size:9.5px;
+  letter-spacing:.1em;text-transform:uppercase;
+  color:var(--ink-4);
+  margin-bottom:.6rem;
+  margin-top:1.5rem;
+}
+.msg-wrap{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:1.5rem;
+}
+.msg-card{
+  background:white;
+  border:1px solid var(--border-2);
+  border-radius:14px;
+  overflow:hidden;
+  display:flex;flex-direction:column;
+}
+.msg-card-hd{
+  padding:.8rem 1.2rem;
+  background:var(--bg-2);
+  font-size:13px;font-weight:700;
+  color:var(--ink);
+  display:flex;justify-content:space-between;align-items:center;
+}
+.msg-card-tag{
+  font-family:var(--mono);font-size:10px;
+  background:var(--accent);color:white;
+  padding:2px 8px;border-radius:4px;
+  letter-spacing:.06em;
+}
+.msg-card-body{
+  padding:1.2rem;
+  font-family:var(--mono);font-size:11.5px;
+  color:var(--ink-3);line-height:1.7;
+  white-space:pre-wrap;
+  flex:1;
+  background:#fafafa;
+}
+.msg-card-ft{
+  padding:.8rem 1.2rem;
+  font-size:12.5px;color:var(--ink-4);
+  border-top:1px solid var(--border);
+  background:white;
+}
+
+/* ── 시즌 이미지 3컷 비교 ── */
+.season-compare{
+  margin-top:3rem;
+  background:#f8f7fb;
+  padding:2rem;
+  border-radius:20px;
+}
+.season-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:1.5rem;
+}
+.season-card{text-align:center}
+.season-tag{
+  display:inline-block;
+  font-size:11px;font-weight:700;
+  padding:4px 12px;
+  border-radius:20px;
+  margin-bottom:1rem;
+  font-family:var(--mono);
+  letter-spacing:.04em;
+}
+.season-tag.xmas {background:#fff3d6; color:#d4a017}
+.season-tag.newyear{background:#eef2ff; color:#4f46e5}
+.season-tag.spring{background:#f0fdf4; color:var(--green)}
+
+.season-img{
+  width:100%;
+  border-radius:12px;
+  box-shadow:0 8px 16px rgba(0,0,0,.06);
+  margin-bottom:1.2rem;
+}
+.season-card-tit{
+  font-weight:700;color:var(--ink);
+  font-size:13px;margin-bottom:.4rem;
+}
+.season-card-desc{
+  font-size:12.5px;color:var(--ink-3);
+  line-height:1.5;
+}
+
+.season-note{
+  margin-top:2.5rem;
+  background:var(--yellow-lt);
+  border-left:4px solid var(--yellow);
+  padding:1.2rem 1.6rem;
+  border-radius:0 12px 12px 0;
+}
+.season-note p{font-size:14.5px;color:var(--ink-2);line-height:1.7}
+
+/* ── BIG RESULT (최종 성과) ── */
+.big-res{
+  background:white;
+  border:1px solid var(--border-2);
+  border-radius:16px;
+  padding:2rem;
+  margin:2rem 0;
+}
+.res-grid{
+  display:grid;
+  grid-template-columns:1fr auto 1fr auto 1fr;
+  gap:1rem;
+  align-items:center;
+}
+.res-cell{text-align:center}
+.res-k{
+  font-family:var(--mono);font-size:10px;
+  letter-spacing:.14em;text-transform:uppercase;
+  color:var(--ink-4);margin-bottom:.4rem;
+}
+.res-v{
+  font-family:var(--display);
+  font-size:clamp(36px,5vw,52px);
+  color:var(--ink);
+  line-height:1;
+}
+.res-v.green{color:var(--green)}
+.res-v.highlight{color:var(--accent)}
+.res-s{
+  font-size:12px;color:var(--ink-3);
+  margin-top:.4rem;
+}
+.res-divider{
+  width:1px;height:40px;
+  background:var(--border-2);
+}
+@media (max-width:680px){
+  .res-grid{grid-template-columns:1fr}
+  .res-divider{width:40px;height:1px;justify-self:center}
+}
+
+/* ── 차트 ── */
+.chart-section{margin:2.5rem 0}
+.chart-title{
+  font-family:var(--mono);font-size:11px;
+  letter-spacing:.12em;text-transform:uppercase;
+  color:var(--ink-4);margin-bottom:1rem;
+}
+.chart-container{
+  background:white;
+  border:1px solid var(--border-2);
+  border-radius:12px;
+  padding:1.5rem;
+}
+
+/* ── 인용 강조구 ── */
+.pq{
+  font-family:var(--sans);
+  font-size:20px;line-height:1.5;
+  color:var(--ink);font-weight:500;
+  padding:1.6rem 2rem;
+  background:var(--bg-2);
+  border-radius:14px;
+  border-left:4px solid var(--accent);
+  margin:2rem 0;
+}
+
+/* ── INSIGHT LIST ── */
+.ins-list{margin:2rem 0;display:flex;flex-direction:column;gap:1rem}
+.ins-item{
+  display:flex;gap:1.2rem;
+  padding:1.5rem;
+  background:white;
+  border:1px solid var(--border-2);
+  border-radius:12px;
+}
+.ins-n{
+  font-family:var(--mono);font-size:13px;
+  color:var(--accent);font-weight:700;
+  flex-shrink:0;
+}
+.ins-t{font-size:15px;color:var(--ink-3);line-height:1.7}
+.ins-t strong{color:var(--ink);margin-right:.3rem}
+
+/* ── FOOTER ── */
+.footer{
+  padding:4rem 0 2rem;text-align:center;
+  border-top:1px solid var(--border-2);
+  margin-top:4rem;
+}
+.footer p{font-size:12px;color:var(--ink-4)}
+</style>
 </head>
-
 <body>
-  <div class="wrap">
+<div class="wrap">
 
-    <!-- ── HERO ── -->
-    <header class="hero">
-      <div class="hero-label">📊 성과 보고서 · 메시지 고도화 프로젝트</div>
-      <h1 class="hero-kicker">등록률<br><span>5.7 → 15.3%</span></h1>
-      <p class="hero-deck">
-        "매일 같은 문자를 재발송하라"는 지시에 반대하며 시작된 프로젝트.<br>
-        데이터로 증명한, 5개월간 성과를 168% 끌어올린 여정입니다. 📈
-      </p>
-      <div class="meta-strip">
-        <div class="meta-cell">
-          <div class="meta-k">📅 기간</div>
-          <div class="meta-v">2024.12 – 2025.04</div>
+  <!-- ── HERO ── -->
+  <header class="hero">
+    <div class="hero-label">📊 Case Study · 메시지 고도화 프로젝트</div>
+    <h1 class="hero-kicker">등록률<br><span>5.7 → 15.3%</span></h1>
+    <p class="hero-deck">
+      "매일 같은 문자를 재발송하라"는 지시에 반대하며 시작된 프로젝트.<br>
+      데이터로 증명한, 5개월간 성과를 168% 끌어올린 여정입니다.
+    </p>
+    <div class="meta-strip">
+      <div class="meta-cell"><div class="meta-k">📅 기간</div><div class="meta-v">2024.12 – 2025.04</div></div>
+      <div class="meta-cell"><div class="meta-k">👤 역할</div><div class="meta-v">단독 설계·운영·분석</div></div>
+      <div class="meta-cell"><div class="meta-k">🎯 대상</div><div class="meta-v">제휴 보험 가입자</div></div>
+    </div>
+  </header>
+
+
+  <!-- ── STEP 01 ── -->
+  <section class="sec">
+    <div class="step-badge">STEP 01</div>
+    <h2>🚩 상황과 문제 인식</h2>
+    <p class="body">
+      제휴 보험사 특약 가입자에게 '심리검사 쿠폰'을 무료로 제공하는 업무를 맡았습니다.
+      초기 등록률은 단 <strong>5.7%</strong>.<br>고객들은 무료 혜택 문자를 받고도 움직이지 않았습니다.
+    </p>
+
+    <div class="callout red">
+      <div class="callout-hd">💡 지시에 반대한 이유</div>
+      <p class="body"><strong>"등록할 때까지 매일 같은 안내 문자를 재발송하라"</strong>는 지시에 반대했습니다.</p>
+      <p class="body">첫 문자를 못 본 고객도 있겠지만, 자칫 고객에게 '스팸'으로 인식되면 서비스의 첫인상을 망칠 수 있었기 때문입니다. 1년이라는 긴 유효기간 동안 지속적으로 소통하겠다는 의견이 받아들여진 후, 실험 설계는 단독으로 진행했습니다.</p>
+    </div>
+
+    <em class="q">"내가 이 문자를 받는다면, 클릭하고 싶을까?" — 이 질문이 모든 실험의 시작이었습니다.</em>
+  </section>
+
+
+  <!-- ── STEP 02 ── -->
+  <section class="sec">
+    <div class="step-badge">STEP 02</div>
+    <h2>📋 가설 수립</h2>
+    <p class="body">
+      문자 한 통에 반응하지 않았다고 해서 그 고객이 관심 없는 건 아닐 수 있습니다.<br>
+      단순 정보 도달이 아닌, <strong>맥락과 타이밍</strong>이 고객의 행동을 결정한다는 4가지 핵심 가설을 세웠습니다.
+    </p>
+
+    <div class="hypo-list">
+      <div class="hypo-item">
+        <div class="hypo-content">
+          <span class="hypo-icon">⌚</span>
+          <div class="hypo-text"><strong>타이밍</strong>퇴근 후나 주말 오전 등 여유 시간에 반응이 높을 것이다</div>
         </div>
-        <div class="meta-cell">
-          <div class="meta-k">👤 역할</div>
-          <div class="meta-v">단독 설계·운영·분석</div>
-        </div>
-        <div class="meta-cell">
-          <div class="meta-k">🎯 대상</div>
-          <div class="meta-v">제휴 보험 가입자</div>
-        </div>
+        <div class="badge-check">✅ 검증</div>
       </div>
-    </header>
-
-    <!-- ── STEP 1 ── -->
-    <section class="sec">
-      <div class="step-badge">STEP 01</div>
-      <h2>🚩 상황과 문제 인식</h2>
-      <p class="body">
-        제휴 보험사 특약 가입자에게 '심리검사 쿠폰'을 무료로 제공하는 업무를 맡았습니다.
-        초기 등록률은 단 <strong>5.7%</strong>.<br>고객들은 무료 혜택 문자를 받고도 움직이지 않았습니다. 😶
-      </p>
-
-      <div class="callout red">
-        <div class="callout-hd">💡 지시에 반대한 이유</div>
-        <p class="body"><strong>"등록할 때까지 매일 같은 안내 문자를 재발송하라"</strong>는 지시에 반대했습니다.<br>
-          첫 문자를 못 본 고객도 있겠지만, 자칫 고객에게 '스팸'으로 인식되면 서비스의 첫인상을 망칠 수 있었기 때문입니다. 1년이라는 긴 유효기간 동안 지속적으로 소통하겠다는 의견이 받아들여진 후, 실험
-          설계는 단독으로 진행했습니다.</p>
+      <div class="hypo-item">
+        <div class="hypo-content">
+          <span class="hypo-icon">🖼️</span>
+          <div class="hypo-text"><strong>포맷</strong>텍스트보다 직관적인 이미지가 정보 인지율을 높일 것이다</div>
+        </div>
+        <div class="badge-check">✅ 검증</div>
       </div>
-
-      <em class="q">"내가 이 문자를 받는다면, 클릭하고 싶을까?" — 이 질문이 모든 실험의 시작이었습니다. 🧐</em>
-    </section>
-
-    <!-- ── STEP 2 ── -->
-    <section class="sec">
-      <div class="step-badge">STEP 02</div>
-      <h2>📋 가설 수립</h2>
-      <p class="body">
-        문자 한 통에 반응하지 않았다고 해서 그 고객이 관심 없는 건 아닐 수 있습니다.<br>
-        단순 정보 도달이 아닌, <strong>맥락과 타이밍</strong>이 고객의 행동을 결정한다는 4가지 핵심 가설을 세웠습니다. 🔍
-      </p>
-
-      <div class="hypo-list">
-        <div class="hypo-item">
-          <div class="hypo-content">
-            <span class="hypo-icon">⌚</span>
-            <div class="hypo-text"><strong>타이밍</strong> 퇴근 후나 주말 오전 등 여유 시간에 반응이 높을 것이다</div>
-          </div>
-          <div class="badge-check">✅ 검증</div>
+      <div class="hypo-item">
+        <div class="hypo-content">
+          <span class="hypo-icon">🔄</span>
+          <div class="hypo-text"><strong>재발송</strong>동일 반복이 아닌, 내용 변화를 주어야 새로운 모멘텀이 생긴다</div>
         </div>
-        <div class="hypo-item">
-          <div class="hypo-content">
-            <span class="hypo-icon">🖼️</span>
-            <div class="hypo-text"><strong>포맷</strong> 텍스트보다 직관적인 이미지가 정보 인지율을 높일 것이다</div>
-          </div>
-          <div class="badge-check">✅ 검증</div>
-        </div>
-        <div class="hypo-item">
-          <div class="hypo-content">
-            <span class="hypo-icon">🔄</span>
-            <div class="hypo-text"><strong>재발송</strong> 동일 반복이 아닌, 내용 변화를 주어야 새로운 모멘텀이 생긴다</div>
-          </div>
-          <div class="badge-check">✅ 검증</div>
-        </div>
-        <div class="hypo-item">
-          <div class="hypo-content">
-            <span class="hypo-icon">🎅</span>
-            <div class="hypo-text"><strong>맥락</strong> 계절성 이벤트 문구가 감성적 동기부여를 강화할 것이다</div>
-          </div>
-          <div class="badge-check">✅ 검증</div>
-        </div>
+        <div class="badge-check">✅ 검증</div>
       </div>
-    </section>
-
-    <!-- ── STEP 3 ── -->
-    <section class="sec">
-      <div class="step-badge">STEP 03</div>
-      <h2>🧪 검증 절차 - 단계적 변수 조정</h2>
-      <p class="body">
-        한 번에 모든 것을 바꾸지 않고, <strong>변수를 하나씩</strong> 조정하며 반응 패턴을 기록했습니다. 📝
-      </p>
-
-      <table class="exp-table">
-        <thead>
-          <tr>
-            <th>시점</th>
-            <th>조정 변수</th>
-            <th>주요 내용 및 액션</th>
-            <th>결과 (등록률)</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>12월 초</td>
-            <td><strong>기준선</strong></td>
-            <td>LMS, 낮 12시, 정보형 텍스트 <span class="chip">LMS</span></td>
-            <td>5.7% 등록</td>
-          </tr>
-          <tr>
-            <td>12/7 (토)</td>
-            <td><strong>발송 타이밍</strong></td>
-            <td>토요일 12시, 미등록자 전원 재발송 <span class="chip">LMS</span></td>
-            <td>2차 수신자 중 등록 확인 <span class="chip-check">✓</span></td>
-          </tr>
-          <tr>
-            <td>12/12</td>
-            <td><strong>연령 타겟팅</strong></td>
-            <td>3040 별도 발송, 퇴근 시간대 추가</td>
-            <td>30대 반응↑, 연령 분리시작</td>
-          </tr>
-          <tr>
-            <td>12/18</td>
-            <td><strong>포맷 변경</strong></td>
-            <td>감성 카피 + 마스코트 이미지 <span class="chip">MMS</span></td>
-            <td>즉각 반응 확인 <span class="chip-check">✓</span></td>
-          </tr>
-          <tr>
-            <td>12/21–25</td>
-            <td><strong>계절 맥락</strong></td>
-            <td>크리스마스 이미지 2종 제작·발송 <span class="chip">MMS</span></td>
-            <td>수신 당일 다수 등록<span class="chip-check">✓</span></td>
-          </tr>
-          <tr>
-            <td>12/31–1/4</td>
-            <td><strong>연말 맥락</strong></td>
-            <td>새해 설계 테마 <span class="chip">MMS</span></td>
-            <td>1/4(토) 집중 등록 <span class="chip-check">✓</span></td>
-          </tr>
-          <tr>
-            <td>1/17–25</td>
-            <td><strong>채널 전환</strong></td>
-            <td>카카오 알림톡 도입 <span class="chip-yellow">알림톡</span></td>
-            <td>설 연휴 전후 등록 확인</td>
-          </tr>
-          <tr>
-            <td>2월~</td>
-            <td><strong>복합 최적화</strong></td>
-            <td>LMS + 알림톡 10분 병행, 시간대 분리</td>
-            <td>누적 등록률 지속 상승</td>
-          </tr>
-        </tbody>
-      </table>
-
-      <div class="callout purple" style="margin-top: 1.5rem;">
-        <div class="callout-hd">💰 비용 효율화</div>
-        <p class="body">이미지 효과가 확인된 세그먼트에만 MMS를 적용하고, 나머지는 알림톡과 LMS를 병행하여 예산 대비 성과를 최적화했습니다.</p>
+      <div class="hypo-item">
+        <div class="hypo-content">
+          <span class="hypo-icon">🎅</span>
+          <div class="hypo-text"><strong>맥락</strong>계절성 이벤트 문구가 감성적 동기부여를 강화할 것이다</div>
+        </div>
+        <div class="badge-check">✅ 검증</div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- ── STEP 4 ── -->
-    <section class="sec">
-      <div class="step-badge">STEP 04</div>
-      <h2>✉️ 메시지 포맷 변화</h2>
-      <p class="body">
-        처음에는 정해진 틀에서 큰 변화를 주지 않고 '안내' 중심 메시지를 보냈습니다.<br>
-        이후 정보의 전달을 넘어 고객 중심의 '가치 제안'으로 메시지를 재설계했습니다. ✨
-      </p>
 
-      <p
-        style="font-family:var(--mono);font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-4);margin-bottom:.6rem">
-        1차 발송 → 2차 발송 (전환 전)</p>
-      <div class="msg-wrap">
-        <div class="msg-card v1">
-          <div class="msg-card-hd">1차 — 기본 정보형<span class="msg-card-tag">LMS</span></div>
-          <div class="msg-card-body">[oooo oooo보험 3.0 기본서비스 안내]
-            [Web발신]
-            oooo보험 x ooo 맞춤형 통합
-            심리검사 이용권 도착!
+  <!-- ── STEP 03 ── -->
+  <section class="sec">
+    <div class="step-badge">STEP 03</div>
+    <h2>🧪 검증 절차 — 단계적 변수 조정</h2>
+    <p class="body">
+      한 번에 모든 것을 바꾸지 않고, <strong>변수를 하나씩</strong> 조정하며 반응 패턴을 기록했습니다.
+    </p>
 
-            oooo보험 oooo 3.0에
-            가입해주셔서 감사합니다.
-            'oooo' 심리검사를
-            무료로 이용하실 수 있습니다.
+    <table class="exp-table">
+      <thead>
+        <tr>
+          <th>시점</th>
+          <th>조정 변수</th>
+          <th>주요 내용 및 액션</th>
+          <th>결과 (등록률)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>12월 초</td>
+          <td><strong>기준선</strong></td>
+          <td>LMS, 낮 12시, 정보형 텍스트<span class="chip">LMS</span></td>
+          <td>5.7% 등록</td>
+        </tr>
+        <tr>
+          <td>12/7 (토)</td>
+          <td><strong>발송 타이밍</strong></td>
+          <td>토요일 12시, 미등록자 전원 재발송<span class="chip">LMS</span></td>
+          <td>2차 수신자 중 등록 확인<span class="chip-check">✓</span></td>
+        </tr>
+        <tr>
+          <td>12/12</td>
+          <td><strong>연령 타겟팅</strong></td>
+          <td>3040 별도 발송, 퇴근 시간대 추가</td>
+          <td>30대 반응↑, 연령 분리 시작</td>
+        </tr>
+        <tr>
+          <td>12/18</td>
+          <td><strong>포맷 변경</strong></td>
+          <td>감성 카피 + 마스코트 이미지<span class="chip">MMS</span></td>
+          <td>즉각 반응 확인<span class="chip-check">✓</span></td>
+        </tr>
+        <tr>
+          <td>12/21–25</td>
+          <td><strong>계절 맥락</strong></td>
+          <td>크리스마스 이미지 2종 제작·발송<span class="chip">MMS</span></td>
+          <td>수신 당일 다수 등록<span class="chip-check">✓</span></td>
+        </tr>
+        <tr>
+          <td>12/31–1/4</td>
+          <td><strong>연말 맥락</strong></td>
+          <td>새해 설계 테마<span class="chip">MMS</span></td>
+          <td>1/4(토) 집중 등록<span class="chip-check">✓</span></td>
+        </tr>
+        <tr>
+          <td>1/17–25</td>
+          <td><strong>채널 전환</strong></td>
+          <td>카카오 알림톡 도입<span class="chip-yellow">알림톡</span></td>
+          <td>설 연휴 전후 등록 확인</td>
+        </tr>
+        <tr>
+          <td>2월~</td>
+          <td><strong>복합 최적화</strong></td>
+          <td>LMS + 알림톡 10분 병행, 시간대 분리</td>
+          <td>누적 등록률 지속 상승</td>
+        </tr>
+      </tbody>
+    </table>
 
-            ■ 상품 정보
-            - 피보험자명: ㅇㅇㅇ
-            - 쿠폰 등록 유효기간: 2025년 12월 1일
+    <div class="callout yellow">
+      <div class="callout-hd">비용 효율화</div>
+      <p class="body">이미지 효과가 확인된 세그먼트에만 MMS를 적용하고, 나머지는 알림톡과 LMS를 병행하여 예산 대비 성과를 최적화했습니다.</p>
+    </div>
+  </section>
 
-            ■ 심리검사 이용 방법
-            1. 앱 설치 후 회원가입
-            ▶ Google Play / Apple App Store
-            2. '내 공간 > 쿠폰 등록하기' 코드 입력
-            ▶ 무료 쿠폰코드: oooo
-            3. 발급된 쿠폰 눌러 검사 구매
-            ▶ 이용가이드: https://bit.ly/4eugV71
 
-            ■ 서비스 문의하기
-            ▣ insbiz@ce.com
-            ☎ 02-556-0000
+  <!-- ── STEP 04 ── -->
+  <section class="sec">
+    <div class="step-badge">STEP 04</div>
+    <h2>✉️ 메시지 포맷 변화</h2>
+    <p class="body">
+      처음에는 정해진 틀에서 큰 변화를 주지 않고 '안내' 중심 메시지를 보냈습니다.<br>
+      이후 정보의 전달을 넘어 고객 중심의 '가치 제안'으로 메시지를 재설계했습니다.
+    </p>
 
-            ※ 본 메시지는 서비스 이용에 동의하신
-            고객님에게 발송되는 안내문자입니다.</div>
-          <div class="msg-card-ft">절차·정보 중심. 행동 유인이 약하고 한 화면에 담기지 않는다.</div>
-        </div>
+    <p class="msg-section-label">1차 발송 → 2차 발송 (전환 전)</p>
+    <div class="msg-wrap">
+      <div class="msg-card">
+        <div class="msg-card-hd">1차 — 기본 정보형<span class="msg-card-tag">LMS</span></div>
+        <div class="msg-card-body">[oooo oooo보험 3.0 기본서비스 안내]
+[Web발신]
+oooo보험 x ooo 맞춤형 통합
+심리검사 이용권 도착!
 
-        <div class="msg-card v2">
-          <div class="msg-card-hd">2차 — 혜택 전면화<span class="msg-card-tag">LMS</span></div>
-          <div class="msg-card-body">100% 할인 심리검사 쿠폰 도착
-            [Web발신]
-            oo님, oooo보험에서
-            심리검사 쿠폰을 드립니다!
+oooo보험 oooo 3.0에
+가입해주셔서 감사합니다.
+'oooo' 심리검사를
+무료로 이용하실 수 있습니다.
 
-            oooo보험 oooo3.0 가입 혜택으로,
-            'oooo' 심리검사를 이용해보세요.
+■ 상품 정보
+- 피보험자명: ㅇㅇㅇ
+- 쿠폰 등록 유효기간: 2025년 12월 1일
 
-            ■ 상품 정보
-            - 피보험자명: 김oo
-            ——————————————
-            ■ 이용 방법
-            ▶ 앱 설치: https://mindcafe.onelink.me/…
-            ▶ 쿠폰코드: oooo
-            ——————————————
-            지금 바로 나를 찾아가는
-            여정을 시작해보세요!
+■ 심리검사 이용 방법
+1. 앱 설치 후 회원가입
+▶ Google Play / Apple App Store
+2. '내 공간 > 쿠폰 등록하기' 코드 입력
+▶ 무료 쿠폰코드: oooo
+3. 발급된 쿠폰 눌러 검사 구매
+▶ 이용가이드: https://bit.ly/4eugV71
 
-            ※ 12월 6일 오후 7시 미사용 기준 발송.</div>
-          <div class="msg-card-ft">"100% 할인" 전면화. 링크 하나로 간소화. 여전히 정보 나열형.</div>
-        </div>
+■ 서비스 문의하기
+▣ insbiz@ce.com
+☎ 02-556-0000
+
+※ 본 메시지는 서비스 이용에 동의하신
+고객님에게 발송되는 안내문자입니다.</div>
+        <div class="msg-card-ft">절차·정보 중심. 행동 유인이 약하고 한 화면에 담기지 않는다.</div>
       </div>
 
-      <p
-        style="font-family:var(--mono);font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-4);margin-bottom:.6rem;margin-top:1.5rem">
-        최적화 이후 발송 → 이벤트 발송 (전환율 상승)</p>
-      <div class="msg-wrap">
-        <div class="msg-card v1">
-          <div class="msg-card-hd">이후 — 가치 명시 + 절차 압축<span class="msg-card-tag">LMS</span></div>
-          <div class="msg-card-body">oooo oooo3.0 심리검사
-            [Web발신]
-            ㅇㅇㅇ님,
-            지금 나를 위한 3만원 상당 심리검사를
-            무료로 만나보세요!
+      <div class="msg-card">
+        <div class="msg-card-hd">2차 — 혜택 전면화<span class="msg-card-tag">LMS</span></div>
+        <div class="msg-card-body">100% 할인 심리검사 쿠폰 도착
+[Web발신]
+oo님, oooo보험에서
+심리검사 쿠폰을 드립니다!
 
-            내 마음의 강점을 발견하고
-            스트레스 관리 방법을 찾아보세요!
+oooo보험 oooo3.0 가입 혜택으로,
+'oooo' 심리검사를 이용해보세요.
 
-            ■ 이용 방법
-            1. 앱 설치: https://mindcafe.onelink.me/…
-            2. 쿠폰코드 등록: oooo
+■ 상품 정보
+- 피보험자명: 김oo
+——————————————
+■ 이용 방법
+▶ 앱 설치: https://mindcafe.onelink.me/…
+▶ 쿠폰코드: oooo
+——————————————
+지금 바로 나를 찾아가는
+여정을 시작해보세요!
 
-            ※ 서비스 이용 동의 고객님께 발송.</div>
-          <div class="msg-card-ft">가치(3만원) 명시. 절차를 2단계로 압축.</div>
-        </div>
+※ 12월 6일 오후 7시 미사용 기준 발송.</div>
+        <div class="msg-card-ft">"100% 할인" 전면화. 링크 하나로 간소화. 여전히 정보 나열형.</div>
+      </div>
+    </div>
 
-        <div class="msg-card v2">
-          <div class="msg-card-hd">이벤트 — 이미지 + 한 줄 카피<span class="msg-card-tag">MMS</span></div>
-          <div class="msg-card-body">[마음케어 1인 무료쿠폰]
-            [Web발신]
-            ■ oooo oooo3.0
-            · 피보험자명: ㅇㅇㅇ
-            · 쿠폰번호: oooo
+    <p class="msg-section-label">최적화 이후 발송 → 이벤트 발송 (전환율 상승)</p>
+    <div class="msg-wrap">
+      <div class="msg-card">
+        <div class="msg-card-hd">이후 — 가치 명시 + 절차 압축<span class="msg-card-tag">LMS</span></div>
+        <div class="msg-card-body">oooo oooo3.0 심리검사
+[Web발신]
+ㅇㅇㅇ님,
+지금 나를 위한 3만원 상당 심리검사를
+무료로 만나보세요!
 
-            ▼ 쿠폰 등록하기:
-            https://mindcafe.onelink.me/RXps/hwgi
+내 마음의 강점을 발견하고
+스트레스 관리 방법을 찾아보세요!
 
-            올해 크리스마스엔
-            내 마음을 돌보세요.
+■ 이용 방법
+1. 앱 설치: https://mindcafe.onelink.me/…
+2. 쿠폰코드 등록: oooo
 
-            ※ 서비스 이용 동의 고객님께 발송.</div>
-          <div class="msg-card-ft">감성적 이미지 + 한 줄 카피만. 이 시점부터 전환율이 눈에 띄게 상승.</div>
-        </div>
+※ 서비스 이용 동의 고객님께 발송.</div>
+        <div class="msg-card-ft">가치(3만원) 명시. 절차를 2단계로 압축.</div>
       </div>
 
-      <div class="msg-comparison" style="margin-top: 3rem; background: #f8f8fa; padding: 2rem; border-radius: 20px;">
-        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;">
-          <!-- 크리스마스 -->
-          <div style="text-align: center;">
-            <div
-              style="display: inline-block; background: #fff3d6; color: #d4a017; font-size: 11px; font-weight: 700; padding: 4px 12px; border-radius: 20px; margin-bottom: 1rem;">
-              12/21~25 발송</div>
-            <img src="../images/msg_opt_img2.png"
-              style="width: 100%; border-radius: 12px; box-shadow: 0 8px 16px rgba(0,0,0,0.06); margin-bottom: 1.2rem;">
-            <p style="font-weight: 700; color: var(--ink); font-size: 12px; margin-bottom: 0.4rem;">"올해 크리스마스엔 내 마음을
-              돌보세요"</p>
-            <p style="font-size: 12px; color: var(--ink-3); line-height: 1.5;">시즌 이미지 + 한 줄 카피.<br>당일 다수 등록.</p>
-          </div>
+      <div class="msg-card">
+        <div class="msg-card-hd">이벤트 — 이미지 + 한 줄 카피<span class="msg-card-tag">MMS</span></div>
+        <div class="msg-card-body">[마음케어 1인 무료쿠폰]
+[Web발신]
+■ oooo oooo3.0
+· 피보험자명: ㅇㅇㅇ
+· 쿠폰번호: oooo
 
-          <!-- 새해 -->
-          <div style="text-align: center;">
-            <div
-              style="display: inline-block; background: #eef2ff; color: #4f46e5; font-size: 11px; font-weight: 700; padding: 4px 12px; border-radius: 20px; margin-bottom: 1rem;">
-              1/1~4 발송</div>
-            <img src="../images/msg_opt_img3.png"
-              style="width: 100%; border-radius: 12px; box-shadow: 0 8px 16px rgba(0,0,0,0.06); margin-bottom: 1.2rem;">
-            <p style="font-weight: 700; color: var(--ink); font-size: 12px; margin-bottom: 0.4rem;">"2025년, 더 나은 나를 위한
-              시작"</p>
-            <p style="font-size: 12px; color: var(--ink-3); line-height: 1.5;">새해 설계 테마 전환.<br>1/4(토) 집중 등록 확인.</p>
-          </div>
+▼ 쿠폰 등록하기:
+https://mindcafe.onelink.me/RXps/hwgi
 
-          <!-- 봄맞이 -->
-          <div style="text-align: center;">
-            <div
-              style="display: inline-block; background: #f0fdf4; color: #16a34a; font-size: 11px; font-weight: 700; padding: 4px 12px; border-radius: 20px; margin-bottom: 1rem;">
-              4월~ 봄맞이</div>
-            <img src="../images/msg_opt_img5.png"
-              style="width: 100%; border-radius: 12px; box-shadow: 0 8px 16px rgba(0,0,0,0.06); margin-bottom: 1.2rem;">
-            <p style="font-weight: 700; color: var(--ink); font-size: 12px; margin-bottom: 0.4rem;">"봄맞이 마음 리프레시"</p>
-            <p style="font-size: 12px; color: var(--ink-3); line-height: 1.5;">계절감 반영.<br>누적 등록률 꾸준히 상승.</p>
-          </div>
+올해 크리스마스엔
+내 마음을 돌보세요.
+
+※ 서비스 이용 동의 고객님께 발송.</div>
+        <div class="msg-card-ft">감성적 이미지 + 한 줄 카피만. 이 시점부터 전환율이 눈에 띄게 상승.</div>
+      </div>
+    </div>
+
+    <!-- 시즌 이미지 3컷 비교 -->
+    <div class="season-compare">
+      <div class="season-grid">
+        <div class="season-card">
+          <div class="season-tag xmas">12/21~25 발송</div>
+          <img src="../images/msg_opt_img2.png" class="season-img" alt="크리스마스 시즌 메시지 이미지">
+          <p class="season-card-tit">"올해 크리스마스엔 내 마음을 돌보세요"</p>
+          <p class="season-card-desc">시즌 이미지 + 한 줄 카피.<br>당일 다수 등록.</p>
         </div>
-
-        <!-- 포인트 콜아웃 -->
-        <div
-          style="margin-top: 2.5rem; background: #fffbe6; border-left: 4px solid #faad14; padding: 1.2rem 1.8rem; border-radius: 0 12px 12px 0;">
-          <p style="font-size: 14.5px; color: #856404; line-height: 1.7;">
-            <strong>포인트:</strong> 이미지와 카피를 수신 시점의 계절·감성과 일치시켰습니다. 이 두 발송 시점에서 등록률이 가장 가파르게 상승했습니다(12월 8.6% → 1월 18.9%).
-          </p>
+        <div class="season-card">
+          <div class="season-tag newyear">1/1~4 발송</div>
+          <img src="../images/msg_opt_img3.png" class="season-img" alt="새해 시즌 메시지 이미지">
+          <p class="season-card-tit">"2025년, 더 나은 나를 위한 시작"</p>
+          <p class="season-card-desc">새해 설계 테마 전환.<br>1/4(토) 집중 등록 확인.</p>
+        </div>
+        <div class="season-card">
+          <div class="season-tag spring">4월~ 봄맞이</div>
+          <img src="../images/msg_opt_img5.png" class="season-img" alt="봄맞이 시즌 메시지 이미지">
+          <p class="season-card-tit">"봄맞이 마음 리프레시"</p>
+          <p class="season-card-desc">계절감 반영.<br>누적 등록률 꾸준히 상승.</p>
         </div>
       </div>
 
-      <div class="callout blue" style="margin-top:2rem">
-        <div class="callout-hd">🎯 핵심 발견</div>
-        <p class="body">변화의 핵심은 <strong>메시지가 도달하는 순간의 맥락과 문구를 일치시킨 것</strong>입니다.<br> 크리스마스에 "올해 크리스마스엔 내 마음을 돌보세요"는 문구와
-          선물처럼 전달된 100% 쿠폰 이미지의 결합은, 수신자에게 다른 감각을 만들어냅니다.</p>
+      <div class="season-note">
+        <p><strong>포인트</strong> · 이미지와 카피를 수신 시점의 계절·감성과 일치시켰습니다. 이 두 발송 시점에서 등록률이 가장 가파르게 상승했습니다 (12월 8.6% → 1월 18.9%).</p>
       </div>
-    </section>
+    </div>
 
-    <!-- ── STEP 5 ── -->
-    <section class="sec">
-      <div class="step-badge">STEP 05</div>
-      <h2>🏆 최종 성과 분석</h2>
-      <p class="body">
-        5개월간의 꾸준한 최적화 결과, 초기 대비 비약적인 성장을 거두었습니다. 🎊
-      </p>
+    <div class="callout blue">
+      <div class="callout-hd">🎯 핵심 발견</div>
+      <p class="body">변화의 핵심은 <strong>메시지가 도달하는 순간의 맥락과 문구를 일치시킨 것</strong>입니다. 크리스마스에 "올해 크리스마스엔 내 마음을 돌보세요"라는 문구와 선물처럼 전달된 100% 쿠폰 이미지의 결합은, 수신자에게 다른 감각을 만들어냅니다.</p>
+    </div>
+  </section>
 
-      <div class="big-res">
-        <div class="res-grid">
-          <div class="res-cell">
-            <div class="res-k">Baseline</div>
-            <div class="res-v">5.7%</div>
-            <div class="res-s">최초 등록률</div>
-          </div>
-          <div class="res-divider"></div>
-          <div class="res-cell">
-            <div class="res-k">Final</div>
-            <div class="res-v green">15.3%</div>
-            <div class="res-s">최종 등록률</div>
-          </div>
-          <div class="res-divider"></div>
-          <div class="res-cell">
-            <div class="res-k">Growth</div>
-            <div class="res-v highlight">+168%</div>
-            <div class="res-s">상승 폭</div>
-          </div>
+
+  <!-- ── STEP 05 ── -->
+  <section class="sec">
+    <div class="step-badge">STEP 05</div>
+    <h2>🏆 최종 성과 분석</h2>
+    <p class="body">
+      5개월간의 꾸준한 최적화 결과, 초기 대비 비약적인 성장을 거두었습니다.
+    </p>
+
+    <div class="big-res">
+      <div class="res-grid">
+        <div class="res-cell">
+          <div class="res-k">Baseline</div>
+          <div class="res-v">5.7%</div>
+          <div class="res-s">최초 등록률</div>
+        </div>
+        <div class="res-divider"></div>
+        <div class="res-cell">
+          <div class="res-k">Final</div>
+          <div class="res-v green">15.3%</div>
+          <div class="res-s">최종 등록률</div>
+        </div>
+        <div class="res-divider"></div>
+        <div class="res-cell">
+          <div class="res-k">Growth</div>
+          <div class="res-v highlight">+168%</div>
+          <div class="res-s">상승 폭</div>
         </div>
       </div>
+    </div>
 
-      <!-- Monthly chart SVG -->
-      <div class="chart-section">
-        <div class="chart-title">월별 신규 가입자 등록률 추이</div>
-        <div class="chart-container">
-          <svg viewBox="0 0 760 200" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;display:block">
-            <defs>
-              <linearGradient id="barGrad" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%" stop-color="#1a3f72" />
-                <stop offset="100%" stop-color="#2d5fa8" />
-              </linearGradient>
-              <linearGradient id="barLight" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%" stop-color="#d0dff5" />
-                <stop offset="100%" stop-color="#b8d0f0" />
-              </linearGradient>
-            </defs>
+    <!-- 월별 신규 가입자 등록률 추이 차트 (디자인 시스템에 맞게 색상 통일) -->
+    <div class="chart-section">
+      <div class="chart-title">월별 신규 가입자 등록률 추이</div>
+      <div class="chart-container">
+        <svg viewBox="0 0 760 210" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;display:block">
+          <defs>
+            <linearGradient id="barGrad" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%"  stop-color="#7b6ab5"/>
+              <stop offset="100%" stop-color="#9283d6"/>
+            </linearGradient>
+            <linearGradient id="barLight" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%"  stop-color="#c8bde9"/>
+              <stop offset="100%" stop-color="#d8cef0"/>
+            </linearGradient>
+          </defs>
 
-            <!-- Y axis labels -->
-            <text x="28" y="28" font-family="DM Mono,monospace" font-size="9" fill="#a8a89e"
-              text-anchor="end">40%</text>
-            <text x="28" y="71" font-family="DM Mono,monospace" font-size="9" fill="#a8a89e"
-              text-anchor="end">30%</text>
-            <text x="28" y="115" font-family="DM Mono,monospace" font-size="9" fill="#a8a89e"
-              text-anchor="end">20%</text>
-            <text x="28" y="158" font-family="DM Mono,monospace" font-size="9" fill="#a8a89e"
-              text-anchor="end">10%</text>
+          <!-- Y axis labels -->
+          <text x="28" y="28"  font-family="DM Mono,monospace" font-size="9" fill="#a49ebd" text-anchor="end">40%</text>
+          <text x="28" y="71"  font-family="DM Mono,monospace" font-size="9" fill="#a49ebd" text-anchor="end">30%</text>
+          <text x="28" y="115" font-family="DM Mono,monospace" font-size="9" fill="#a49ebd" text-anchor="end">20%</text>
+          <text x="28" y="158" font-family="DM Mono,monospace" font-size="9" fill="#a49ebd" text-anchor="end">10%</text>
 
-            <!-- Grid lines -->
-            <line x1="36" y1="25" x2="750" y2="25" stroke="#e4e3d8" stroke-width="1" />
-            <line x1="36" y1="68" x2="750" y2="68" stroke="#e4e3d8" stroke-width="1" />
-            <line x1="36" y1="112" x2="750" y2="112" stroke="#e4e3d8" stroke-width="1" />
-            <line x1="36" y1="155" x2="750" y2="155" stroke="#e4e3d8" stroke-width="1" />
-            <line x1="36" y1="180" x2="750" y2="180" stroke="#d4d4cc" stroke-width="1.5" />
+          <!-- Grid lines -->
+          <line x1="36" y1="25"  x2="750" y2="25"  stroke="rgba(146,131,214,.15)" stroke-width="1"/>
+          <line x1="36" y1="68"  x2="750" y2="68"  stroke="rgba(146,131,214,.15)" stroke-width="1"/>
+          <line x1="36" y1="112" x2="750" y2="112" stroke="rgba(146,131,214,.15)" stroke-width="1"/>
+          <line x1="36" y1="155" x2="750" y2="155" stroke="rgba(146,131,214,.15)" stroke-width="1"/>
+          <line x1="36" y1="180" x2="750" y2="180" stroke="#d4d4cc" stroke-width="1.5"/>
 
-            <!-- Bars -->
-            <rect x="52" y="147" width="88" height="33" rx="4" fill="url(#barLight)" />
-            <text x="96" y="141" font-family="DM Mono,monospace" font-size="10" fill="#2d5fa8" text-anchor="middle"
-              font-weight="600">8.6%</text>
-            <text x="96" y="194" font-family="DM Mono,monospace" font-size="9" fill="#a8a89e"
-              text-anchor="middle">12월</text>
+          <!-- Bars -->
+          <rect x="52"  y="147" width="88" height="33"  rx="4" fill="url(#barLight)"/>
+          <text x="96"  y="141" font-family="DM Mono,monospace" font-size="10" fill="#7b6ab5" text-anchor="middle" font-weight="600">8.6%</text>
+          <text x="96"  y="200" font-family="DM Mono,monospace" font-size="9"  fill="#a49ebd" text-anchor="middle">12월</text>
 
-            <rect x="176" y="107" width="88" height="73" rx="4" fill="url(#barLight)" />
-            <text x="220" y="101" font-family="DM Mono,monospace" font-size="10" fill="#2d5fa8" text-anchor="middle"
-              font-weight="600">18.9%</text>
-            <text x="220" y="194" font-family="DM Mono,monospace" font-size="9" fill="#a8a89e"
-              text-anchor="middle">1월</text>
+          <rect x="176" y="107" width="88" height="73"  rx="4" fill="url(#barLight)"/>
+          <text x="220" y="101" font-family="DM Mono,monospace" font-size="10" fill="#7b6ab5" text-anchor="middle" font-weight="600">18.9%</text>
+          <text x="220" y="200" font-family="DM Mono,monospace" font-size="9"  fill="#a49ebd" text-anchor="middle">1월</text>
 
-            <rect x="300" y="68" width="88" height="112" rx="4" fill="url(#barGrad)" />
-            <text x="344" y="62" font-family="DM Mono,monospace" font-size="10" fill="#1a3f72" text-anchor="middle"
-              font-weight="600">28.9%</text>
-            <text x="344" y="194" font-family="DM Mono,monospace" font-size="9" fill="#a8a89e"
-              text-anchor="middle">2월</text>
+          <rect x="300" y="68"  width="88" height="112" rx="4" fill="url(#barGrad)"/>
+          <text x="344" y="62"  font-family="DM Mono,monospace" font-size="10" fill="#2a2438" text-anchor="middle" font-weight="600">28.9%</text>
+          <text x="344" y="200" font-family="DM Mono,monospace" font-size="9"  fill="#a49ebd" text-anchor="middle">2월</text>
 
-            <rect x="424" y="39" width="88" height="141" rx="4" fill="url(#barGrad)" />
-            <text x="468" y="33" font-family="DM Mono,monospace" font-size="10" fill="#1a3f72" text-anchor="middle"
-              font-weight="700">36.5%</text>
-            <text x="468" y="194" font-family="DM Mono,monospace" font-size="9" fill="#a8a89e"
-              text-anchor="middle">3월</text>
-            <rect x="440" y="4" width="56" height="16" rx="3" fill="#1a3f72" />
-            <text x="468" y="12" font-family="DM Mono,monospace" font-size="8.5" fill="white" text-anchor="middle"
-              letter-spacing=".06em">PEAK</text>
+          <rect x="424" y="39"  width="88" height="141" rx="4" fill="url(#barGrad)"/>
+          <text x="468" y="33"  font-family="DM Mono,monospace" font-size="10" fill="#2a2438" text-anchor="middle" font-weight="700">36.5%</text>
+          <text x="468" y="200" font-family="DM Mono,monospace" font-size="9"  fill="#a49ebd" text-anchor="middle">3월</text>
+          <rect x="440" y="4"   width="56" height="16"  rx="3" fill="#2a2438"/>
+          <text x="468" y="15"  font-family="DM Mono,monospace" font-size="8.5" fill="white" text-anchor="middle" letter-spacing=".06em">PEAK</text>
 
-            <rect x="548" y="89" width="88" height="91" rx="4" fill="url(#barLight)" />
-            <text x="592" y="83" font-family="DM Mono,monospace" font-size="10" fill="#2d5fa8" text-anchor="middle"
-              font-weight="600">23.6%</text>
-            <text x="592" y="194" font-family="DM Mono,monospace" font-size="9" fill="#a8a89e"
-              text-anchor="middle">4월</text>
-          </svg>
-        </div>
+          <rect x="548" y="89"  width="88" height="91"  rx="4" fill="url(#barLight)"/>
+          <text x="592" y="83"  font-family="DM Mono,monospace" font-size="10" fill="#7b6ab5" text-anchor="middle" font-weight="600">23.6%</text>
+          <text x="592" y="200" font-family="DM Mono,monospace" font-size="9"  fill="#a49ebd" text-anchor="middle">4월</text>
+        </svg>
       </div>
+    </div>
 
-      <p class="body">
-        보험 출시 후 시간이 지날수록 신규 가입자는 줄고, 월별 발송 대상 규모도 자연히 축소됐습니다.<br>
-        <strong>그럼에도 미등록자에 대한 지속적인 재발송 최적화를 통해 매월 누적 등록률은 꾸준히 상승했습니다.</strong>
-      </p>
-      <p class="body" style="margin-top:1.25rem">
-        <strong>21차 발송 이후 처음 등록한 사례</strong>도 있었습니다.
-        수개월간 반응이 없던 고객이 설 연휴, 새해 첫 주말이라는 맥락에서 비로소 행동했습니다.
-        동일한 메시지를 반복했다면 그 전에 스팸 처리로 영구 이탈했을지 모릅니다.
-      </p>
-    </section>
+    <p class="body">
+      보험 출시 후 시간이 지날수록 신규 가입자는 줄고, 월별 발송 대상 규모도 자연히 축소됐습니다.<br>
+      <strong>그럼에도 미등록자에 대한 지속적인 재발송 최적화를 통해 매월 누적 등록률은 꾸준히 상승했습니다.</strong>
+    </p>
+    <p class="body" style="margin-top:1.25rem">
+      <strong>21차 발송 이후 처음 등록한 사례</strong>도 있었습니다. 수개월간 반응이 없던 고객이 설 연휴·새해 첫 주말이라는 맥락에서 비로소 행동했습니다. 동일한 메시지를 반복했다면 그 전에 스팸 처리로 영구 이탈했을지 모릅니다.
+    </p>
+  </section>
 
-    <!-- ── STEP 6 ── -->
-    <section class="sec">
-      <div class="step-badge">STEP 06</div>
-      <h2>핵심 인사이트 & 가설 검증 요약</h2>
 
-      <div class="pq">
-        메시지 최적화란 더 많이 보내는 것이 아니라,<br>
-        받는 사람이 지금 열어볼 이유를 만들어주는 것입니다. ✨
+  <!-- ── STEP 06 ── -->
+  <section class="sec">
+    <div class="step-badge">STEP 06</div>
+    <h2>핵심 인사이트 & 가설 검증 요약</h2>
+
+    <div class="pq">
+      메시지 최적화란 더 많이 보내는 것이 아니라,<br>
+      받는 사람이 지금 열어볼 이유를 만들어주는 것입니다.
+    </div>
+
+    <div class="ins-list">
+      <div class="ins-item">
+        <span class="ins-n">01</span>
+        <span class="ins-t"><strong>타이밍이 포맷보다 먼저다.</strong>이미지가 아무리 좋아도 낮 12시 LMS와 퇴근 후 19시 MMS는 수신자 맥락이 다릅니다. "여유 있을 때 받아야 행동한다"는 가설이 데이터로 확인됐습니다.</span>
       </div>
-
-      <div class="ins-list">
-        <div class="ins-item">
-          <span class="ins-n">01</span>
-          <span class="ins-t"><strong>타이밍이 포맷보다 먼저다.</strong> 이미지가 아무리 좋아도 낮 12시 LMS와 퇴근 후 19시 MMS는 수신자 맥락이 다릅니다. "여유 있을
-            때 받아야 행동한다"는 가설이 데이터로 확인됐습니다.</span>
-        </div>
-        <div class="ins-item">
-          <span class="ins-n">02</span>
-          <span class="ins-t"><strong>계절성과 감성 맥락은 같은 내용도 다르게 만든다.</strong> 크리스마스·새해·설 연휴 테마는 동일한 서비스를 소개하면서도 "지금 이 시점에
-            열어볼 이유"를 제공했습니다. 이벤트 발송의 등록 전환이 평상시보다 일관되게 높았습니다.</span>
-        </div>
-        <div class="ins-item">
-          <span class="ins-n">03</span>
-          <span class="ins-t"><strong>연령대 세분화는 선택이 아니라 필수다.</strong> 20대는 발송 즉시 반응하지만 60대는 거의 반응하지 않습니다. 비용 효율 측면에서
-            세그먼트별 접근은 필수적입니다.</span>
-        </div>
-        <div class="ins-item">
-          <span class="ins-n">04</span>
-          <span class="ins-t"><strong>장기 미등록자는 포기 대상이 아니다.</strong> 10~21차 발송 이후 처음 등록한 고객이 실제로 있었습니다. 맥락이 달라졌기 때문에 가능한
-            일이었습니다. 동일 메시지 반복이었다면 스팸 처리로 기회가 사라졌을 것입니다.</span>
-        </div>
+      <div class="ins-item">
+        <span class="ins-n">02</span>
+        <span class="ins-t"><strong>계절성과 감성 맥락은 같은 내용도 다르게 만든다.</strong>크리스마스·새해·설 연휴 테마는 동일한 서비스를 소개하면서도 "지금 이 시점에 열어볼 이유"를 제공했습니다. 이벤트 발송의 등록 전환이 평상시보다 일관되게 높았습니다.</span>
       </div>
-
-      <div class="callout neutral" style="margin-top:3rem">
-        <div class="callout-hd">🔎 검증하고 싶은 다음 질문</div>
-        <p class="body">1. <strong>발송 타이밍을 개인화</strong>할 수 있다면 — 수신자의 앱 활동 시간대에 발송하는 구조가 가능한가?</p>
-        <p class="body">2. <strong>쿠폰 유효기간 알림</strong>을 만료 D-30, D-7에 발송하면 추가 전환이 발생하는가?</p>
-        <p class="body">3. 연령대별 최적 채널·시간·포맷을 <strong>자동화 룰</strong>로 설계할 수 있는가?</p>
+      <div class="ins-item">
+        <span class="ins-n">03</span>
+        <span class="ins-t"><strong>연령대 세분화는 선택이 아니라 필수다.</strong>20대는 발송 즉시 반응하지만 60대는 거의 반응하지 않습니다. 비용 효율 측면에서 세그먼트별 접근은 필수적입니다.</span>
       </div>
-
-      <div class="callout green" style="margin-top:2rem">
-        <div class="callout-hd">🍀 마인드셋의 변화</div>
-        <p class="body">데이터와 논리가 있다면 해보지 않은 일도 시도하고 성과를 낼 수 있다는 자신감을 얻었습니다.
-          공급자의 시선이 아닌 고객의 일상 속으로 들어가는 분석이 비즈니스 임팩트를 만든다는 것을 증명한 소중한 경험이었습니다.</p>
+      <div class="ins-item">
+        <span class="ins-n">04</span>
+        <span class="ins-t"><strong>장기 미등록자는 포기 대상이 아니다.</strong>10~21차 발송 이후 처음 등록한 고객이 실제로 있었습니다. 맥락이 달라졌기 때문에 가능한 일이었습니다. 동일 메시지 반복이었다면 스팸 처리로 기회가 사라졌을 것입니다.</span>
       </div>
-    </section>
+    </div>
 
-    <!-- ── FOOTER ── -->
-    <footer class="footer">
-      <p>&copy; 2026 메시지 고도화 프로젝트 성과 보고서. 류보라. All rights reserved.</p>
-    </footer>
+    <div class="callout neutral">
+      <div class="callout-hd">🔎 검증하고 싶은 다음 질문</div>
+      <p class="body">1. <strong>발송 타이밍을 개인화</strong>할 수 있다면 — 수신자의 앱 활동 시간대에 발송하는 구조가 가능한가?</p>
+      <p class="body">2. <strong>쿠폰 유효기간 알림</strong>을 만료 D-30, D-7에 발송하면 추가 전환이 발생하는가?</p>
+      <p class="body">3. 연령대별 최적 채널·시간·포맷을 <strong>자동화 룰</strong>로 설계할 수 있는가?</p>
+    </div>
 
-  </div>
+    <div class="callout green">
+      <div class="callout-hd">마인드셋의 변화</div>
+      <p class="body">데이터와 논리가 있다면 해보지 않은 일도 시도하고 성과를 낼 수 있다는 자신감을 얻었습니다. 공급자의 시선이 아닌 고객의 일상 속으로 들어가는 분석이 비즈니스 임팩트를 만든다는 것을 증명한 소중한 경험이었습니다.</p>
+    </div>
+  </section>
+
+
+  <!-- ── FOOTER ── -->
+  <footer class="footer">
+    <p>&copy; 2026 bodli's Blog · 메시지 고도화 프로젝트. All rights reserved.</p>
+  </footer>
+
+</div>
 </body>
-
 </html>
