@@ -4,4 +4,4 @@ date: 2026-05-12
 tags: ["Portfolio", "PMF", "데이터분석"]
 ---
 
-<iframe src="../assets/PMF_vitC_upload.html" width="100%" height="6500px" frameborder="0" style="border:none; overflow:hidden;" scrolling="no"></iframe>
+<iframe src="../assets/PMF_vitC_upload.html" width="100%" height="7000px" frameborder="0" style="border:none; overflow:hidden;" scrolling="no"></iframe>
