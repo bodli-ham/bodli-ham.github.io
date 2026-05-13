@@ -313,3 +313,71 @@ main {
   color: white;
   border-color: transparent;
 }
+
+/* =============================================
+   bodli's Blog — 본문(post.html) 스타일 개선
+   css/style.css 파일 하단에 추가
+   ============================================= */
+
+/* ── 1. post-header 완전 숨김 ──────────────────
+   assets/html의 HERO 섹션이 타이틀 역할을 합니다.
+   post.html의 .post-header가 이중 렌더링되지 않도록 숨깁니다.
+─────────────────────────────────────────────── */
+.post-header {
+  display: none !important;
+}
+
+/* ── 2. #post-content 컨테이너 여백 초기화 ──────
+   assets/html 내부 .wrap이 자체 max-width를 가지므로
+   post-container가 추가 패딩을 주지 않도록 합니다.
+─────────────────────────────────────────────── */
+.post-container {
+  padding-left: 0;
+  padding-right: 0;
+  max-width: 100%;
+}
+
+#post-content {
+  padding: 0;
+}
+
+/* ── 3. hero-deck 가시성 개선 ──────────────────
+   현재: 너무 연한 색(--ink-3 #7c7793)으로 안 보임
+   개선: 명도 높여 가독성 확보
+─────────────────────────────────────────────── */
+.hero-deck {
+  color: var(--ink-2, #3d3b4a) !important;
+  font-size: 17px !important;
+  font-weight: 400 !important;
+  opacity: 1 !important;
+}
+
+/* ── 4. hero-kicker 좌측 정렬 고정 ────────────
+   post.html의 전역 text-align이 center로 설정된 경우 대비
+─────────────────────────────────────────────── */
+.hero-kicker {
+  text-align: left !important;
+}
+
+.hero {
+  text-align: left !important;
+}
+
+/* ── 5. post-container 내부 .wrap 너비 보정 ────
+   assets/html의 .wrap(max-width:1000px)이
+   post.html container 안에서 좌우 여백 없이 펼쳐지도록
+─────────────────────────────────────────────── */
+.post-container .wrap {
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+@media (max-width: 640px) {
+  .post-container .wrap {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  .hero-deck {
+    font-size: 15px !important;
+  }
+}
