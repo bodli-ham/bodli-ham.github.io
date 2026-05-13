@@ -282,3 +282,28 @@ main {
     padding-top: 2rem;
     border-top: 1px solid var(--border-color);
 }
+
+/* 카테고리 탭 내비게이션 */
+.category-nav {
+  display: flex;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.cat-tab {
+  padding: 0.3rem 0.9rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text-color);
+  border: 1px solid var(--border-color, rgba(0,0,0,0.15));
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+  white-space: nowrap;
+}
+.cat-tab:hover,
+.cat-tab.active {
+  background: #9283d6;
+  color: white;
+  border-color: transparent;
+}

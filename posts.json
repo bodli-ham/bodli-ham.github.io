@@ -1,22 +1,24 @@
 [
   {
-    "file": "msg-optimization.md",
     "slug": "msg-optimization",
-    "title": "메시지 고도화 프로젝트: 등록률 5.7% → 15.3% 달성",
+    "file": "assets/msg-optimization.html",
+    "title": "[Case Study] 메시지 고도화 프로젝트: 등록률 5.7% → 15.3% 달성",
+    "summary": "데이터로 증명한, 5개월간 성과를 168% 끌어올린 메시지 최적화 여정",
+    "thumbnail": "images/msg-optimization-thumbnail.png",
     "date": "2026-05-12",
-    "tags": ["Portfolio", "데이터분석", "메시지최적화"],
-    "category": "Portfolio",
-    "description": "메시지 최적화 실험을 통해 전환율을 168% 끌어올린 실무 데이터 분석 사례입니다.",
-    "excerpt": "지시에 반대하며 데이터로 증명해낸, 5개월간의 성과 최적화 여정."
+    "category": "Case Study",
+    "tags": ["메시지최적화", "데이터분석", "마케팅"],
+    "techStack": ["A/B테스트", "직접 분석"]
   },
   {
-    "file": "pmf_vitC.md",
-    "slug": "pmf-vitc-analysis",
-    "title": "고려은단 비타민C — 소비자 구매 동인 분석",
-    "date": "2026-05-12",
-    "tags": ["Portfolio", "PMF", "데이터분석"],
-    "category": "Portfolio",
-    "description": "실제 리뷰 데이터를 통해 장기 스테디셀러의 성공 요인과 구매 동인을 파헤쳐 보았습니다.",
-    "excerpt": "소비자 루틴에 안착한 제품의 실제 구매 동인 분석 사례."
+    "slug": "pmf-vitc",
+    "file": "assets/pmf-vitc.html",
+    "title": "[Data Report] PMF 검증 #1. 고려은단 비타민C 1000",
+    "summary": "리뷰 데이터 분석으로 스테디셀러의 실제 구매 동인을 파헤치다",
+    "thumbnail": "images/pmf-vitc-thumbnail.png",
+    "date": "2026-04-28",
+    "category": "Data Report",
+    "tags": ["PMF", "건기식", "소비자분석", "데이터분석"],
+    "techStack": ["웹 리서치", "네이버 AI 요약"]
   }
 ]

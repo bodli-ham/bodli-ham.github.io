@@ -313,16 +313,16 @@ li{margin-bottom:.6rem;color:var(--ink-3);font-size:15px}
 }
 .season-grid{
   display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:1rem;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:1.5rem;
 }
-.season-card{text-align:center; min-width:0;}
+.season-card{text-align:center}
 .season-tag{
   display:inline-block;
-  font-size:10px;font-weight:700;
-  padding:3px 10px;
+  font-size:11px;font-weight:700;
+  padding:4px 12px;
   border-radius:20px;
-  margin-bottom:.8rem;
+  margin-bottom:1rem;
   font-family:var(--mono);
   letter-spacing:.04em;
 }
@@ -332,22 +332,17 @@ li{margin-bottom:.6rem;color:var(--ink-3);font-size:15px}
 
 .season-img{
   width:100%;
-  max-width:180px;
-  border-radius:10px;
-  box-shadow:0 6px 12px rgba(0,0,0,.06);
-  margin-bottom:1rem;
+  border-radius:12px;
+  box-shadow:0 8px 16px rgba(0,0,0,.06);
+  margin-bottom:1.2rem;
 }
 .season-card-tit{
   font-weight:700;color:var(--ink);
-  font-size:12px;margin-bottom:.4rem;
-  word-break:keep-all;
+  font-size:13px;margin-bottom:.4rem;
 }
 .season-card-desc{
-  font-size:12px;color:var(--ink-3);
+  font-size:12.5px;color:var(--ink-3);
   line-height:1.5;
-  word-break:keep-all;
-  max-width:140px;
-  margin:0 auto;
 }
 
 .season-note{
@@ -458,7 +453,7 @@ li{margin-bottom:.6rem;color:var(--ink-3);font-size:15px}
   <!-- ── HERO ── -->
   <header class="hero">
     <div class="hero-label">📊 Case Study · 메시지 고도화 프로젝트</div>
-    <h1 class="hero-kicker">메시지 고도화 프로젝트:<br><span>등록률 5.7 → 15.3% 달성</span></h1>
+    <h1 class="hero-kicker">등록률<br><span>5.7 → 15.3%</span></h1>
     <p class="hero-deck">
       "매일 같은 문자를 재발송하라"는 지시에 반대하며 시작된 프로젝트.<br>
       데이터로 증명한, 5개월간 성과를 168% 끌어올린 여정입니다.
@@ -722,19 +717,19 @@ https://mindcafe.onelink.me/RXps/hwgi
       <div class="season-grid">
         <div class="season-card">
           <div class="season-tag xmas">12/21~25 발송</div>
-          <img src="../images/msg_opt_img2.png" class="season-img" alt="크리스마스 시즌 메시지 이미지">
+          <img src="images/msg_opt_img2.png" class="season-img" alt="크리스마스 시즌 메시지 이미지">
           <p class="season-card-tit">"올해 크리스마스엔 내 마음을 돌보세요"</p>
           <p class="season-card-desc">시즌 이미지 + 한 줄 카피.<br>당일 다수 등록.</p>
         </div>
         <div class="season-card">
           <div class="season-tag newyear">1/1~4 발송</div>
-          <img src="../images/msg_opt_img3.png" class="season-img" alt="새해 시즌 메시지 이미지">
+          <img src="images/msg_opt_img3.png" class="season-img" alt="새해 시즌 메시지 이미지">
           <p class="season-card-tit">"2025년, 더 나은 나를 위한 시작"</p>
           <p class="season-card-desc">새해 설계 테마 전환.<br>1/4(토) 집중 등록 확인.</p>
         </div>
         <div class="season-card">
           <div class="season-tag spring">4월~ 봄맞이</div>
-          <img src="../images/msg_opt_img5.png" class="season-img" alt="봄맞이 시즌 메시지 이미지">
+          <img src="images/msg_opt_img5.png" class="season-img" alt="봄맞이 시즌 메시지 이미지">
           <p class="season-card-tit">"봄맞이 마음 리프레시"</p>
           <p class="season-card-desc">계절감 반영.<br>누적 등록률 꾸준히 상승.</p>
         </div>

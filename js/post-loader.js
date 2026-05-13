@@ -1,144 +1,72 @@
-﻿async function loadPost() {
-    const urlParams = new URLSearchParams(window.location.search);
-    const fileName = urlParams.get('file');
+// post-loader.js
+// posts.json의 "file" 필드(assets/{slug}.html)를 fetch해서
+// post.html의 #post-content에 직접 삽입합니다.
+// marked.js / iframe 불필요 — HTML 그대로 렌더링.
 
-    if (!fileName) {
-        document.getElementById('post-content').innerHTML = '<p>寃뚯떆湲??李얠쓣 ???놁뒿?덈떎.</p>';
-        return;
+document.addEventListener('DOMContentLoaded', async () => {
+  const urlParams = new URLSearchParams(window.location.search);
+  const file = urlParams.get('file'); // 예: assets/msg-optimization.html
+
+  if (!file) {
+    document.getElementById('post-content').innerHTML = '<p>게시글을 찾을 수 없습니다.</p>';
+    return;
+  }
+
+  try {
+    // 1. posts.json에서 해당 파일의 메타데이터 가져오기
+    const metaRes = await fetch('posts.json');
+    const posts = await metaRes.json();
+    const post = posts.find(p => p.file === file);
+
+    if (post) {
+      document.getElementById('post-title').textContent = post.title;
+      document.getElementById('post-date').textContent = post.date;
+
+      const categoryEl = document.getElementById('post-category');
+      if (categoryEl && post.category) {
+        categoryEl.textContent = CATEGORY_LABELS[post.category] || post.category;
+      }
+
+      const tagsEl = document.getElementById('post-tags');
+      if (tagsEl && post.tags) {
+        tagsEl.innerHTML = post.tags
+          .map(tag => `<span class="tag-btn">${tag}</span>`)
+          .join('');
+      }
+
+      document.title = `${post.title} — bodli's Blog`;
     }
 
-    try {
-        const response = await fetch(`pages/${fileName}`);
-        if (!response.ok) {
-            throw new Error('寃뚯떆湲??遺덈윭?????놁뒿?덈떎.');
-        }
-        
-        let content = await response.text();
-        
-        // UTF-8 BOM ?쒓굅
-        if (content.charCodeAt(0) === 0xFEFF) {
-            content = content.slice(1);
-        }
+    // 2. HTML 파일 직접 fetch → body 내용만 추출해서 삽입
+    const postRes = await fetch(file);
+    if (!postRes.ok) throw new Error(`파일 로드 실패: ${file}`);
+    const html = await postRes.text();
 
-        parseAndRender(content);
-        loadGiscus();
+    // <body>...</body> 사이 내용만 추출 (없으면 전체 사용)
+    const bodyMatch = html.match(/<body[^>]*>([\s\S]*)<\/body>/i);
+    const content = bodyMatch ? bodyMatch[1] : html;
 
-    } catch (error) {
-        console.error('寃뚯떆湲 濡쒕뱶 ?ㅽ뙣:', error);
-        document.getElementById('post-content').innerHTML = '<p>寃뚯떆湲??遺덈윭?ㅻ뒗 以??ㅻ쪟媛 諛쒖깮?덉뒿?덈떎.</p>';
-    }
-}
+    document.getElementById('post-content').innerHTML = content;
 
-function parseAndRender(content) {
-    // Front Matter ?뚯떛
-    const frontMatterMatch = content.match(/^---\r?\n([\s\S]*?)\r?\n---\r?\n([\s\S]*)$/);
-    let metadata = {};
-    let markdownContent = content;
+    // 3. assets/ HTML 내부의 상대 경로 이미지 보정
+    // assets/에서 images/를 참조할 때 루트 기준으로 작동하므로 별도 처리 불필요
+    // (post.html이 루트에 있고 assets/도 루트 하위이므로 경로 일치)
 
-    if (frontMatterMatch) {
-        const frontMatter = frontMatterMatch[1];
-        markdownContent = frontMatterMatch[2];
+  } catch (error) {
+    console.error('게시글 로드 실패:', error);
+    document.getElementById('post-content').innerHTML =
+      '<p>게시글을 불러오는데 실패했습니다.</p>';
+  }
 
-        const lines = frontMatter.split(/\r?\n/);
-        lines.forEach(line => {
-            const colonIndex = line.indexOf(':');
-            if (colonIndex > 0) {
-                const key = line.substring(0, colonIndex).trim();
-                let value = line.substring(colonIndex + 1).trim();
-
-                if ((value.startsWith('"') && value.endsWith('"')) || 
-                    (value.startsWith("'") && value.endsWith("'"))) {
-                    value = value.slice(1, -1);
-                }
-
-                if (key === 'tags' && value.startsWith('[') && value.endsWith(']')) {
-                    try {
-                        value = JSON.parse(value);
-                    } catch {
-                        value = value.slice(1, -1).split(',').map(tag => tag.trim().replace(/^['"]|['"]$/g, ''));
-                    }
-                }
-
-                metadata[key] = value;
-            }
-        });
-    }
-
-    // 硫뷀??곗씠???뚮뜑留?
-    document.getElementById('post-title').textContent = metadata.title || '?쒕ぉ ?놁쓬';
-    document.getElementById('post-date').textContent = metadata.date || '';
-    if (metadata.category) {
-        document.getElementById('post-category').textContent = metadata.category;
-    }
-
-    if (metadata.tags && Array.isArray(metadata.tags)) {
-        const tagsContainer = document.getElementById('post-tags');
-        metadata.tags.forEach(tag => {
-            const span = document.createElement('span');
-            span.className = 'category'; // ?ㅽ????ъ궗??
-            span.textContent = tag;
-            tagsContainer.appendChild(span);
-        });
-    }
-
-    // 留덊겕?ㅼ슫 ?뚮뜑留?
-    document.getElementById('post-content').innerHTML = marked.parse(markdownContent);
-    
-    // 肄붾뱶 ?섏씠?쇱씠???곸슜
-    if (window.Prism) {
-        Prism.highlightAll();
-    }
-}
-
-function loadGiscus() {
-    const container = document.querySelector('.giscus-container');
-    if (!container) return;
-    
-    // 湲곗〈 ?ㅽ겕由쏀듃 ?쒓굅
-    container.innerHTML = '';
-    
-    const script = document.createElement('script');
-    script.src = 'https://giscus.app/client.js';
-    script.setAttribute('data-repo', 'bodli-ham/bodli-ham.github.io');
-    script.setAttribute('data-repo-id', 'YOUR_REPO_ID'); // ?섏젙 ?꾩슂
-    script.setAttribute('data-category', 'General');
-    script.setAttribute('data-category-id', 'YOUR_CATEGORY_ID'); // ?섏젙 ?꾩슂
-    script.setAttribute('data-mapping', 'pathname');
-    script.setAttribute('data-strict', '0');
-    script.setAttribute('data-reactions-enabled', '1');
-    script.setAttribute('data-emit-metadata', '1');
-    script.setAttribute('data-input-position', 'bottom');
-    
-    // ?꾩옱 ?뚮쭏??留욊쾶 Giscus ?뚮쭏 ?ㅼ젙
-    const currentTheme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
-    script.setAttribute('data-theme', currentTheme);
-    
-    script.setAttribute('data-lang', 'ko');
-    script.setAttribute('crossorigin', 'anonymous');
-    script.async = true;
-
-    container.appendChild(script);
-}
-
-// ?뚮쭏 蹂寃???Giscus ?뚮쭏???낅뜲?댄듃
-const observer = new MutationObserver((mutations) => {
-    mutations.forEach((mutation) => {
-        if (mutation.attributeName === 'data-theme') {
-            const currentTheme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
-            const iframe = document.querySelector('iframe.giscus-frame');
-            if (iframe) {
-                iframe.contentWindow.postMessage(
-                    { giscus: { setConfig: { theme: currentTheme } } },
-                    'https://giscus.app'
-                );
-            }
-        }
-    });
+  // 연도 업데이트
+  const yearEl = document.getElementById('current-year');
+  if (yearEl) yearEl.textContent = new Date().getFullYear();
 });
 
-observer.observe(document.documentElement, { attributes: true });
-
-// ?ъ뒪???섏씠吏??寃쎌슦?먮쭔 濡쒕뱶
-if (document.getElementById('post-content')) {
-    loadPost();
-}
+// 카테고리 한글 매핑
+const CATEGORY_LABELS = {
+  'Case Study':      'Case Study',
+  'Data Report':     'Data Report',
+  'Supplement Guide': 'Supplement Guide',
+  'Note':            'Note'
+};
