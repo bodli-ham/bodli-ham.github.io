@@ -58,9 +58,9 @@ a:hover {
 }
 
 .container {
-    max-width: 800px;
+    max-width: 1000px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0 2rem;
 }
 
 /* 헤더 */
@@ -386,12 +386,21 @@ body.post-page {
   padding-right: 2rem;
 }
 
+@media (max-width: 768px) {
+    .container,
+    .post-container .wrap {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+    }
+}
+
 @media (max-width: 640px) {
-  .post-container .wrap {
-    padding-left: 1rem;
-    padding-right: 1rem;
-  }
-  .hero-deck {
-    font-size: 15px !important;
-  }
+    .container,
+    .post-container .wrap {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+    .hero-deck {
+        font-size: 15px !important;
+    }
 }
