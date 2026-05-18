@@ -117,21 +117,7 @@
   </header>
 
   <!-- 메인 히어로 이미지 배치 (16:9 글래스모픽 3D 차트) -->
-  <img class="post-hero-image" id="hero-img-element" src="images/vitamin-c-market-shift-report-thumbnail.png" alt="글로벌 리포좀 보충제 시장 성장 추이 3D 글래스모픽 차트">
-  <script>
-    // 로컬 파일로 열거나 assets/ 아래에서 직접 열 때 이미지 경로 자동 보정 (CORS 및 상대 경로 보호)
-    (function() {
-      const img = document.getElementById('hero-img-element');
-      if (img) {
-        const path = window.location.pathname;
-        if (path.includes('/assets/')) {
-          img.src = '../images/vitamin-c-market-shift-report-thumbnail.png';
-        } else if (path.includes('/pages/drafts/')) {
-          img.src = 'images/vitamin-c-market-shift-report-thumbnail.png';
-        }
-      }
-    })();
-  </script>
+  <img class="post-hero-image" src="images/vitamin-c-market-shift-report-thumbnail.png" alt="글로벌 리포좀 보충제 시장 성장 추이 3D 글래스모픽 차트">
 
   <!-- STEP 01: 핵심 데이터 요약 -->
   <section class="sec">
