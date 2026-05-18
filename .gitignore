@@ -1,0 +1,12 @@
+# Internal documentation and task plans
+docs/
+
+# Agent rule files
+.agents/
+
+# Drafts and Work-in-progress content
+pages/drafts/
+pages/wip/
+
+# macOS system files
+.DS_Store

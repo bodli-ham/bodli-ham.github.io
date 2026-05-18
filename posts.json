@@ -1,5 +1,27 @@
 [
   {
+    "slug": "vitamin-c-megadose-trend",
+    "file": "assets/vitamin-c-megadose-trend.html",
+    "title": "[Trend Note] 비타민C 1000mg과 3000mg 중 뭐가 더 좋을까요?",
+    "summary": "소변만 노랗게 만드는 영양제, 고함량 비타민C의 한계와 흡수율 트렌드",
+    "thumbnail": "images/vitamin-c-megadose-trend-thumbnail.png",
+    "date": "2026-05-17",
+    "category": "Trend Note",
+    "tags": ["비타민C", "영양제트렌드", "흡수율"],
+    "techStack": ["건강정보"]
+  },
+  {
+    "slug": "vitamin-c-liposomal-guide",
+    "file": "assets/vitamin-c-liposomal-guide.html",
+    "title": "[Supplement Note] 고함량 비타민C와 스마트 도징 비교",
+    "summary": "근거 기반 영양제 섭취 가이드: 목적별 섭취량과 흡수 메커니즘",
+    "thumbnail": "images/vitamin-c-liposomal-guide-thumbnail.png",
+    "date": "2026-05-17",
+    "category": "Supplement Note",
+    "tags": ["비타민C", "리포좀", "메가도즈", "영양제분석"],
+    "techStack": ["건강DB"]
+  },
+  {
     "slug": "msg-optimization",
     "file": "assets/msg-optimization.html",
     "title": "[Case Study] 메시지 고도화 프로젝트: 등록률 5.7% → 15.3% 달성",

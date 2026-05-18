@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>고함량 비타민C와 스마트 도징 비교 — bodli's Blog</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Noto+Sans+KR:wght@300;400;500;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ink:        #2a2438;
+      --ink-2:      #3d3b4a;
+      --ink-3:      #7c7793;
+      --ink-4:      #a49ebd;
+      --ink-5:      #d4d4cc;
+      --bg:         #fcfaff;
+      --bg-2:       #f3ebff;
+      --bg-3:       #e1cde6;
+      --accent:     #9283d6;
+      --accent-lt:  rgba(146,131,214,.15);
+      --accent-mid: #7b6ab5;
+      --red:        #c23b22;
+      --red-lt:     #fde8e4;
+      --green:      #1a5c38;  
+      --green-lt:   #d4f0e2;
+      --yellow:     #d97706;
+      --yellow-lt:  #fef9e0;
+      --border:     rgba(146,131,214,.1);
+      --border-2:   rgba(146,131,214,.2);
+      --sans:       'Noto Sans KR', sans-serif;
+      --mono:       'DM Mono', monospace;
+      --display:    'Bebas Neue', sans-serif;
+    }
+    body { word-break: keep-all; overflow-wrap: break-word; font-family: var(--sans); color: var(--ink); background-color: var(--bg); line-height: 1.7; }
+    .wrap { max-width: 1000px; margin: 0 auto; padding: 0 2rem 8rem; }
+    .sec { margin-bottom: 4rem; }
+    .hero-label { font-size: 1rem; color: var(--accent); font-weight: 700; margin-bottom: 1rem; }
+    .hero-kicker { font-size: 3rem; font-weight: 700; line-height: 1.2; margin-bottom: 1rem; }
+    .hero-kicker span { color: var(--accent); }
+    .hero-deck { font-size: 1.2rem; color: var(--ink-2); margin-bottom: 2rem; }
+    .meta-strip { display: flex; gap: 2rem; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 1rem 0; margin-bottom: 3rem; }
+    .meta-cell { display: flex; flex-direction: column; }
+    .meta-k { font-size: 0.8rem; color: var(--ink-3); font-weight: 700; text-transform: uppercase; }
+    .meta-v { font-size: 1rem; font-weight: 500; }
+    .step-badge { display: inline-block; padding: 0.3rem 0.9rem; background: var(--accent-lt); color: var(--accent); border-radius: 20px; font-size: 0.9rem; font-weight: 700; margin-bottom: 0.5rem; }
+    h2 { font-size: 1.8rem; margin: 3rem 0 1rem; }
+    h3 { font-size: 1.4rem; margin: 2rem 0 0.8rem; }
+    .callout { padding: 1.5rem; border-radius: 8px; margin: 1.5rem 0; }
+    .callout-hd { font-weight: 700; margin-bottom: 0.8rem; display: flex; align-items: center; gap: 0.5rem; }
+    .callout.blue { background: var(--bg-2); border-left: 4px solid var(--accent); }
+    .callout.blue .callout-hd { color: var(--accent-mid); }
+    .callout.neutral { background: var(--ink-5); border-left: 4px solid var(--ink-3); }
+    .exp-table { width: 100%; border-collapse: collapse; margin: 2rem 0; background: #fff; }
+    .exp-table th, .exp-table td { padding: 1rem; border: 1px solid var(--border); text-align: left; }
+    .exp-table th { background: var(--bg-2); font-weight: 700; color: var(--ink); }
+    .exp-table td:first-child { font-weight: 700; }
+    .footer { text-align: center; margin-top: 5rem; padding-top: 2rem; border-top: 1px solid var(--border); color: var(--ink-3); }
+    .insight-box { border: 2px solid var(--border); padding: 1.5rem; border-radius: 8px; margin-top: 2rem; }
+    .insight-box ol { margin: 0; padding-left: 1.5rem; }
+    .insight-box li { margin-bottom: 0.5rem; font-weight: 500; }
+    p { font-size: 1.1rem; }
+  </style>
+</head>
+<body>
+<div class="wrap">
+  <!-- 상단 Cross Link -->
+  <div class="callout neutral" style="margin-top: 2rem; padding: 1rem 1.5rem; background: #f8f9fa;">
+    <p style="margin: 0; font-size: 0.95rem;">📌 <strong>먼저 읽어보세요:</strong> <a href="post.html?file=assets/vitamin-c-megadose-trend.html" style="color: var(--accent-mid); text-decoration: underline;">“비타민C 1000mg과 3000mg 중 뭐가 더 좋을까요?” (Trend Note)</a></p>
+  </div>
+
+  <header class="hero" style="margin-top: 3rem;">
+    <div class="hero-label">📊 Supplement Note · 건강 데이터베이스</div>
+    <h1 class="hero-kicker">오늘도 비타민C 3000mg 드셨나요?<br><span>근거 기반 영양제 섭취의 시작</span></h1>
+    <p class="hero-deck">
+      고용량 흡수율 50% 미만 추락.<br>
+      많이 먹는다고 몸에 다 흡수되는 건 아니에요.<br>
+      이제는 '함량'보다 '흡수 효율'을 보는 시대입니다.
+    </p>
+  </header>
+
+  <hr style="border: 0; border-bottom: 1px solid var(--border-2); margin-top: 2rem; margin-bottom: 4rem;">
+
+  <section class="sec">
+    <p>“비타민 C는 원래 많이 먹는 거 아닌가요?”</p>
+    <p>피곤하면 비타민 C. 감기 기운 있으면 비타민 C. 피부 관리하려고 또 비타민 C. 어느 순간부터 “비타민 C는 고함량일수록 좋다”는 공식이 너무 당연해졌어요.</p>
+    <p>실제로 온라인에는 1000mg, 2000mg, 3000mg 메가도즈 제품이 넘쳐나죠. 그런데 정말 많이 먹을수록 몸에도 더 좋을까요?</p>
+    <p>우리 몸은 흡수하지 못한 비타민C를 소변으로 배출하니까 많이 먹어도 괜찮은 걸까요?</p>
+    <p><strong>그렇지 않습니다.</strong> 배출되는 과정에서 위장 점막을 자극하거나 장기적으로 신장에 부담을 줄 수 있기 때문이에요.</p>
+    <p>실제로 고함량 제품의 무분별한 섭취에 따른 부작용 우려로 인해, 식약처에서는 비타민C <strong>상한 섭취량을 하루 2,000mg</strong>으로 엄격하게 정해두고 있어요. 그래서 요즘 건강 트렌드는 “얼마나 많이 먹느냐”보다 <strong>“얼마나 잘 흡수되느냐”</strong> 쪽으로 빠르게 이동하고 있어요.</p>
+
+    <h3>한눈에 보는 핵심</h3>
+    <table class="exp-table">
+      <thead>
+        <tr>
+          <th>항목</th>
+          <th>핵심 데이터</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>식약처 권장량</td>
+          <td>성인 하루 약 100mg</td>
+        </tr>
+        <tr>
+          <td>상한 섭취량</td>
+          <td>하루 2,000mg</td>
+        </tr>
+        <tr>
+          <td>1000mg 이상 섭취</td>
+          <td>흡수율 50% 미만 감소 가능</td>
+        </tr>
+        <tr>
+          <td>고용량 장기 복용 부작용</td>
+          <td>속쓰림·설사·신장결석 위험 증가</td>
+        </tr>
+        <tr>
+          <td>최근 트렌드</td>
+          <td>고함량 → 고효율 (흡수 중심)</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="sec">
+    <div class="step-badge">STEP 01</div>
+    <h2>식약처 권장량은 생각보다 적어요 <a href="https://www.foodsafetykorea.go.kr/" target="_blank" style="font-size: 0.9rem; font-weight: 400; color: var(--ink-3); text-decoration: underline; margin-left: 0.5rem;">[식약처 영양소 섭취 기준]</a></h2>
+    <p>많은 분들이 놀라는 부분인데요. 식약처와 한국영양학회 기준 성인의 하루 비타민 C 권장량은 <strong>약 100mg</strong> 수준이에요.</p>
+    <p>물론 상황에 따라 더 필요할 수는 있지만, 기본 기준 자체는 생각보다 높지 않아요. 그런데 시중 제품은 어떤가요? “1000mg 고함량!”, “3000mg 메가도즈!” 처럼 숫자를 강조하는 제품이 훨씬 많죠.</p>
+    <p>문제는 여기서 생겨요. 사람들은 자연스럽게 “숫자가 높을수록 더 좋은 거 아닌가?”라고 생각하게 되거든요. 하지만 영양제는 단순 숫자 게임이 아니에요. 우리 몸이 실제로 얼마나 흡수하는지가 더 중요해요.</p>
+  </section>
+
+  <section class="sec">
+    <div class="step-badge">STEP 02</div>
+    <h2>많이 먹을수록 흡수율은 떨어져요</h2>
+    <p>비타민 C는 몸에서 무한정 흡수되지 않아요. 쉽게 말하면 장에는 비타민 C를 옮기는 “입구”가 있는데, 양이 너무 많아지면 금방 포화돼버려요.</p>
+    
+    <div class="callout blue">
+      <div class="callout-hd">미국 NIH 자료 기준 흡수율 <a href="https://ods.od.nih.gov/factsheets/VitaminC-HealthProfessional/" target="_blank" style="font-size: 0.8rem; font-weight: 400; color: var(--accent-mid); text-decoration: underline; margin-left: auto;">[NIH 비타민C 팩트시트]</a></div>
+      <p style="margin: 0;">
+        • <strong>200mg 이하</strong> → 흡수율 약 70~90%<br>
+        • <strong>1000mg 이상</strong> → 흡수율 50% 미만
+      </p>
+    </div>
+
+    <p>즉, 3000mg을 먹는다고 몸이 3000mg을 모두 쓰는 건 아니라는 뜻이에요. 남는 양은 대부분 몸 밖으로 배출되고, 일부는 속쓰림, 설사, 복부 불편감 같은 증상을 만들 수 있어요.</p>
+    <p>특히 하루 2000mg 이상 장기 복용은 특정 사람에게 신장결석 위험도 높일 수 있다고 알려져 있어요. “고함량 = 고효율”은 아니라는 거예요.</p>
+  </section>
+
+  <section class="sec">
+    <div class="step-badge">STEP 03</div>
+    <h2>이제는 ‘함량’보다 ‘흡수 효율’이에요</h2>
+    <p>최근 건강기능식품 시장의 패러다임이 변화하고 있어요.</p>
+    
+    <table class="exp-table" style="margin-top: 1rem;">
+      <thead>
+        <tr>
+          <th>과거 소비 트렌드</th>
+          <th>최근 소비 트렌드</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>단순 고함량 (mg) 위주</td>
+          <td><strong>체내 전달률 및 활용률 위주</strong></td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="sec">
+    <h3>그래서 뭘 어떻게 먹어야 할까요?</h3>
+    <p>무조건 초고함량을 먹기보다, 먼저 <strong>내 목적</strong>부터 생각해보는 게 좋아요. 피로 관리, 항산화, 피부 관리, 식단 보충처럼 목적마다 필요한 양이 달라질 수 있거든요.</p>
+    
+    <div class="callout neutral" style="margin-top: 1.5rem; margin-bottom: 2rem;">
+      <ul style="line-height: 1.8; margin: 0; padding-left: 1.2rem;">
+        <li><strong>기본 식단 보충 (약 100~200mg)</strong>: 일상적인 과일/채소 섭취가 부족할 때 가장 이상적인 용량이에요. (출처: 식약처, WHO 일일 권장량)</li>
+        <li><strong>항산화 및 피부 관리 (약 500mg 내외)</strong>: 체내 활성산소 제거 및 콜라겐 합성 조효소 역할을 기대할 때 추천하는 양이에요. 장내 수용체가 포화되어 흡수율이 급감하지 않는 상한선이기도 해요.</li>
+        <li><strong>단기 피로 관리 (약 1,000mg)</strong>: 일시적인 스트레스나 강도 높은 활동으로 체내 비타민C 소모가 극심할 때, 단기적으로 보충하기 위해 활용할 수 있는 용량이에요. (출처: 한국영양학회 등)</li>
+      </ul>
+    </div>
+
+    <p>실제로는 한 번에 몰아 먹기보다 <strong>200~500mg 정도로 쪼개어 나눠 먹는 방식</strong>이 몸에 흡수되는 실제 활용률을 높이는 똑똑한 선택이 될 수 있어요.</p>
+    
+    <h3 style="margin-top: 3rem; color: var(--accent-mid);">💡 흡수 효율을 높인 기술, 리포좀</h3>
+    <p>최근에는 단순히 나눠 먹는 것을 넘어, 물리적인 흡수 한계를 극복하기 위해 기술력을 적용한 제품들도 등장하고 있어요. 그 대표적인 예가 바로 '리포좀 비타민C'입니다.</p>
+
+    <ul style="line-height: 1.8; margin-bottom: 2rem;">
+      <li><strong>정의:</strong> 수용성 비타민C를 세포막과 유사한 구조의 '인지질 이중층'으로 캡슐화(Encapsulation)한 제형.</li>
+      <li><strong>작동 원리:</strong> 장내 수용체(SVCT)를 통과하는 일반 제형과 달리, 세포막과 직접 융합하여 흡수 경로를 우회합니다.</li>
+      <li><strong>연구 근거:</strong> 세포막과 유사한 인지질 구조 덕분에, 일반 제형에 비해 체내 생체이용률(Bioavailability)을 유의미하게 높이는 데 도움을 줄 수 있는 것으로 보고되고 있어요.</li>
+    </ul>
+
+    <div class="callout neutral">
+      <div class="callout-hd">📝 제품 선택 시 점검 지표</div>
+      <p style="margin: 0;">하지만 맹신은 금물입니다. 단순히 “리포좀”이라는 단어만 앞세운 제품보다 <strong>1) 검증된 리포좀 코팅 기술 2) 프리미엄 원료사 3) 명확한 임상 데이터</strong>를 기준으로 꼼꼼하게 선택하는 소비자가 늘어나고 있어요.</p>
+    </div>
+    
+    <p style="font-weight: 700; font-size: 1.2rem; margin-top: 3rem;">결국 중요한 건 ‘내 몸에 실제로 쓰이는 양’이에요.</p>
+    <p>영양제 시장은 지금 “고함량 경쟁”에서 “얼마나 효율적으로 흡수되는가”로 이동하고 있어요. 이제는 숫자만 큰 영양제보다, 내 몸에 맞는 방식과 효율을 따져보는 똑똑한 소비가 필요한 시점이에요.</p>
+
+    <div class="insight-box">
+      <h4 style="margin-top: 0; color: var(--accent);">💡 핵심 인사이트 3가지</h4>
+      <ol>
+        <li>식약처 기준 성인 비타민 C 권장량은 약 100mg이에요.</li>
+        <li>1000mg 이상부터 흡수율은 크게 떨어질 수 있어요.</li>
+        <li>최근 시장은 “고함량”보다 “고효율” 중심으로 움직이고 있어요.</li>
+      </ol>
+    </div>
+
+    <div style="margin-top: 2rem; font-size: 0.9rem; color: var(--ink-3);">
+      <strong>데이터 출처</strong><br>
+      • 식품의약품안전처(KFDA)<br>
+      • 한국영양학회<br>
+      • 미국 국립보건원(NIH)
+    </div>
+    <div style="margin-top: 4rem; padding: 1.5rem; background-color: var(--bg-2); border-radius: 8px; font-size: 0.9rem; color: var(--ink-2); line-height: 1.6;">
+      본 글은 건강 및 영양에 대한 일반적인 정보 제공을 목적으로 작성되었으며, 의학적 진단, 치료 또는 의료 전문가의 조언을 대신할 수 없습니다. 개인의 체질, 기저 질환, 복용 중인 약물에 따라 영양제 섭취가 예상치 못한 부작용을 일으킬 수 있으므로, 새로운 영양제를 식단에 추가하기 전에는 반드시 의사나 약사 등 의료 전문가와 상의하시기 바랍니다.
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p>© 2026 bodli's Blog · Supplement Note. All rights reserved.</p>
+  </footer>
+</div>
+</body>
+</html>
