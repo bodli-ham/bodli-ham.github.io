@@ -1,5 +1,16 @@
 [
   {
+    "slug": "vitamin-c-market-shift-report",
+    "file": "assets/vitamin-c-market-shift-report.html",
+    "title": "[Data Report] 한국 비타민C 시장의 구조적 재편: 가성비 실속형 vs 고효율 프리미엄 이원화 트렌드",
+    "summary": "글로벌 리포좀 보충제 원료 시장 데이터 분석과 국내 소비자 인식 변화를 바탕으로 비타민C 시장의 이원화 구조 및 브랜드 대응 전략 제시",
+    "thumbnail": "images/vitamin-c-market-shift-report-thumbnail.png",
+    "date": "2026-05-18",
+    "category": "Data Report",
+    "tags": ["비타민C", "리포좀비타민C", "소비트렌드", "시장분석"],
+    "techStack": ["B2B Market Intelligence", "국내 건기식 데이터"]
+  },
+  {
     "slug": "vitamin-c-megadose-trend",
     "file": "assets/vitamin-c-megadose-trend.html",
     "title": "[Trend Note] 비타민C 1000mg과 3000mg 중 뭐가 더 좋을까요?",
