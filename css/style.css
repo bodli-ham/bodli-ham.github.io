@@ -424,3 +424,63 @@ body.post-page {
         font-size: 15px !important;
     }
 }
+
+/* ── 6. 블로그 소개 카드 (Mission Card) ────── */
+.blog-intro-card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-left: 4px solid var(--primary-color);
+    border-radius: 20px;
+    padding: 1.8rem 2rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 20px rgba(140, 97, 255, 0.03);
+    transition: all 0.3s ease;
+}
+
+[data-theme='dark'] .blog-intro-card {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.intro-badge {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--primary-color);
+    background-color: var(--tag-bg);
+    padding: 0.2rem 0.6rem;
+    border-radius: 6px;
+    margin-bottom: 0.8rem;
+}
+
+.intro-text {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: var(--text-color);
+    font-weight: 400;
+    word-break: keep-all;
+}
+
+.intro-text strong {
+    color: var(--primary-color);
+    font-weight: 700;
+}
+
+.pc-only {
+    display: block;
+}
+
+@media (max-width: 768px) {
+    .blog-intro-card {
+        padding: 1.4rem 1.5rem;
+        margin-bottom: 1.5rem;
+        border-radius: 16px;
+    }
+    .intro-text {
+        font-size: 0.95rem;
+    }
+    .pc-only {
+        display: none;
+    }
+}
