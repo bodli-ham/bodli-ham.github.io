@@ -1,5 +1,16 @@
 [
   {
+    "slug": "liposomal-vitamin-c-brand-comparison",
+    "file": "assets/liposomal-vitamin-c-brand-comparison.html",
+    "title": "[Supplement Guide] 리포좀 비타민C 브랜드별 실제 기술력 차이와 가성비 비교 가이드",
+    "summary": "광고 문구에 현혹되지 않고 진짜 인지질 보호막 공법 제품을 명확히 식별할 수 있는 패키지 성분표 해독법과 복용 환경별 핵심 비교 가이드를 제안합니다.",
+    "thumbnail": "images/liposomal-vitamin-c-brand-comparison-thumbnail.png",
+    "date": "2026-05-19",
+    "category": "Supplement Guide",
+    "tags": ["건기식", "리포좀비타민C", "영양제비교", "라벨해독"],
+    "techStack": ["Clinical Database", "라벨분석"]
+  },
+  {
     "slug": "vitamin-c-market-shift-report",
     "file": "assets/vitamin-c-market-shift-report.html",
     "title": "[Data Report] 한국 비타민C 시장의 구조적 재편: 가성비 실속형 vs 고효율 프리미엄 이원화 트렌드",
